@@ -1,0 +1,3 @@
+[submodule "powlib"]
+	path = powlib
+	url = https://github.com/powlib/hdl.git
