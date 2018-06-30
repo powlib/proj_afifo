@@ -6,4 +6,5 @@
 *.jou
 *.log
 *.str
+*.Xil*
 proj_vivado*
