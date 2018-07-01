@@ -8,6 +8,7 @@
 *.str
 *.Xil*
 *.sdk*
+*.dcp
 proj_vivado*
 *RemoteSystemsTempFile*
 *.metadata*
