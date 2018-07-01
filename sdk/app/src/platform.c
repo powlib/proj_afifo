@@ -32,6 +32,10 @@
 
 #include "xparameters.h"
 #include "xil_cache.h"
+#include "xil_exception.h"
+#include "xil_assert.h"
+#include "xil_printf.h"
+#include "xintc.h"
 
 #include "platform_config.h"
 
@@ -43,14 +47,15 @@
 /*#include "ps7_init.h"*/
 /*#include "psu_init.h"*/
 
+XIntc xintc_obj;
+
 #ifdef STDOUT_IS_16550
  #include "xuartns550_l.h"
 
  #define UART_BAUD 9600
 #endif
 
-void
-enable_caches()
+void enable_caches()
 {
 #ifdef __PPC__
     Xil_ICacheEnableRegion(CACHEABLE_REGION_MASK);
@@ -65,8 +70,7 @@ enable_caches()
 #endif
 }
 
-void
-disable_caches()
+void disable_caches()
 {
 #ifdef __MICROBLAZE__
 #ifdef XPAR_MICROBLAZE_USE_DCACHE
@@ -78,8 +82,7 @@ disable_caches()
 #endif
 }
 
-void
-init_uart()
+void init_uart()
 {
 #ifdef STDOUT_IS_16550
     XUartNs550_SetBaud(STDOUT_BASEADDR, XPAR_XUARTNS550_CLOCK_HZ, UART_BAUD);
@@ -88,24 +91,38 @@ init_uart()
     /* Bootrom/BSP configures PS7/PSU UART to 115200 bps */
 }
 
-void
-init_platform()
+void init_platform()
 {
-    /*
-     * If you want to run this example outside of SDK,
-     * uncomment one of the following two lines and also #include "ps7_init.h"
-     * or #include "ps7_init.h" at the top, depending on the target.
-     * Make sure that the ps7/psu_init.c and ps7/psu_init.h files are included
-     * along with this example source files for compilation.
-     */
-    /* ps7_init();*/
-    /* psu_init();*/
+	int XResult;
+
     enable_caches();
     init_uart();
+
+    print("Initializing interrupts...\n");
+    {
+    	XResult = XIntc_Initialize(&xintc_obj, XPAR_MICROBLAZE_0_AXI_INTC_DEVICE_ID);
+    	Xil_AssertVoid(XResult==XST_SUCCESS);
+    	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (XInterruptHandler)XIntc_InterruptHandler, (void*)&xintc_obj);
+    	Xil_ExceptionInit();
+    	Xil_ExceptionEnable();
+    }
+
+    print("Testing interrupts...\n");
+    {
+    	XResult = XIntc_Start(&xintc_obj, XIN_SIMULATION_MODE);
+    	Xil_AssertVoid(XResult==XST_SUCCESS);
+    	XResult = XIntc_SelfTest(&xintc_obj);
+    	Xil_AssertVoid(XResult==XST_SUCCESS);
+    	XResult = XIntc_Start(&xintc_obj, XIN_REAL_MODE);
+    	Xil_AssertVoid(XResult==XST_SUCCESS);
+    }
+
+    print("Initializing DMA...");
+
+    print("Platform has been initialized!\n");
 }
 
-void
-cleanup_platform()
+void cleanup_platform()
 {
     disable_caches();
 }
