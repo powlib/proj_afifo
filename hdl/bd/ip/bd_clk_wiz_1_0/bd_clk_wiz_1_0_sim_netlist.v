@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Fri Jun 29 00:02:14 2018
+// Date        : Sat Jun 30 19:13:28 2018
 // Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_clk_wiz_1_0/bd_clk_wiz_1_0_sim_netlist.v
@@ -18,14 +18,14 @@ module bd_clk_wiz_1_0
     clk_out2,
     clk_out3,
     clk_out4,
-    reset,
+    resetn,
     locked,
     clk_in1);
   output clk_out1;
   output clk_out2;
   output clk_out3;
   output clk_out4;
-  input reset;
+  input resetn;
   output locked;
   input clk_in1;
 
@@ -35,7 +35,7 @@ module bd_clk_wiz_1_0
   wire clk_out3;
   wire clk_out4;
   wire locked;
-  wire reset;
+  wire resetn;
 
   bd_clk_wiz_1_0_bd_clk_wiz_1_0_clk_wiz inst
        (.clk_in1(clk_in1),
@@ -44,7 +44,7 @@ module bd_clk_wiz_1_0
         .clk_out3(clk_out3),
         .clk_out4(clk_out4),
         .locked(locked),
-        .reset(reset));
+        .resetn(resetn));
 endmodule
 
 (* ORIG_REF_NAME = "bd_clk_wiz_1_0_clk_wiz" *) 
@@ -53,14 +53,14 @@ module bd_clk_wiz_1_0_bd_clk_wiz_1_0_clk_wiz
     clk_out2,
     clk_out3,
     clk_out4,
-    reset,
+    resetn,
     locked,
     clk_in1);
   output clk_out1;
   output clk_out2;
   output clk_out3;
   output clk_out4;
-  input reset;
+  input resetn;
   output locked;
   input clk_in1;
 
@@ -77,7 +77,8 @@ module bd_clk_wiz_1_0_bd_clk_wiz_1_0_clk_wiz
   wire clkfbout_bd_clk_wiz_1_0;
   wire clkfbout_buf_bd_clk_wiz_1_0;
   wire locked;
-  wire reset;
+  wire reset_high;
+  wire resetn;
   wire NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED;
@@ -204,7 +205,12 @@ module bd_clk_wiz_1_0_bd_clk_wiz_1_0_clk_wiz
         .PSEN(1'b0),
         .PSINCDEC(1'b0),
         .PWRDWN(1'b0),
-        .RST(reset));
+        .RST(reset_high));
+  LUT1 #(
+    .INIT(2'h1)) 
+    mmcm_adv_inst_i_1
+       (.I0(resetn),
+        .O(reset_high));
 endmodule
 `ifndef GLBL
 `define GLBL

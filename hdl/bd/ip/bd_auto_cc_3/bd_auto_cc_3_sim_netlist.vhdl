@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:45:22 2018
+-- Date        : Fri Jun 29 00:45:21 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_auto_cc_3/bd_auto_cc_3_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_auto_cc_3 -prefix
+--               bd_auto_cc_3_ bd_auto_cc_3_sim_netlist.vhdl
 -- Design      : bd_auto_cc_3
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,8 +20,6 @@ entity bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sample_cycle_ratio is
     s_axis_aclk : in STD_LOGIC;
     m_axis_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sample_cycle_ratio : entity is "axis_clock_converter_v1_1_16_axisc_sample_cycle_ratio";
 end bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sample_cycle_ratio;
 
 architecture STRUCTURE of bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sample_cycle_ratio is
@@ -126,8 +124,6 @@ entity bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter is
     s_axis_tdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \gen_sync_ck_conv.sample_cycle\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter : entity is "axis_clock_converter_v1_1_16_axisc_sync_clock_converter";
 end bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter;
 
 architecture STRUCTURE of bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter is
@@ -625,8 +621,6 @@ entity bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter is
   attribute LP_M_ACLKEN_CAN_TOGGLE of bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter : entity is 0;
   attribute LP_S_ACLKEN_CAN_TOGGLE : integer;
   attribute LP_S_ACLKEN_CAN_TOGGLE of bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter : entity is "axis_clock_converter_v1_1_16_axis_clock_converter";
   attribute P_FIFO_DEPTH : integer;
   attribute P_FIFO_DEPTH of bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter : entity is 32;
   attribute P_FIFO_MODE : integer;

@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Fri Jun 29 00:16:48 2018
+//Date        : Sat Jun 30 19:11:25 2018
 //Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 //Command     : generate_target bd.bd
 //Design      : bd
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=75,numReposBlks=53,numNonXlnxBlks=0,numHierBlks=22,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=5,da_bram_cntlr_cnt=2,da_clkrst_cnt=13,da_mb_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "bd.hwdef" *) 
+(* CORE_GENERATION_INFO = "bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=75,numReposBlks=53,numNonXlnxBlks=0,numHierBlks=22,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=6,da_bram_cntlr_cnt=2,da_clkrst_cnt=13,da_mb_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "bd.hwdef" *) 
 module bd
    (M00_AXIS_0_tdata,
     M00_AXIS_0_tdest,
@@ -90,7 +90,7 @@ module bd
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT2 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT2, ASSOCIATED_BUSIF M00_AXIS_0:S02_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 25000000, PHASE 0.0" *) output clk_out2;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT3 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT3, ASSOCIATED_BUSIF M01_AXIS_0:S01_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 75000000, PHASE 0.0" *) output clk_out3;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT4 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT4, ASSOCIATED_BUSIF M02_AXIS_0:S00_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 100000000, PHASE 0.0" *) output clk_out4;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, POLARITY ACTIVE_HIGH" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, POLARITY ACTIVE_LOW" *) input reset;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_CLK2 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_CLK2, POLARITY ACTIVE_HIGH" *) output [0:0]rst_clk2;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_CLK3 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_CLK3, POLARITY ACTIVE_HIGH" *) output [0:0]rst_clk3;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_CLK4 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_CLK4, POLARITY ACTIVE_HIGH" *) output [0:0]rst_clk4;
@@ -742,7 +742,7 @@ module bd
         .clk_out3(clk_wiz_1_clk_out3),
         .clk_out4(clk_wiz_1_clk_out4),
         .locked(clk_wiz_1_locked),
-        .reset(reset_1));
+        .resetn(reset_1));
   bd_mdm_1_0 mdm_1
        (.Dbg_Capture_0(microblaze_0_debug_CAPTURE),
         .Dbg_Clk_0(microblaze_0_debug_CLK),

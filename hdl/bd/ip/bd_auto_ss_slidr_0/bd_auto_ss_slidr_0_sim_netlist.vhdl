@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:42:07 2018
+-- Date        : Fri Jun 29 00:42:06 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_auto_ss_slidr_0/bd_auto_ss_slidr_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_auto_ss_slidr_0 -prefix
+--               bd_auto_ss_slidr_0_ bd_auto_ss_slidr_0_sim_netlist.vhdl
 -- Design      : bd_auto_ss_slidr_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -102,8 +102,6 @@ entity bd_auto_ss_slidr_0_top_bd_auto_ss_slidr_0 is
   attribute G_TASK_SEVERITY_INFO of bd_auto_ss_slidr_0_top_bd_auto_ss_slidr_0 : entity is 0;
   attribute G_TASK_SEVERITY_WARNING : integer;
   attribute G_TASK_SEVERITY_WARNING of bd_auto_ss_slidr_0_top_bd_auto_ss_slidr_0 : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_ss_slidr_0_top_bd_auto_ss_slidr_0 : entity is "top_bd_auto_ss_slidr_0";
 end bd_auto_ss_slidr_0_top_bd_auto_ss_slidr_0;
 
 architecture STRUCTURE of bd_auto_ss_slidr_0_top_bd_auto_ss_slidr_0 is

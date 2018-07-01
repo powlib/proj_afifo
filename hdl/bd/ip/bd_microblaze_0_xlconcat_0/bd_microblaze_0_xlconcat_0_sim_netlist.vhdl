@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:18:55 2018
+-- Date        : Fri Jun 29 00:18:54 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_microblaze_0_xlconcat_0/bd_microblaze_0_xlconcat_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_microblaze_0_xlconcat_0 -prefix
+--               bd_microblaze_0_xlconcat_0_ bd_microblaze_0_xlconcat_0_sim_netlist.vhdl
 -- Design      : bd_microblaze_0_xlconcat_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

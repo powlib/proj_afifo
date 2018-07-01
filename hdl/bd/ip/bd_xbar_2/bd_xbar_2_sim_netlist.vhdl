@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:33:28 2018
+-- Date        : Fri Jun 29 00:33:27 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_xbar_2/bd_xbar_2_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_xbar_2 -prefix
+--               bd_xbar_2_ bd_xbar_2_sim_netlist.vhdl
 -- Design      : bd_xbar_2
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -37,8 +37,6 @@ entity bd_xbar_2_axis_switch_v1_1_15_arb_rr is
     m_axis_tready : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gen_tdest_router.busy_r\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_xbar_2_axis_switch_v1_1_15_arb_rr : entity is "axis_switch_v1_1_15_arb_rr";
 end bd_xbar_2_axis_switch_v1_1_15_arb_rr;
 
 architecture STRUCTURE of bd_xbar_2_axis_switch_v1_1_15_arb_rr is
@@ -610,8 +608,6 @@ entity bd_xbar_2_axis_switch_v1_1_15_axisc_arb_responder is
     p_0_out : in STD_LOGIC;
     aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_xbar_2_axis_switch_v1_1_15_axisc_arb_responder : entity is "axis_switch_v1_1_15_axisc_arb_responder";
 end bd_xbar_2_axis_switch_v1_1_15_axisc_arb_responder;
 
 architecture STRUCTURE of bd_xbar_2_axis_switch_v1_1_15_axisc_arb_responder is
@@ -727,8 +723,6 @@ entity bd_xbar_2_axis_switch_v1_1_15_axisc_decoder is
     \gen_tdest_routing.busy_ns\ : in STD_LOGIC;
     aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_xbar_2_axis_switch_v1_1_15_axisc_decoder : entity is "axis_switch_v1_1_15_axisc_decoder";
 end bd_xbar_2_axis_switch_v1_1_15_axisc_decoder;
 
 architecture STRUCTURE of bd_xbar_2_axis_switch_v1_1_15_axisc_decoder is
@@ -821,8 +815,6 @@ entity bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter is
     m_axis_tready : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gen_tdest_router.busy_r\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter : entity is "axis_switch_v1_1_15_axis_switch_arbiter";
 end bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter;
 
 architecture STRUCTURE of bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter is
@@ -867,8 +859,6 @@ entity bd_xbar_2_axis_switch_v1_1_15_axisc_transfer_mux is
     p_0_out : in STD_LOGIC;
     aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_xbar_2_axis_switch_v1_1_15_axisc_transfer_mux : entity is "axis_switch_v1_1_15_axisc_transfer_mux";
 end bd_xbar_2_axis_switch_v1_1_15_axisc_transfer_mux;
 
 architecture STRUCTURE of bd_xbar_2_axis_switch_v1_1_15_axisc_transfer_mux is
@@ -1034,8 +1024,6 @@ entity bd_xbar_2_axis_switch_v1_1_15_axis_switch is
   attribute LP_MERGEDOWN_MUX of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is 0;
   attribute LP_NUM_SYNCHRONIZER_STAGES : integer;
   attribute LP_NUM_SYNCHRONIZER_STAGES of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is 4;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is "axis_switch_v1_1_15_axis_switch";
   attribute P_DECODER_CONNECTIVITY_ARRAY : string;
   attribute P_DECODER_CONNECTIVITY_ARRAY of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is "3'b111";
   attribute P_SINGLE_SLAVE_CONNECTIVITY_ARRAY : string;

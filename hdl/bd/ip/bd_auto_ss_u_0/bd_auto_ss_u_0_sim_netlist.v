@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Fri Jun 29 00:43:40 2018
+// Date        : Fri Jun 29 00:43:39 2018
 // Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_auto_ss_u_0/bd_auto_ss_u_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top bd_auto_ss_u_0 -prefix
+//               bd_auto_ss_u_0_ bd_auto_ss_u_0_sim_netlist.v
 // Design      : bd_auto_ss_u_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -138,7 +138,7 @@ endmodule
 (* G_MASK_SS_TDEST = "64" *) (* G_MASK_SS_TID = "32" *) (* G_MASK_SS_TKEEP = "8" *) 
 (* G_MASK_SS_TLAST = "16" *) (* G_MASK_SS_TREADY = "1" *) (* G_MASK_SS_TSTRB = "4" *) 
 (* G_MASK_SS_TUSER = "128" *) (* G_TASK_SEVERITY_ERR = "2" *) (* G_TASK_SEVERITY_INFO = "0" *) 
-(* G_TASK_SEVERITY_WARNING = "1" *) (* ORIG_REF_NAME = "top_bd_auto_ss_u_0" *) 
+(* G_TASK_SEVERITY_WARNING = "1" *) 
 module bd_auto_ss_u_0_top_bd_auto_ss_u_0
    (aclk,
     aresetn,

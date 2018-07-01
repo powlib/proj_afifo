@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Fri Jun 29 00:03:59 2018
+// Date        : Fri Jun 29 00:03:58 2018
 // Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_dlmb_v10_0/bd_dlmb_v10_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top bd_dlmb_v10_0 -prefix
+//               bd_dlmb_v10_0_ bd_dlmb_v10_0_sim_netlist.v
 // Design      : bd_dlmb_v10_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -125,7 +125,7 @@ module bd_dlmb_v10_0
 endmodule
 
 (* C_EXT_RESET_HIGH = "1" *) (* C_LMB_AWIDTH = "32" *) (* C_LMB_DWIDTH = "32" *) 
-(* C_LMB_NUM_SLAVES = "1" *) (* ORIG_REF_NAME = "lmb_v10" *) 
+(* C_LMB_NUM_SLAVES = "1" *) 
 module bd_dlmb_v10_0_lmb_v10
    (LMB_Clk,
     SYS_Rst,

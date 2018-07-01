@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Fri Jun 29 00:25:31 2018
+// Date        : Fri Jun 29 00:25:30 2018
 // Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_xbar_1/bd_xbar_1_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top bd_xbar_1 -prefix
+//               bd_xbar_1_ bd_xbar_1_sim_netlist.v
 // Design      : bd_xbar_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,185 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "bd_xbar_1,axis_switch_v1_1_15_axis_switch,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "axis_switch_v1_1_15_axis_switch,Vivado 2017.4" *) 
-(* NotValidForBitStream *)
-module bd_xbar_1
-   (aclk,
-    aresetn,
-    s_axis_tvalid,
-    s_axis_tready,
-    s_axis_tdata,
-    s_axis_tkeep,
-    s_axis_tlast,
-    s_axis_tid,
-    s_axis_tdest,
-    s_axis_tuser,
-    m_axis_tvalid,
-    m_axis_tready,
-    m_axis_tdata,
-    m_axis_tkeep,
-    m_axis_tlast,
-    m_axis_tid,
-    m_axis_tdest,
-    m_axis_tuser,
-    s_decode_err);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLKIF CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLKIF, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, ASSOCIATED_BUSIF M00_AXIS:M01_AXIS:M02_AXIS:M03_AXIS:M04_AXIS:M05_AXIS:M06_AXIS:M07_AXIS:M08_AXIS:M09_AXIS:M10_AXIS:M11_AXIS:M12_AXIS:M13_AXIS:M14_AXIS:M15_AXIS:S00_AXIS:S01_AXIS:S02_AXIS:S03_AXIS:S04_AXIS:S05_AXIS:S06_AXIS:S07_AXIS:S08_AXIS:S09_AXIS:S10_AXIS:S11_AXIS:S12_AXIS:S13_AXIS:S14_AXIS:S15_AXIS, ASSOCIATED_RESET aresetn, ASSOCIATED_CLKEN aclken" *) input aclk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RSTIF RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, TYPE INTERCONNECT" *) input aresetn;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TVALID" *) input [0:0]s_axis_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TREADY" *) output [0:0]s_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDATA" *) input [31:0]s_axis_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TKEEP" *) input [3:0]s_axis_tkeep;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TLAST" *) input [0:0]s_axis_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TID" *) input [4:0]s_axis_tid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDEST" *) input [4:0]s_axis_tdest;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 5, TID_WIDTH 5, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) input [3:0]s_axis_tuser;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TVALID [0:0] [0:0], xilinx.com:interface:axis:1.0 M01_AXIS TVALID [0:0] [1:1], xilinx.com:interface:axis:1.0 M02_AXIS TVALID [0:0] [2:2]" *) output [2:0]m_axis_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TREADY [0:0] [0:0], xilinx.com:interface:axis:1.0 M01_AXIS TREADY [0:0] [1:1], xilinx.com:interface:axis:1.0 M02_AXIS TREADY [0:0] [2:2]" *) input [2:0]m_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA [31:0] [31:0], xilinx.com:interface:axis:1.0 M01_AXIS TDATA [31:0] [63:32], xilinx.com:interface:axis:1.0 M02_AXIS TDATA [31:0] [95:64]" *) output [95:0]m_axis_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TKEEP [3:0] [3:0], xilinx.com:interface:axis:1.0 M01_AXIS TKEEP [3:0] [7:4], xilinx.com:interface:axis:1.0 M02_AXIS TKEEP [3:0] [11:8]" *) output [11:0]m_axis_tkeep;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TLAST [0:0] [0:0], xilinx.com:interface:axis:1.0 M01_AXIS TLAST [0:0] [1:1], xilinx.com:interface:axis:1.0 M02_AXIS TLAST [0:0] [2:2]" *) output [2:0]m_axis_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TID [4:0] [4:0], xilinx.com:interface:axis:1.0 M01_AXIS TID [4:0] [9:5], xilinx.com:interface:axis:1.0 M02_AXIS TID [4:0] [14:10]" *) output [14:0]m_axis_tid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDEST [4:0] [4:0], xilinx.com:interface:axis:1.0 M01_AXIS TDEST [4:0] [9:5], xilinx.com:interface:axis:1.0 M02_AXIS TDEST [4:0] [14:10]" *) output [14:0]m_axis_tdest;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TUSER [3:0] [3:0], xilinx.com:interface:axis:1.0 M01_AXIS TUSER [3:0] [7:4], xilinx.com:interface:axis:1.0 M02_AXIS TUSER [3:0] [11:8]" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 5, TID_WIDTH 5, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME M01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 5, TID_WIDTH 5, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME M02_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 5, TID_WIDTH 5, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) output [11:0]m_axis_tuser;
-  output [0:0]s_decode_err;
-
-  wire aclk;
-  wire aresetn;
-  wire [95:0]m_axis_tdata;
-  wire [14:0]m_axis_tdest;
-  wire [14:0]m_axis_tid;
-  wire [11:0]m_axis_tkeep;
-  wire [2:0]m_axis_tlast;
-  wire [2:0]m_axis_tready;
-  wire [11:0]m_axis_tuser;
-  wire [2:0]m_axis_tvalid;
-  wire [31:0]s_axis_tdata;
-  wire [4:0]s_axis_tdest;
-  wire [4:0]s_axis_tid;
-  wire [3:0]s_axis_tkeep;
-  wire [0:0]s_axis_tlast;
-  wire [0:0]s_axis_tready;
-  wire [3:0]s_axis_tuser;
-  wire [0:0]s_axis_tvalid;
-  wire [0:0]s_decode_err;
-  wire NLW_inst_s_axi_ctrl_arready_UNCONNECTED;
-  wire NLW_inst_s_axi_ctrl_awready_UNCONNECTED;
-  wire NLW_inst_s_axi_ctrl_bvalid_UNCONNECTED;
-  wire NLW_inst_s_axi_ctrl_rvalid_UNCONNECTED;
-  wire NLW_inst_s_axi_ctrl_wready_UNCONNECTED;
-  wire [14:0]NLW_inst_arb_dest_UNCONNECTED;
-  wire [2:0]NLW_inst_arb_done_UNCONNECTED;
-  wire [14:0]NLW_inst_arb_id_UNCONNECTED;
-  wire [2:0]NLW_inst_arb_last_UNCONNECTED;
-  wire [2:0]NLW_inst_arb_req_UNCONNECTED;
-  wire [11:0]NLW_inst_arb_user_UNCONNECTED;
-  wire [11:0]NLW_inst_m_axis_tstrb_UNCONNECTED;
-  wire [1:0]NLW_inst_s_axi_ctrl_bresp_UNCONNECTED;
-  wire [31:0]NLW_inst_s_axi_ctrl_rdata_UNCONNECTED;
-  wire [1:0]NLW_inst_s_axi_ctrl_rresp_UNCONNECTED;
-
-  (* C_ARB_ALGORITHM = "0" *) 
-  (* C_ARB_ON_MAX_XFERS = "1" *) 
-  (* C_ARB_ON_NUM_CYCLES = "0" *) 
-  (* C_ARB_ON_TLAST = "0" *) 
-  (* C_AXIS_SIGNAL_SET = "251" *) 
-  (* C_AXIS_TDATA_WIDTH = "32" *) 
-  (* C_AXIS_TDEST_WIDTH = "5" *) 
-  (* C_AXIS_TID_WIDTH = "5" *) 
-  (* C_AXIS_TUSER_WIDTH = "4" *) 
-  (* C_COMMON_CLOCK = "0" *) 
-  (* C_DECODER_REG = "1" *) 
-  (* C_FAMILY = "artix7" *) 
-  (* C_INCLUDE_ARBITER = "1" *) 
-  (* C_LOG_SI_SLOTS = "1" *) 
-  (* C_M_AXIS_BASETDEST_ARRAY = "15'b000100000100000" *) 
-  (* C_M_AXIS_CONNECTIVITY_ARRAY = "3'b111" *) 
-  (* C_M_AXIS_HIGHTDEST_ARRAY = "15'b000100000100000" *) 
-  (* C_NUM_MI_SLOTS = "3" *) 
-  (* C_NUM_SI_SLOTS = "1" *) 
-  (* C_OUTPUT_REG = "0" *) 
-  (* C_ROUTING_MODE = "0" *) 
-  (* C_S_AXI_CTRL_ADDR_WIDTH = "7" *) 
-  (* C_S_AXI_CTRL_DATA_WIDTH = "32" *) 
-  (* DowngradeIPIdentifiedWarnings = "yes" *) 
-  (* G_INDX_SS_TDATA = "1" *) 
-  (* G_INDX_SS_TDEST = "6" *) 
-  (* G_INDX_SS_TID = "5" *) 
-  (* G_INDX_SS_TKEEP = "3" *) 
-  (* G_INDX_SS_TLAST = "4" *) 
-  (* G_INDX_SS_TREADY = "0" *) 
-  (* G_INDX_SS_TSTRB = "2" *) 
-  (* G_INDX_SS_TUSER = "7" *) 
-  (* G_MASK_SS_TDATA = "2" *) 
-  (* G_MASK_SS_TDEST = "64" *) 
-  (* G_MASK_SS_TID = "32" *) 
-  (* G_MASK_SS_TKEEP = "8" *) 
-  (* G_MASK_SS_TLAST = "16" *) 
-  (* G_MASK_SS_TREADY = "1" *) 
-  (* G_MASK_SS_TSTRB = "4" *) 
-  (* G_MASK_SS_TUSER = "128" *) 
-  (* G_TASK_SEVERITY_ERR = "2" *) 
-  (* G_TASK_SEVERITY_INFO = "0" *) 
-  (* G_TASK_SEVERITY_WARNING = "1" *) 
-  (* LP_CTRL_REG_WIDTH = "20" *) 
-  (* LP_MERGEDOWN_MUX = "0" *) 
-  (* LP_NUM_SYNCHRONIZER_STAGES = "4" *) 
-  (* P_DECODER_CONNECTIVITY_ARRAY = "3'b111" *) 
-  (* P_SINGLE_SLAVE_CONNECTIVITY_ARRAY = "3'b111" *) 
-  (* P_TPAYLOAD_WIDTH = "51" *) 
-  bd_xbar_1_axis_switch_v1_1_15_axis_switch inst
-       (.aclk(aclk),
-        .aclken(1'b1),
-        .arb_dest(NLW_inst_arb_dest_UNCONNECTED[14:0]),
-        .arb_done(NLW_inst_arb_done_UNCONNECTED[2:0]),
-        .arb_gnt({1'b0,1'b0,1'b0}),
-        .arb_id(NLW_inst_arb_id_UNCONNECTED[14:0]),
-        .arb_last(NLW_inst_arb_last_UNCONNECTED[2:0]),
-        .arb_req(NLW_inst_arb_req_UNCONNECTED[2:0]),
-        .arb_sel({1'b0,1'b0,1'b0}),
-        .arb_user(NLW_inst_arb_user_UNCONNECTED[11:0]),
-        .aresetn(aresetn),
-        .m_axis_tdata(m_axis_tdata),
-        .m_axis_tdest(m_axis_tdest),
-        .m_axis_tid(m_axis_tid),
-        .m_axis_tkeep(m_axis_tkeep),
-        .m_axis_tlast(m_axis_tlast),
-        .m_axis_tready(m_axis_tready),
-        .m_axis_tstrb(NLW_inst_m_axis_tstrb_UNCONNECTED[11:0]),
-        .m_axis_tuser(m_axis_tuser),
-        .m_axis_tvalid(m_axis_tvalid),
-        .s_axi_ctrl_aclk(1'b0),
-        .s_axi_ctrl_araddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_ctrl_aresetn(1'b0),
-        .s_axi_ctrl_arready(NLW_inst_s_axi_ctrl_arready_UNCONNECTED),
-        .s_axi_ctrl_arvalid(1'b0),
-        .s_axi_ctrl_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_ctrl_awready(NLW_inst_s_axi_ctrl_awready_UNCONNECTED),
-        .s_axi_ctrl_awvalid(1'b0),
-        .s_axi_ctrl_bready(1'b0),
-        .s_axi_ctrl_bresp(NLW_inst_s_axi_ctrl_bresp_UNCONNECTED[1:0]),
-        .s_axi_ctrl_bvalid(NLW_inst_s_axi_ctrl_bvalid_UNCONNECTED),
-        .s_axi_ctrl_rdata(NLW_inst_s_axi_ctrl_rdata_UNCONNECTED[31:0]),
-        .s_axi_ctrl_rready(1'b0),
-        .s_axi_ctrl_rresp(NLW_inst_s_axi_ctrl_rresp_UNCONNECTED[1:0]),
-        .s_axi_ctrl_rvalid(NLW_inst_s_axi_ctrl_rvalid_UNCONNECTED),
-        .s_axi_ctrl_wdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_ctrl_wready(NLW_inst_s_axi_ctrl_wready_UNCONNECTED),
-        .s_axi_ctrl_wvalid(1'b0),
-        .s_axis_tdata(s_axis_tdata),
-        .s_axis_tdest(s_axis_tdest),
-        .s_axis_tid(s_axis_tid),
-        .s_axis_tkeep(s_axis_tkeep),
-        .s_axis_tlast(s_axis_tlast),
-        .s_axis_tready(s_axis_tready),
-        .s_axis_tstrb({1'b1,1'b1,1'b1,1'b1}),
-        .s_axis_tuser(s_axis_tuser),
-        .s_axis_tvalid(s_axis_tvalid),
-        .s_decode_err(s_decode_err),
-        .s_req_suppress(1'b0));
-endmodule
-
-(* ORIG_REF_NAME = "axis_register_slice_v1_1_15_axisc_register_slice" *) 
 module bd_xbar_1_axis_register_slice_v1_1_15_axisc_register_slice
    (\s_axis_tready[0] ,
     m_axis_tdata,
@@ -1675,8 +1496,8 @@ endmodule
 (* G_MASK_SS_TLAST = "16" *) (* G_MASK_SS_TREADY = "1" *) (* G_MASK_SS_TSTRB = "4" *) 
 (* G_MASK_SS_TUSER = "128" *) (* G_TASK_SEVERITY_ERR = "2" *) (* G_TASK_SEVERITY_INFO = "0" *) 
 (* G_TASK_SEVERITY_WARNING = "1" *) (* LP_CTRL_REG_WIDTH = "20" *) (* LP_MERGEDOWN_MUX = "0" *) 
-(* LP_NUM_SYNCHRONIZER_STAGES = "4" *) (* ORIG_REF_NAME = "axis_switch_v1_1_15_axis_switch" *) (* P_DECODER_CONNECTIVITY_ARRAY = "3'b111" *) 
-(* P_SINGLE_SLAVE_CONNECTIVITY_ARRAY = "3'b111" *) (* P_TPAYLOAD_WIDTH = "51" *) 
+(* LP_NUM_SYNCHRONIZER_STAGES = "4" *) (* P_DECODER_CONNECTIVITY_ARRAY = "3'b111" *) (* P_SINGLE_SLAVE_CONNECTIVITY_ARRAY = "3'b111" *) 
+(* P_TPAYLOAD_WIDTH = "51" *) 
 module bd_xbar_1_axis_switch_v1_1_15_axis_switch
    (aclk,
     aresetn,
@@ -1954,7 +1775,6 @@ module bd_xbar_1_axis_switch_v1_1_15_axis_switch
         .s_decode_err(s_decode_err));
 endmodule
 
-(* ORIG_REF_NAME = "axis_switch_v1_1_15_axisc_decoder" *) 
 module bd_xbar_1_axis_switch_v1_1_15_axisc_decoder
    (s_decode_err,
     m_axis_tvalid,
@@ -2036,6 +1856,184 @@ module bd_xbar_1_axis_switch_v1_1_15_axisc_decoder
         .m_axis_tvalid(m_axis_tvalid),
         .s_axis_tvalid(s_axis_tvalid),
         .s_decode_err(s_decode_err));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "bd_xbar_1,axis_switch_v1_1_15_axis_switch,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "axis_switch_v1_1_15_axis_switch,Vivado 2017.4" *) 
+(* NotValidForBitStream *)
+module bd_xbar_1
+   (aclk,
+    aresetn,
+    s_axis_tvalid,
+    s_axis_tready,
+    s_axis_tdata,
+    s_axis_tkeep,
+    s_axis_tlast,
+    s_axis_tid,
+    s_axis_tdest,
+    s_axis_tuser,
+    m_axis_tvalid,
+    m_axis_tready,
+    m_axis_tdata,
+    m_axis_tkeep,
+    m_axis_tlast,
+    m_axis_tid,
+    m_axis_tdest,
+    m_axis_tuser,
+    s_decode_err);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLKIF CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLKIF, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, ASSOCIATED_BUSIF M00_AXIS:M01_AXIS:M02_AXIS:M03_AXIS:M04_AXIS:M05_AXIS:M06_AXIS:M07_AXIS:M08_AXIS:M09_AXIS:M10_AXIS:M11_AXIS:M12_AXIS:M13_AXIS:M14_AXIS:M15_AXIS:S00_AXIS:S01_AXIS:S02_AXIS:S03_AXIS:S04_AXIS:S05_AXIS:S06_AXIS:S07_AXIS:S08_AXIS:S09_AXIS:S10_AXIS:S11_AXIS:S12_AXIS:S13_AXIS:S14_AXIS:S15_AXIS, ASSOCIATED_RESET aresetn, ASSOCIATED_CLKEN aclken" *) input aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RSTIF RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, TYPE INTERCONNECT" *) input aresetn;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TVALID" *) input [0:0]s_axis_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TREADY" *) output [0:0]s_axis_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDATA" *) input [31:0]s_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TKEEP" *) input [3:0]s_axis_tkeep;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TLAST" *) input [0:0]s_axis_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TID" *) input [4:0]s_axis_tid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDEST" *) input [4:0]s_axis_tdest;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TUSER" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 5, TID_WIDTH 5, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) input [3:0]s_axis_tuser;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TVALID [0:0] [0:0], xilinx.com:interface:axis:1.0 M01_AXIS TVALID [0:0] [1:1], xilinx.com:interface:axis:1.0 M02_AXIS TVALID [0:0] [2:2]" *) output [2:0]m_axis_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TREADY [0:0] [0:0], xilinx.com:interface:axis:1.0 M01_AXIS TREADY [0:0] [1:1], xilinx.com:interface:axis:1.0 M02_AXIS TREADY [0:0] [2:2]" *) input [2:0]m_axis_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA [31:0] [31:0], xilinx.com:interface:axis:1.0 M01_AXIS TDATA [31:0] [63:32], xilinx.com:interface:axis:1.0 M02_AXIS TDATA [31:0] [95:64]" *) output [95:0]m_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TKEEP [3:0] [3:0], xilinx.com:interface:axis:1.0 M01_AXIS TKEEP [3:0] [7:4], xilinx.com:interface:axis:1.0 M02_AXIS TKEEP [3:0] [11:8]" *) output [11:0]m_axis_tkeep;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TLAST [0:0] [0:0], xilinx.com:interface:axis:1.0 M01_AXIS TLAST [0:0] [1:1], xilinx.com:interface:axis:1.0 M02_AXIS TLAST [0:0] [2:2]" *) output [2:0]m_axis_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TID [4:0] [4:0], xilinx.com:interface:axis:1.0 M01_AXIS TID [4:0] [9:5], xilinx.com:interface:axis:1.0 M02_AXIS TID [4:0] [14:10]" *) output [14:0]m_axis_tid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDEST [4:0] [4:0], xilinx.com:interface:axis:1.0 M01_AXIS TDEST [4:0] [9:5], xilinx.com:interface:axis:1.0 M02_AXIS TDEST [4:0] [14:10]" *) output [14:0]m_axis_tdest;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TUSER [3:0] [3:0], xilinx.com:interface:axis:1.0 M01_AXIS TUSER [3:0] [7:4], xilinx.com:interface:axis:1.0 M02_AXIS TUSER [3:0] [11:8]" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 5, TID_WIDTH 5, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME M01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 5, TID_WIDTH 5, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME M02_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 5, TID_WIDTH 5, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) output [11:0]m_axis_tuser;
+  output [0:0]s_decode_err;
+
+  wire aclk;
+  wire aresetn;
+  wire [95:0]m_axis_tdata;
+  wire [14:0]m_axis_tdest;
+  wire [14:0]m_axis_tid;
+  wire [11:0]m_axis_tkeep;
+  wire [2:0]m_axis_tlast;
+  wire [2:0]m_axis_tready;
+  wire [11:0]m_axis_tuser;
+  wire [2:0]m_axis_tvalid;
+  wire [31:0]s_axis_tdata;
+  wire [4:0]s_axis_tdest;
+  wire [4:0]s_axis_tid;
+  wire [3:0]s_axis_tkeep;
+  wire [0:0]s_axis_tlast;
+  wire [0:0]s_axis_tready;
+  wire [3:0]s_axis_tuser;
+  wire [0:0]s_axis_tvalid;
+  wire [0:0]s_decode_err;
+  wire NLW_inst_s_axi_ctrl_arready_UNCONNECTED;
+  wire NLW_inst_s_axi_ctrl_awready_UNCONNECTED;
+  wire NLW_inst_s_axi_ctrl_bvalid_UNCONNECTED;
+  wire NLW_inst_s_axi_ctrl_rvalid_UNCONNECTED;
+  wire NLW_inst_s_axi_ctrl_wready_UNCONNECTED;
+  wire [14:0]NLW_inst_arb_dest_UNCONNECTED;
+  wire [2:0]NLW_inst_arb_done_UNCONNECTED;
+  wire [14:0]NLW_inst_arb_id_UNCONNECTED;
+  wire [2:0]NLW_inst_arb_last_UNCONNECTED;
+  wire [2:0]NLW_inst_arb_req_UNCONNECTED;
+  wire [11:0]NLW_inst_arb_user_UNCONNECTED;
+  wire [11:0]NLW_inst_m_axis_tstrb_UNCONNECTED;
+  wire [1:0]NLW_inst_s_axi_ctrl_bresp_UNCONNECTED;
+  wire [31:0]NLW_inst_s_axi_ctrl_rdata_UNCONNECTED;
+  wire [1:0]NLW_inst_s_axi_ctrl_rresp_UNCONNECTED;
+
+  (* C_ARB_ALGORITHM = "0" *) 
+  (* C_ARB_ON_MAX_XFERS = "1" *) 
+  (* C_ARB_ON_NUM_CYCLES = "0" *) 
+  (* C_ARB_ON_TLAST = "0" *) 
+  (* C_AXIS_SIGNAL_SET = "251" *) 
+  (* C_AXIS_TDATA_WIDTH = "32" *) 
+  (* C_AXIS_TDEST_WIDTH = "5" *) 
+  (* C_AXIS_TID_WIDTH = "5" *) 
+  (* C_AXIS_TUSER_WIDTH = "4" *) 
+  (* C_COMMON_CLOCK = "0" *) 
+  (* C_DECODER_REG = "1" *) 
+  (* C_FAMILY = "artix7" *) 
+  (* C_INCLUDE_ARBITER = "1" *) 
+  (* C_LOG_SI_SLOTS = "1" *) 
+  (* C_M_AXIS_BASETDEST_ARRAY = "15'b000100000100000" *) 
+  (* C_M_AXIS_CONNECTIVITY_ARRAY = "3'b111" *) 
+  (* C_M_AXIS_HIGHTDEST_ARRAY = "15'b000100000100000" *) 
+  (* C_NUM_MI_SLOTS = "3" *) 
+  (* C_NUM_SI_SLOTS = "1" *) 
+  (* C_OUTPUT_REG = "0" *) 
+  (* C_ROUTING_MODE = "0" *) 
+  (* C_S_AXI_CTRL_ADDR_WIDTH = "7" *) 
+  (* C_S_AXI_CTRL_DATA_WIDTH = "32" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* G_INDX_SS_TDATA = "1" *) 
+  (* G_INDX_SS_TDEST = "6" *) 
+  (* G_INDX_SS_TID = "5" *) 
+  (* G_INDX_SS_TKEEP = "3" *) 
+  (* G_INDX_SS_TLAST = "4" *) 
+  (* G_INDX_SS_TREADY = "0" *) 
+  (* G_INDX_SS_TSTRB = "2" *) 
+  (* G_INDX_SS_TUSER = "7" *) 
+  (* G_MASK_SS_TDATA = "2" *) 
+  (* G_MASK_SS_TDEST = "64" *) 
+  (* G_MASK_SS_TID = "32" *) 
+  (* G_MASK_SS_TKEEP = "8" *) 
+  (* G_MASK_SS_TLAST = "16" *) 
+  (* G_MASK_SS_TREADY = "1" *) 
+  (* G_MASK_SS_TSTRB = "4" *) 
+  (* G_MASK_SS_TUSER = "128" *) 
+  (* G_TASK_SEVERITY_ERR = "2" *) 
+  (* G_TASK_SEVERITY_INFO = "0" *) 
+  (* G_TASK_SEVERITY_WARNING = "1" *) 
+  (* LP_CTRL_REG_WIDTH = "20" *) 
+  (* LP_MERGEDOWN_MUX = "0" *) 
+  (* LP_NUM_SYNCHRONIZER_STAGES = "4" *) 
+  (* P_DECODER_CONNECTIVITY_ARRAY = "3'b111" *) 
+  (* P_SINGLE_SLAVE_CONNECTIVITY_ARRAY = "3'b111" *) 
+  (* P_TPAYLOAD_WIDTH = "51" *) 
+  bd_xbar_1_axis_switch_v1_1_15_axis_switch inst
+       (.aclk(aclk),
+        .aclken(1'b1),
+        .arb_dest(NLW_inst_arb_dest_UNCONNECTED[14:0]),
+        .arb_done(NLW_inst_arb_done_UNCONNECTED[2:0]),
+        .arb_gnt({1'b0,1'b0,1'b0}),
+        .arb_id(NLW_inst_arb_id_UNCONNECTED[14:0]),
+        .arb_last(NLW_inst_arb_last_UNCONNECTED[2:0]),
+        .arb_req(NLW_inst_arb_req_UNCONNECTED[2:0]),
+        .arb_sel({1'b0,1'b0,1'b0}),
+        .arb_user(NLW_inst_arb_user_UNCONNECTED[11:0]),
+        .aresetn(aresetn),
+        .m_axis_tdata(m_axis_tdata),
+        .m_axis_tdest(m_axis_tdest),
+        .m_axis_tid(m_axis_tid),
+        .m_axis_tkeep(m_axis_tkeep),
+        .m_axis_tlast(m_axis_tlast),
+        .m_axis_tready(m_axis_tready),
+        .m_axis_tstrb(NLW_inst_m_axis_tstrb_UNCONNECTED[11:0]),
+        .m_axis_tuser(m_axis_tuser),
+        .m_axis_tvalid(m_axis_tvalid),
+        .s_axi_ctrl_aclk(1'b0),
+        .s_axi_ctrl_araddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi_ctrl_aresetn(1'b0),
+        .s_axi_ctrl_arready(NLW_inst_s_axi_ctrl_arready_UNCONNECTED),
+        .s_axi_ctrl_arvalid(1'b0),
+        .s_axi_ctrl_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi_ctrl_awready(NLW_inst_s_axi_ctrl_awready_UNCONNECTED),
+        .s_axi_ctrl_awvalid(1'b0),
+        .s_axi_ctrl_bready(1'b0),
+        .s_axi_ctrl_bresp(NLW_inst_s_axi_ctrl_bresp_UNCONNECTED[1:0]),
+        .s_axi_ctrl_bvalid(NLW_inst_s_axi_ctrl_bvalid_UNCONNECTED),
+        .s_axi_ctrl_rdata(NLW_inst_s_axi_ctrl_rdata_UNCONNECTED[31:0]),
+        .s_axi_ctrl_rready(1'b0),
+        .s_axi_ctrl_rresp(NLW_inst_s_axi_ctrl_rresp_UNCONNECTED[1:0]),
+        .s_axi_ctrl_rvalid(NLW_inst_s_axi_ctrl_rvalid_UNCONNECTED),
+        .s_axi_ctrl_wdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi_ctrl_wready(NLW_inst_s_axi_ctrl_wready_UNCONNECTED),
+        .s_axi_ctrl_wvalid(1'b0),
+        .s_axis_tdata(s_axis_tdata),
+        .s_axis_tdest(s_axis_tdest),
+        .s_axis_tid(s_axis_tid),
+        .s_axis_tkeep(s_axis_tkeep),
+        .s_axis_tlast(s_axis_tlast),
+        .s_axis_tready(s_axis_tready),
+        .s_axis_tstrb({1'b1,1'b1,1'b1,1'b1}),
+        .s_axis_tuser(s_axis_tuser),
+        .s_axis_tvalid(s_axis_tvalid),
+        .s_decode_err(s_decode_err),
+        .s_req_suppress(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

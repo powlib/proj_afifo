@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:50:41 2018
+-- Date        : Fri Jun 29 00:50:39 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_auto_cc_1/bd_auto_cc_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_auto_cc_1 -prefix
+--               bd_auto_cc_1_ bd_auto_cc_1_sim_netlist.vhdl
 -- Design      : bd_auto_cc_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,8 +28,6 @@ entity bd_auto_cc_1_xpm_cdc_async_rst is
   attribute INIT_SYNC_FF of bd_auto_cc_1_xpm_cdc_async_rst : entity is 0;
   attribute INV_DEF_VAL : string;
   attribute INV_DEF_VAL of bd_auto_cc_1_xpm_cdc_async_rst : entity is "1'b1";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_xpm_cdc_async_rst : entity is "xpm_cdc_async_rst";
   attribute RST_ACTIVE_HIGH : integer;
   attribute RST_ACTIVE_HIGH of bd_auto_cc_1_xpm_cdc_async_rst : entity is 1;
   attribute VERSION : integer;
@@ -159,8 +157,6 @@ entity bd_auto_cc_1_xpm_cdc_gray is
   attribute DEST_SYNC_FF of bd_auto_cc_1_xpm_cdc_gray : entity is 2;
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of bd_auto_cc_1_xpm_cdc_gray : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_xpm_cdc_gray : entity is "xpm_cdc_gray";
   attribute REG_OUTPUT : integer;
   attribute REG_OUTPUT of bd_auto_cc_1_xpm_cdc_gray : entity is 1;
   attribute SIM_ASSERT_CHK : integer;
@@ -785,8 +781,6 @@ entity bd_auto_cc_1_xpm_cdc_single is
   attribute DEST_SYNC_FF of bd_auto_cc_1_xpm_cdc_single : entity is 4;
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of bd_auto_cc_1_xpm_cdc_single : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_xpm_cdc_single : entity is "xpm_cdc_single";
   attribute SIM_ASSERT_CHK : integer;
   attribute SIM_ASSERT_CHK of bd_auto_cc_1_xpm_cdc_single : entity is 0;
   attribute SRC_INPUT_REG : integer;
@@ -948,8 +942,6 @@ entity bd_auto_cc_1_xpm_cdc_sync_rst is
   attribute INIT of bd_auto_cc_1_xpm_cdc_sync_rst : entity is "1";
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of bd_auto_cc_1_xpm_cdc_sync_rst : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_xpm_cdc_sync_rst : entity is "xpm_cdc_sync_rst";
   attribute SIM_ASSERT_CHK : integer;
   attribute SIM_ASSERT_CHK of bd_auto_cc_1_xpm_cdc_sync_rst : entity is 0;
   attribute VERSION : integer;
@@ -1012,8 +1004,6 @@ entity bd_auto_cc_1_dmem is
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     m_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_dmem : entity is "dmem";
 end bd_auto_cc_1_dmem;
 
 architecture STRUCTURE of bd_auto_cc_1_dmem is
@@ -1771,8 +1761,6 @@ entity bd_auto_cc_1_rd_bin_cntr is
     m_aclk : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.sckt_rd_rst_ic_reg\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_rd_bin_cntr : entity is "rd_bin_cntr";
 end bd_auto_cc_1_rd_bin_cntr;
 
 architecture STRUCTURE of bd_auto_cc_1_rd_bin_cntr is
@@ -1978,8 +1966,6 @@ entity bd_auto_cc_1_rd_fwft is
     WR_PNTR_RD : in STD_LOGIC_VECTOR ( 0 to 0 );
     Q : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_rd_fwft : entity is "rd_fwft";
 end bd_auto_cc_1_rd_fwft;
 
 architecture STRUCTURE of bd_auto_cc_1_rd_fwft is
@@ -2227,8 +2213,6 @@ entity bd_auto_cc_1_rd_status_flags_as is
     m_aclk : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.gnsckt_wrst.gic_rst.sckt_rd_rst_ic_reg\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_rd_status_flags_as : entity is "rd_status_flags_as";
 end bd_auto_cc_1_rd_status_flags_as;
 
 architecture STRUCTURE of bd_auto_cc_1_rd_status_flags_as is
@@ -2287,8 +2271,6 @@ entity bd_auto_cc_1_wr_bin_cntr is
     s_aclk : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_wr_bin_cntr : entity is "wr_bin_cntr";
 end bd_auto_cc_1_wr_bin_cntr;
 
 architecture STRUCTURE of bd_auto_cc_1_wr_bin_cntr is
@@ -2594,8 +2576,6 @@ entity bd_auto_cc_1_wr_status_flags_as is
     Q : in STD_LOGIC_VECTOR ( 0 to 0 );
     RD_PNTR_WR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_wr_status_flags_as : entity is "wr_status_flags_as";
 end bd_auto_cc_1_wr_status_flags_as;
 
 architecture STRUCTURE of bd_auto_cc_1_wr_status_flags_as is
@@ -2683,8 +2663,6 @@ entity bd_auto_cc_1_clk_x_pntrs is
     \gic0.gc0.count_d2_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     m_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_clk_x_pntrs : entity is "clk_x_pntrs";
 end bd_auto_cc_1_clk_x_pntrs;
 
 architecture STRUCTURE of bd_auto_cc_1_clk_x_pntrs is
@@ -2806,8 +2784,6 @@ entity bd_auto_cc_1_memory is
     \gic0.gc0.count_d2_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_memory : entity is "memory";
 end bd_auto_cc_1_memory;
 
 architecture STRUCTURE of bd_auto_cc_1_memory is
@@ -3505,8 +3481,6 @@ entity bd_auto_cc_1_rd_logic is
     m_axis_tready : in STD_LOGIC;
     WR_PNTR_RD : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_rd_logic : entity is "rd_logic";
 end bd_auto_cc_1_rd_logic;
 
 architecture STRUCTURE of bd_auto_cc_1_rd_logic is
@@ -3561,8 +3535,6 @@ entity bd_auto_cc_1_reset_blk_ramfifo is
     m_aclk : in STD_LOGIC;
     s_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_reset_blk_ramfifo : entity is "reset_blk_ramfifo";
 end bd_auto_cc_1_reset_blk_ramfifo;
 
 architecture STRUCTURE of bd_auto_cc_1_reset_blk_ramfifo is
@@ -3876,8 +3848,6 @@ entity bd_auto_cc_1_wr_logic is
     s_axis_tvalid : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_wr_logic : entity is "wr_logic";
 end bd_auto_cc_1_wr_logic;
 
 architecture STRUCTURE of bd_auto_cc_1_wr_logic is
@@ -3930,8 +3900,6 @@ entity bd_auto_cc_1_fifo_generator_ramfifo is
     m_axis_tready : in STD_LOGIC;
     s_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_fifo_generator_ramfifo : entity is "fifo_generator_ramfifo";
 end bd_auto_cc_1_fifo_generator_ramfifo;
 
 architecture STRUCTURE of bd_auto_cc_1_fifo_generator_ramfifo is
@@ -4038,8 +4006,6 @@ entity bd_auto_cc_1_fifo_generator_top is
     m_axis_tready : in STD_LOGIC;
     s_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_fifo_generator_top : entity is "fifo_generator_top";
 end bd_auto_cc_1_fifo_generator_top;
 
 architecture STRUCTURE of bd_auto_cc_1_fifo_generator_top is
@@ -4073,8 +4039,6 @@ entity bd_auto_cc_1_fifo_generator_v13_2_1_synth is
     m_axis_tready : in STD_LOGIC;
     s_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_fifo_generator_v13_2_1_synth : entity is "fifo_generator_v13_2_1_synth";
 end bd_auto_cc_1_fifo_generator_v13_2_1_synth;
 
 architecture STRUCTURE of bd_auto_cc_1_fifo_generator_v13_2_1_synth is
@@ -4734,8 +4698,6 @@ entity bd_auto_cc_1_fifo_generator_v13_2_1 is
   attribute C_WR_PNTR_WIDTH_WRCH of bd_auto_cc_1_fifo_generator_v13_2_1 : entity is 4;
   attribute C_WR_RESPONSE_LATENCY : integer;
   attribute C_WR_RESPONSE_LATENCY of bd_auto_cc_1_fifo_generator_v13_2_1 : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_fifo_generator_v13_2_1 : entity is "fifo_generator_v13_2_1";
 end bd_auto_cc_1_fifo_generator_v13_2_1;
 
 architecture STRUCTURE of bd_auto_cc_1_fifo_generator_v13_2_1 is
@@ -5327,8 +5289,6 @@ entity bd_auto_cc_1_axis_data_fifo_v1_1_16_axis_data_fifo is
     m_axis_tready : in STD_LOGIC;
     m_axis_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_axis_data_fifo_v1_1_16_axis_data_fifo : entity is "axis_data_fifo_v1_1_16_axis_data_fifo";
 end bd_auto_cc_1_axis_data_fifo_v1_1_16_axis_data_fifo;
 
 architecture STRUCTURE of bd_auto_cc_1_axis_data_fifo_v1_1_16_axis_data_fifo is
@@ -6243,8 +6203,6 @@ entity bd_auto_cc_1_axis_clock_converter_v1_1_16_axis_clock_converter is
   attribute LP_M_ACLKEN_CAN_TOGGLE of bd_auto_cc_1_axis_clock_converter_v1_1_16_axis_clock_converter : entity is 0;
   attribute LP_S_ACLKEN_CAN_TOGGLE : integer;
   attribute LP_S_ACLKEN_CAN_TOGGLE of bd_auto_cc_1_axis_clock_converter_v1_1_16_axis_clock_converter : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_cc_1_axis_clock_converter_v1_1_16_axis_clock_converter : entity is "axis_clock_converter_v1_1_16_axis_clock_converter";
   attribute P_FIFO_DEPTH : integer;
   attribute P_FIFO_DEPTH of bd_auto_cc_1_axis_clock_converter_v1_1_16_axis_clock_converter : entity is 32;
   attribute P_FIFO_MODE : integer;

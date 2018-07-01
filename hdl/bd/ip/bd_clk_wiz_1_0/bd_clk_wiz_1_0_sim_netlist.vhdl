@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:02:14 2018
+-- Date        : Sat Jun 30 19:13:28 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_clk_wiz_1_0/bd_clk_wiz_1_0_sim_netlist.vhdl
@@ -20,7 +20,7 @@ entity bd_clk_wiz_1_0_bd_clk_wiz_1_0_clk_wiz is
     clk_out2 : out STD_LOGIC;
     clk_out3 : out STD_LOGIC;
     clk_out4 : out STD_LOGIC;
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
@@ -36,6 +36,7 @@ architecture STRUCTURE of bd_clk_wiz_1_0_bd_clk_wiz_1_0_clk_wiz is
   signal clk_out4_bd_clk_wiz_1_0 : STD_LOGIC;
   signal clkfbout_bd_clk_wiz_1_0 : STD_LOGIC;
   signal clkfbout_buf_bd_clk_wiz_1_0 : STD_LOGIC;
+  signal reset_high : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED : STD_LOGIC;
@@ -181,7 +182,15 @@ mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
       PSEN => '0',
       PSINCDEC => '0',
       PWRDWN => '0',
-      RST => reset
+      RST => reset_high
+    );
+mmcm_adv_inst_i_1: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => resetn,
+      O => reset_high
     );
 end STRUCTURE;
 library IEEE;
@@ -194,7 +203,7 @@ entity bd_clk_wiz_1_0 is
     clk_out2 : out STD_LOGIC;
     clk_out3 : out STD_LOGIC;
     clk_out4 : out STD_LOGIC;
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
@@ -212,6 +221,6 @@ inst: entity work.bd_clk_wiz_1_0_bd_clk_wiz_1_0_clk_wiz
       clk_out3 => clk_out3,
       clk_out4 => clk_out4,
       locked => locked,
-      reset => reset
+      resetn => resetn
     );
 end STRUCTURE;

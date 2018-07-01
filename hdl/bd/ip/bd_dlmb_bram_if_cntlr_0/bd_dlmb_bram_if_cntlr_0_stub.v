@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
 // Date        : Fri Jun 29 00:05:43 2018
 // Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_dlmb_bram_if_cntlr_0/bd_dlmb_bram_if_cntlr_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top bd_dlmb_bram_if_cntlr_0 -prefix
+//               bd_dlmb_bram_if_cntlr_0_ bd_dlmb_bram_if_cntlr_0_stub.v
 // Design      : bd_dlmb_bram_if_cntlr_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-1

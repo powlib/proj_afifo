@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:40:03 2018
+-- Date        : Fri Jun 29 00:40:02 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_auto_us_0/bd_auto_us_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_auto_us_0 -prefix
+--               bd_auto_us_0_ bd_auto_us_0_sim_netlist.vhdl
 -- Design      : bd_auto_us_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,8 +26,6 @@ entity bd_auto_us_0_axis_dwidth_converter_v1_1_14_axisc_upsizer is
     m_axis_tready : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_us_0_axis_dwidth_converter_v1_1_14_axisc_upsizer : entity is "axis_dwidth_converter_v1_1_14_axisc_upsizer";
 end bd_auto_us_0_axis_dwidth_converter_v1_1_14_axisc_upsizer;
 
 architecture STRUCTURE of bd_auto_us_0_axis_dwidth_converter_v1_1_14_axisc_upsizer is
@@ -841,8 +839,6 @@ entity bd_auto_us_0_axis_dwidth_converter_v1_1_14_axis_dwidth_converter is
   attribute G_TASK_SEVERITY_INFO of bd_auto_us_0_axis_dwidth_converter_v1_1_14_axis_dwidth_converter : entity is 0;
   attribute G_TASK_SEVERITY_WARNING : integer;
   attribute G_TASK_SEVERITY_WARNING of bd_auto_us_0_axis_dwidth_converter_v1_1_14_axis_dwidth_converter : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_auto_us_0_axis_dwidth_converter_v1_1_14_axis_dwidth_converter : entity is "axis_dwidth_converter_v1_1_14_axis_dwidth_converter";
   attribute P_AXIS_SIGNAL_SET : string;
   attribute P_AXIS_SIGNAL_SET of bd_auto_us_0_axis_dwidth_converter_v1_1_14_axis_dwidth_converter : entity is "32'b00000000000000000000000000000011";
   attribute P_D1_REG_CONFIG : integer;

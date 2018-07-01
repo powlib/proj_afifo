@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:58:00 2018
+-- Date        : Fri Jun 29 00:57:58 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_m00_regslice_0/bd_m00_regslice_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_m00_regslice_0 -prefix
+--               bd_m00_regslice_0_ bd_m00_regslice_0_sim_netlist.vhdl
 -- Design      : bd_m00_regslice_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -27,8 +27,6 @@ entity bd_m00_regslice_0_axi_register_slice_v2_1_15_axic_register_slice is
     \aresetn_d_reg[1]_0\ : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_m00_regslice_0_axi_register_slice_v2_1_15_axic_register_slice : entity is "axi_register_slice_v2_1_15_axic_register_slice";
 end bd_m00_regslice_0_axi_register_slice_v2_1_15_axic_register_slice;
 
 architecture STRUCTURE of bd_m00_regslice_0_axi_register_slice_v2_1_15_axic_register_slice is
@@ -1581,8 +1579,6 @@ entity bd_m00_regslice_0_axi_register_slice_v2_1_15_axi_register_slice is
   attribute G_AXI_WUSER_INDEX of bd_m00_regslice_0_axi_register_slice_v2_1_15_axi_register_slice : entity is 36;
   attribute G_AXI_WUSER_WIDTH : integer;
   attribute G_AXI_WUSER_WIDTH of bd_m00_regslice_0_axi_register_slice_v2_1_15_axi_register_slice : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_m00_regslice_0_axi_register_slice_v2_1_15_axi_register_slice : entity is "axi_register_slice_v2_1_15_axi_register_slice";
   attribute P_FORWARD : integer;
   attribute P_FORWARD of bd_m00_regslice_0_axi_register_slice_v2_1_15_axi_register_slice : entity is 0;
   attribute P_RESPONSE : integer;

@@ -8,3 +8,7 @@
 *.str
 *.Xil*
 proj_vivado*
+*RemoteSystemsTempFile*
+*.metadata*
+*webtalk*
+

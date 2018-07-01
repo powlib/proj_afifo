@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 01:07:42 2018
+-- Date        : Fri Jun 29 01:07:41 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_s01_data_fifo_1/bd_s01_data_fifo_1_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top bd_s01_data_fifo_1 -prefix
+--               bd_s01_data_fifo_1_ bd_s01_data_fifo_1_stub.vhdl
 -- Design      : bd_s01_data_fifo_1
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-1

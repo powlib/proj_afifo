@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 01:01:18 2018
+-- Date        : Fri Jun 29 01:01:17 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_s04_data_fifo_0/bd_s04_data_fifo_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_s04_data_fifo_0 -prefix
+--               bd_s04_data_fifo_0_ bd_s04_data_fifo_0_sim_netlist.vhdl
 -- Design      : bd_s04_data_fifo_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,8 +28,6 @@ entity bd_s04_data_fifo_0_xpm_cdc_async_rst is
   attribute INIT_SYNC_FF of bd_s04_data_fifo_0_xpm_cdc_async_rst : entity is 0;
   attribute INV_DEF_VAL : string;
   attribute INV_DEF_VAL of bd_s04_data_fifo_0_xpm_cdc_async_rst : entity is "1'b1";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_xpm_cdc_async_rst : entity is "xpm_cdc_async_rst";
   attribute RST_ACTIVE_HIGH : integer;
   attribute RST_ACTIVE_HIGH of bd_s04_data_fifo_0_xpm_cdc_async_rst : entity is 1;
   attribute VERSION : integer;
@@ -91,8 +89,6 @@ entity bd_s04_data_fifo_0_dmem is
     \gcc0.gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_dmem : entity is "dmem";
 end bd_s04_data_fifo_0_dmem;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_dmem is
@@ -672,8 +668,6 @@ entity bd_s04_data_fifo_0_rd_bin_cntr is
     s_aclk : in STD_LOGIC;
     \arststages_ff_reg[1]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_rd_bin_cntr : entity is "rd_bin_cntr";
 end bd_s04_data_fifo_0_rd_bin_cntr;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_rd_bin_cntr is
@@ -933,8 +927,6 @@ entity bd_s04_data_fifo_0_rd_fwft is
     m_axi_wready : in STD_LOGIC;
     \out\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_rd_fwft : entity is "rd_fwft";
 end bd_s04_data_fifo_0_rd_fwft;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_rd_fwft is
@@ -1204,8 +1196,6 @@ entity bd_s04_data_fifo_0_rd_status_flags_ss is
     ram_full_fb_i_reg_0 : in STD_LOGIC;
     \gc0.count_d1_reg[2]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_rd_status_flags_ss : entity is "rd_status_flags_ss";
 end bd_s04_data_fifo_0_rd_status_flags_ss;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_rd_status_flags_ss is
@@ -1277,8 +1267,6 @@ entity bd_s04_data_fifo_0_wr_bin_cntr is
     s_aclk : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_wr_bin_cntr : entity is "wr_bin_cntr";
 end bd_s04_data_fifo_0_wr_bin_cntr;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_wr_bin_cntr is
@@ -1505,8 +1493,6 @@ entity bd_s04_data_fifo_0_wr_status_flags_ss is
     \grstd1.grst_full.grst_f.rst_d2_reg\ : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_wr_status_flags_ss : entity is "wr_status_flags_ss";
 end bd_s04_data_fifo_0_wr_status_flags_ss;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_wr_status_flags_ss is
@@ -1602,8 +1588,6 @@ entity bd_s04_data_fifo_0_memory is
     \gcc0.gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_memory : entity is "memory";
 end bd_s04_data_fifo_0_memory;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_memory is
@@ -2133,8 +2117,6 @@ entity bd_s04_data_fifo_0_rd_logic is
     s_axi_wvalid : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_rd_logic : entity is "rd_logic";
 end bd_s04_data_fifo_0_rd_logic;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_rd_logic is
@@ -2199,8 +2181,6 @@ entity bd_s04_data_fifo_0_reset_blk_ramfifo is
     src_arst : in STD_LOGIC;
     s_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_reset_blk_ramfifo : entity is "reset_blk_ramfifo";
 end bd_s04_data_fifo_0_reset_blk_ramfifo;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_reset_blk_ramfifo is
@@ -2388,8 +2368,6 @@ entity bd_s04_data_fifo_0_wr_logic is
     \grstd1.grst_full.grst_f.rst_d3_reg\ : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_wr_logic : entity is "wr_logic";
 end bd_s04_data_fifo_0_wr_logic;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_wr_logic is
@@ -2440,8 +2418,6 @@ entity bd_s04_data_fifo_0_fifo_generator_ramfifo is
     DI : in STD_LOGIC_VECTOR ( 37 downto 0 );
     s_axi_wvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_fifo_generator_ramfifo : entity is "fifo_generator_ramfifo";
 end bd_s04_data_fifo_0_fifo_generator_ramfifo;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_fifo_generator_ramfifo is
@@ -2526,8 +2502,6 @@ entity bd_s04_data_fifo_0_fifo_generator_top is
     DI : in STD_LOGIC_VECTOR ( 37 downto 0 );
     s_axi_wvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_fifo_generator_top : entity is "fifo_generator_top";
 end bd_s04_data_fifo_0_fifo_generator_top;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_fifo_generator_top is
@@ -2559,8 +2533,6 @@ entity bd_s04_data_fifo_0_fifo_generator_v13_2_1_synth is
     DI : in STD_LOGIC_VECTOR ( 37 downto 0 );
     s_axi_wvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_fifo_generator_v13_2_1_synth : entity is "fifo_generator_v13_2_1_synth";
 end bd_s04_data_fifo_0_fifo_generator_v13_2_1_synth;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_fifo_generator_v13_2_1_synth is
@@ -3228,8 +3200,6 @@ entity bd_s04_data_fifo_0_fifo_generator_v13_2_1 is
   attribute C_WR_PNTR_WIDTH_WRCH of bd_s04_data_fifo_0_fifo_generator_v13_2_1 : entity is 4;
   attribute C_WR_RESPONSE_LATENCY : integer;
   attribute C_WR_RESPONSE_LATENCY of bd_s04_data_fifo_0_fifo_generator_v13_2_1 : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_fifo_generator_v13_2_1 : entity is "fifo_generator_v13_2_1";
 end bd_s04_data_fifo_0_fifo_generator_v13_2_1;
 
 architecture STRUCTURE of bd_s04_data_fifo_0_fifo_generator_v13_2_1 is
@@ -3868,8 +3838,6 @@ entity bd_s04_data_fifo_0_axi_data_fifo_v2_1_14_axi_data_fifo is
   attribute C_FAMILY of bd_s04_data_fifo_0_axi_data_fifo_v2_1_14_axi_data_fifo : entity is "artix7";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of bd_s04_data_fifo_0_axi_data_fifo_v2_1_14_axi_data_fifo : entity is "yes";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_s04_data_fifo_0_axi_data_fifo_v2_1_14_axi_data_fifo : entity is "axi_data_fifo_v2_1_14_axi_data_fifo";
   attribute P_AXI3 : integer;
   attribute P_AXI3 of bd_s04_data_fifo_0_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 1;
   attribute P_AXI4 : integer;

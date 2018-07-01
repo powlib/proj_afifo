@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Fri Jun 29 00:36:55 2018
+// Date        : Fri Jun 29 00:36:54 2018
 // Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_blk_mem_gen_0_0/bd_blk_mem_gen_0_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top bd_blk_mem_gen_0_0 -prefix
+//               bd_blk_mem_gen_0_0_ bd_blk_mem_gen_0_0_stub.v
 // Design      : bd_blk_mem_gen_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-1

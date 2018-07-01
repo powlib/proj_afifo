@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:25:31 2018
+-- Date        : Fri Jun 29 00:25:30 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_xbar_1/bd_xbar_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bd_xbar_1 -prefix
+--               bd_xbar_1_ bd_xbar_1_sim_netlist.vhdl
 -- Design      : bd_xbar_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -30,8 +30,6 @@ entity bd_xbar_1_axis_register_slice_v1_1_15_axisc_register_slice is
     s_axis_tvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
     D : in STD_LOGIC_VECTOR ( 50 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_xbar_1_axis_register_slice_v1_1_15_axisc_register_slice : entity is "axis_register_slice_v1_1_15_axisc_register_slice";
 end bd_xbar_1_axis_register_slice_v1_1_15_axisc_register_slice;
 
 architecture STRUCTURE of bd_xbar_1_axis_register_slice_v1_1_15_axisc_register_slice is
@@ -1950,8 +1948,6 @@ entity bd_xbar_1_axis_switch_v1_1_15_axisc_decoder is
     D : in STD_LOGIC_VECTOR ( 50 downto 0 );
     m_axis_tready : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_xbar_1_axis_switch_v1_1_15_axisc_decoder : entity is "axis_switch_v1_1_15_axisc_decoder";
 end bd_xbar_1_axis_switch_v1_1_15_axisc_decoder;
 
 architecture STRUCTURE of bd_xbar_1_axis_switch_v1_1_15_axisc_decoder is
@@ -2146,8 +2142,6 @@ entity bd_xbar_1_axis_switch_v1_1_15_axis_switch is
   attribute LP_MERGEDOWN_MUX of bd_xbar_1_axis_switch_v1_1_15_axis_switch : entity is 0;
   attribute LP_NUM_SYNCHRONIZER_STAGES : integer;
   attribute LP_NUM_SYNCHRONIZER_STAGES of bd_xbar_1_axis_switch_v1_1_15_axis_switch : entity is 4;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bd_xbar_1_axis_switch_v1_1_15_axis_switch : entity is "axis_switch_v1_1_15_axis_switch";
   attribute P_DECODER_CONNECTIVITY_ARRAY : string;
   attribute P_DECODER_CONNECTIVITY_ARRAY of bd_xbar_1_axis_switch_v1_1_15_axis_switch : entity is "3'b111";
   attribute P_SINGLE_SLAVE_CONNECTIVITY_ARRAY : string;

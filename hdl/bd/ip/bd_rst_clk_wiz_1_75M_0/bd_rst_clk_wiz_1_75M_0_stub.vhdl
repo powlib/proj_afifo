@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:31:27 2018
+-- Date        : Sat Jun 30 19:14:52 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 -- Command     : write_vhdl -force -mode synth_stub
 --               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_rst_clk_wiz_1_75M_0/bd_rst_clk_wiz_1_75M_0_stub.vhdl
