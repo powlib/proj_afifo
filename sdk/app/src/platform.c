@@ -36,7 +36,7 @@
 #include "xil_assert.h"
 #include "xil_printf.h"
 #include "xintc.h"
-
+#include "xaxidma.h"
 #include "platform_config.h"
 
 /*
@@ -47,7 +47,8 @@
 /*#include "ps7_init.h"*/
 /*#include "psu_init.h"*/
 
-XIntc xintc_obj;
+XIntc   xintc_obj;
+XAxiDma xaxidma_obj;
 
 #ifdef STDOUT_IS_16550
  #include "xuartns550_l.h"
@@ -91,6 +92,16 @@ void init_uart()
     /* Bootrom/BSP configures PS7/PSU UART to 115200 bps */
 }
 
+void XAxiDma_MM2SHandler(void* ref)
+{
+	(void)ref;
+}
+
+void XAxiDma_S2MMHandler(void* ref)
+{
+	(void)ref;
+}
+
 void init_platform()
 {
 	int XResult;
@@ -98,7 +109,7 @@ void init_platform()
     enable_caches();
     init_uart();
 
-    print("Initializing interrupts...\n");
+    xil_printf("Initializing interrupts...\n");
     {
     	XResult = XIntc_Initialize(&xintc_obj, XPAR_MICROBLAZE_0_AXI_INTC_DEVICE_ID);
     	Xil_AssertVoid(XResult==XST_SUCCESS);
@@ -107,7 +118,7 @@ void init_platform()
     	Xil_ExceptionEnable();
     }
 
-    print("Testing interrupts...\n");
+    xil_printf("Testing interrupts...\n");
     {
     	XResult = XIntc_Start(&xintc_obj, XIN_SIMULATION_MODE);
     	Xil_AssertVoid(XResult==XST_SUCCESS);
@@ -117,9 +128,31 @@ void init_platform()
     	Xil_AssertVoid(XResult==XST_SUCCESS);
     }
 
-    print("Initializing DMA...");
+    xil_printf("Initializing DMA...\n");
+    {
+    	XAxiDma_Config* XConfig;
+    	XConfig = XAxiDma_LookupConfig(XPAR_AXIDMA_0_DEVICE_ID);
+    	Xil_AssertVoid(XConfig!=NULL);
+    	XResult = XAxiDma_CfgInitialize(&xaxidma_obj, XConfig);
+    	Xil_AssertVoid(XResult==XST_SUCCESS);
+    	XResult = XAxiDma_Selftest(&xaxidma_obj);
+    	Xil_AssertVoid(XResult==XST_SUCCESS);
+    }
 
-    print("Platform has been initialized!\n");
+    {
+    	XResult = XIntc_Connect(&xintc_obj,
+    			XPAR_MICROBLAZE_0_AXI_INTC_AXI_DMA_0_MM2S_INTROUT_INTR,
+				(XInterruptHandler)XAxiDma_MM2SHandler, (void*)NULL);
+    	Xil_AssertVoid(XResult==XST_SUCCESS);
+    	XResult = XIntc_Connect(&xintc_obj,
+    			XPAR_MICROBLAZE_0_AXI_INTC_AXI_DMA_0_S2MM_INTROUT_INTR,
+				(XInterruptHandler)XAxiDma_S2MMHandler, (void*)NULL);
+    	Xil_AssertVoid(XResult==XST_SUCCESS);
+    	XIntc_Enable(&xintc_obj, XPAR_MICROBLAZE_0_AXI_INTC_AXI_DMA_0_MM2S_INTROUT_INTR);
+    	XIntc_Enable(&xintc_obj, XPAR_MICROBLAZE_0_AXI_INTC_AXI_DMA_0_S2MM_INTROUT_INTR);
+    }
+
+    xil_printf("Platform has been initialized!\n");
 }
 
 void cleanup_platform()
