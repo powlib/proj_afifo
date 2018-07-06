@@ -29,6 +29,11 @@ ENTRY(_start)
 
 SECTIONS
 {
+
+.dmamem 0xC0000000 : {
+	KEEP (*(.dmamem))
+} > axi_bram_ctrl_0_Mem0
+
 .vectors.reset 0x0 : {
    KEEP (*(.vectors.reset))
 } 
@@ -198,7 +203,7 @@ _SDA2_BASE_ = __sdata2_start + ((__sbss2_end - __sdata2_start) / 2 );
    _heap_start = .;
    . += _HEAP_SIZE;
    _heap_end = .;
-} > microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem
+} > axi_bram_ctrl_0_Mem0
 
 .stack (NOLOAD) : {
    _stack_end = .;
@@ -206,7 +211,7 @@ _SDA2_BASE_ = __sdata2_start + ((__sbss2_end - __sdata2_start) / 2 );
    . = ALIGN(8);
    _stack = .;
    __stack = _stack;
-} > microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem
+} > axi_bram_ctrl_0_Mem0
 
 _end = .;
 }

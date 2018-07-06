@@ -49,11 +49,22 @@
 #include "platform.h"
 #include "xil_printf.h"
 
+int test_0()
+{
+	volatile u32* ptr = tx_buff;
+	volatile u32* end = ptr+BUFF_TOTAL;
+	for (u32 val=0; ptr!=end; val++) *(ptr++) = val;
+	return 1;
+}
 
 int main()
 {
     init_platform();
 
+    test_0();
+    test_run(0);
     cleanup_platform();
     return 0;
 }
+
+
