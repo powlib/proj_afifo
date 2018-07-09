@@ -36,6 +36,8 @@
 								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.1673884146" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../app_bsp/microblaze_0/include"/>
 								</option>
+								<option id="xilinx.gnu.mb.compiler.inferred.norelax.533766903" name="No relaxation (-Wl,--no-relax)" superClass="xilinx.gnu.mb.compiler.inferred.norelax" value="true" valueType="boolean"/>
+								<option id="xilinx.gnu.mb.compiler.inferred.garbage.423198440" name="Enable garbage collector (-ffunction-sections -fdata-sections)" superClass="xilinx.gnu.mb.compiler.inferred.garbage" value="true" valueType="boolean"/>
 								<inputType id="xilinx.gnu.compiler.input.734562066" name="C source files" superClass="xilinx.gnu.compiler.input"/>
 							</tool>
 							<tool id="xilinx.gnu.mb.cxx.toolchain.compiler.debug.1024035726" name="MicroBlaze g++ compiler" superClass="xilinx.gnu.mb.cxx.toolchain.compiler.debug">
@@ -51,6 +53,8 @@
 								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.372974867" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../app_bsp/microblaze_0/include"/>
 								</option>
+								<option id="xilinx.gnu.mb.compiler.inferred.norelax.1740833434" name="No relaxation (-Wl,--no-relax)" superClass="xilinx.gnu.mb.compiler.inferred.norelax" value="true" valueType="boolean"/>
+								<option id="xilinx.gnu.mb.compiler.inferred.garbage.1871399436" name="Enable garbage collector (-ffunction-sections -fdata-sections)" superClass="xilinx.gnu.mb.compiler.inferred.garbage" value="true" valueType="boolean"/>
 							</tool>
 							<tool id="xilinx.gnu.mb.toolchain.archiver.1212204544" name="MicroBlaze archiver" superClass="xilinx.gnu.mb.toolchain.archiver"/>
 							<tool id="xilinx.gnu.mb.c.toolchain.linker.debug.1924038869" name="MicroBlaze gcc linker" superClass="xilinx.gnu.mb.c.toolchain.linker.debug">
@@ -68,6 +72,8 @@
 									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lgcc,-lc,--end-group"/>
 								</option>
 								<option id="xilinx.gnu.c.linker.option.lscript.1978213834" name="Linker Script" superClass="xilinx.gnu.c.linker.option.lscript" value="../src/lscript.ld" valueType="string"/>
+								<option id="xilinx.gnu.mb.linker.inferred.norelax.1572857897" name="No relaxation (-Wl,--no-relax)" superClass="xilinx.gnu.mb.linker.inferred.norelax" value="true" valueType="boolean"/>
+								<option id="xilinx.gnu.mb.linker.inferred.garbage.950324358" name="Enable garbage collector (-Wl,--gc-sections)" superClass="xilinx.gnu.mb.linker.inferred.garbage" value="true" valueType="boolean"/>
 								<inputType id="xilinx.gnu.linker.input.635100043" superClass="xilinx.gnu.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -89,6 +95,8 @@
 									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lgcc,-lc,--end-group"/>
 								</option>
 								<option id="xilinx.gnu.c.linker.option.lscript.1998172671" name="Linker Script" superClass="xilinx.gnu.c.linker.option.lscript" value="../src/lscript.ld" valueType="string"/>
+								<option id="xilinx.gnu.mb.linker.inferred.norelax.1071192451" name="No relaxation (-Wl,--no-relax)" superClass="xilinx.gnu.mb.linker.inferred.norelax" value="true" valueType="boolean"/>
+								<option id="xilinx.gnu.mb.linker.inferred.garbage.896912072" name="Enable garbage collector (-Wl,--gc-sections)" superClass="xilinx.gnu.mb.linker.inferred.garbage" value="true" valueType="boolean"/>
 							</tool>
 							<tool id="xilinx.gnu.mb.size.debug.1988846756" name="MicroBlaze Print Size" superClass="xilinx.gnu.mb.size.debug"/>
 						</toolChain>
@@ -132,6 +140,8 @@
 								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.1436526524" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../app_bsp/microblaze_0/include"/>
 								</option>
+								<option id="xilinx.gnu.mb.compiler.inferred.norelax.2088648174" name="No relaxation (-Wl,--no-relax)" superClass="xilinx.gnu.mb.compiler.inferred.norelax" value="true" valueType="boolean"/>
+								<option id="xilinx.gnu.mb.compiler.inferred.garbage.1896869166" name="Enable garbage collector (-ffunction-sections -fdata-sections)" superClass="xilinx.gnu.mb.compiler.inferred.garbage" value="true" valueType="boolean"/>
 								<inputType id="xilinx.gnu.compiler.input.1798025255" name="C source files" superClass="xilinx.gnu.compiler.input"/>
 							</tool>
 							<tool id="xilinx.gnu.mb.cxx.toolchain.compiler.release.350971765" name="MicroBlaze g++ compiler" superClass="xilinx.gnu.mb.cxx.toolchain.compiler.release">
@@ -147,6 +157,8 @@
 								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.1127725525" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../app_bsp/microblaze_0/include"/>
 								</option>
+								<option id="xilinx.gnu.mb.compiler.inferred.norelax.1539860031" name="No relaxation (-Wl,--no-relax)" superClass="xilinx.gnu.mb.compiler.inferred.norelax" value="true" valueType="boolean"/>
+								<option id="xilinx.gnu.mb.compiler.inferred.garbage.1947517748" name="Enable garbage collector (-ffunction-sections -fdata-sections)" superClass="xilinx.gnu.mb.compiler.inferred.garbage" value="true" valueType="boolean"/>
 							</tool>
 							<tool id="xilinx.gnu.mb.toolchain.archiver.979491598" name="MicroBlaze archiver" superClass="xilinx.gnu.mb.toolchain.archiver"/>
 							<tool id="xilinx.gnu.mb.c.toolchain.linker.release.1441158759" name="MicroBlaze gcc linker" superClass="xilinx.gnu.mb.c.toolchain.linker.release">
@@ -164,6 +176,8 @@
 									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lgcc,-lc,--end-group"/>
 								</option>
 								<option id="xilinx.gnu.c.linker.option.lscript.1214188964" name="Linker Script" superClass="xilinx.gnu.c.linker.option.lscript" value="../src/lscript.ld" valueType="string"/>
+								<option id="xilinx.gnu.mb.linker.inferred.norelax.514981472" name="No relaxation (-Wl,--no-relax)" superClass="xilinx.gnu.mb.linker.inferred.norelax" value="true" valueType="boolean"/>
+								<option id="xilinx.gnu.mb.linker.inferred.garbage.751166173" name="Enable garbage collector (-Wl,--gc-sections)" superClass="xilinx.gnu.mb.linker.inferred.garbage" value="true" valueType="boolean"/>
 								<inputType id="xilinx.gnu.linker.input.261435527" superClass="xilinx.gnu.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -185,6 +199,8 @@
 									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lgcc,-lc,--end-group"/>
 								</option>
 								<option id="xilinx.gnu.c.linker.option.lscript.1693060839" name="Linker Script" superClass="xilinx.gnu.c.linker.option.lscript" value="../src/lscript.ld" valueType="string"/>
+								<option id="xilinx.gnu.mb.linker.inferred.norelax.1044998146" name="No relaxation (-Wl,--no-relax)" superClass="xilinx.gnu.mb.linker.inferred.norelax" value="true" valueType="boolean"/>
+								<option id="xilinx.gnu.mb.linker.inferred.garbage.798081247" name="Enable garbage collector (-Wl,--gc-sections)" superClass="xilinx.gnu.mb.linker.inferred.garbage" value="true" valueType="boolean"/>
 							</tool>
 							<tool id="xilinx.gnu.mb.size.release.2055798171" name="MicroBlaze Print Size" superClass="xilinx.gnu.mb.size.release"/>
 						</toolChain>

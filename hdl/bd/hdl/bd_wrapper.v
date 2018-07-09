@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Sat Jun 30 19:11:26 2018
+//Date        : Sun Jul  8 18:10:26 2018
 //Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 //Command     : generate_target bd_wrapper.bd
 //Design      : bd_wrapper
@@ -77,13 +77,13 @@ module bd_wrapper
   input M02_AXIS_0_tready;
   output [3:0]M02_AXIS_0_tuser;
   output M02_AXIS_0_tvalid;
-  input [7:0]S00_AXIS_0_tdata;
+  input [31:0]S00_AXIS_0_tdata;
   output S00_AXIS_0_tready;
   input S00_AXIS_0_tvalid;
-  input [7:0]S01_AXIS_0_tdata;
+  input [31:0]S01_AXIS_0_tdata;
   output S01_AXIS_0_tready;
   input S01_AXIS_0_tvalid;
-  input [7:0]S02_AXIS_0_tdata;
+  input [31:0]S02_AXIS_0_tdata;
   output S02_AXIS_0_tready;
   input S02_AXIS_0_tvalid;
   output clk_out2;
@@ -121,13 +121,13 @@ module bd_wrapper
   wire M02_AXIS_0_tready;
   wire [3:0]M02_AXIS_0_tuser;
   wire M02_AXIS_0_tvalid;
-  wire [7:0]S00_AXIS_0_tdata;
+  wire [31:0]S00_AXIS_0_tdata;
   wire S00_AXIS_0_tready;
   wire S00_AXIS_0_tvalid;
-  wire [7:0]S01_AXIS_0_tdata;
+  wire [31:0]S01_AXIS_0_tdata;
   wire S01_AXIS_0_tready;
   wire S01_AXIS_0_tvalid;
-  wire [7:0]S02_AXIS_0_tdata;
+  wire [31:0]S02_AXIS_0_tdata;
   wire S02_AXIS_0_tready;
   wire S02_AXIS_0_tvalid;
   wire clk_out2;

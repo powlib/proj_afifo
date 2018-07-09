@@ -15,12 +15,13 @@
 #include "xil_io.h"
 
 #define BUFF_TOTAL            ( 256 )
-#define DMA_TX_BDRING_ADDR	  ( 0xC0020000 )
-#define DMA_RX_BDRING_ADDR    ( 0xC0030000 )
+#define DMA_TX_BDRING_ADDR	  ( 0xC0002000 )
+#define DMA_RX_BDRING_ADDR    ( 0xC0003000 )
 #define DMA_ARCACHE 					( 0x3 )		/* Cache type */
 #define DMA_ARUSER 						( 0x0 )		/* Sideband signals */
 #define DMA_TUSER						( 0x0 )
 #define DMA_VSIZE						( 0x1 )		/* Vsize */
+#define MEMBAR							__asm__ __volatile__ ("" : : : "memory" );
 
 extern void test_run(u32 lane);
 

@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:55:57 2018
+-- Date        : Sun Jul  8 18:18:01 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top bd_m02_data_fifo_1 -prefix
---               bd_m02_data_fifo_1_ bd_m02_data_fifo_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_m02_data_fifo_1/bd_m02_data_fifo_1_sim_netlist.vhdl
 -- Design      : bd_m02_data_fifo_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,6 +28,8 @@ entity bd_m02_data_fifo_1_xpm_cdc_async_rst is
   attribute INIT_SYNC_FF of bd_m02_data_fifo_1_xpm_cdc_async_rst : entity is 0;
   attribute INV_DEF_VAL : string;
   attribute INV_DEF_VAL of bd_m02_data_fifo_1_xpm_cdc_async_rst : entity is "1'b1";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_xpm_cdc_async_rst : entity is "xpm_cdc_async_rst";
   attribute RST_ACTIVE_HIGH : integer;
   attribute RST_ACTIVE_HIGH of bd_m02_data_fifo_1_xpm_cdc_async_rst : entity is 1;
   attribute VERSION : integer;
@@ -156,6 +158,8 @@ entity bd_m02_data_fifo_1_dmem is
     \gcc0.gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_dmem : entity is "dmem";
 end bd_m02_data_fifo_1_dmem;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_dmem is
@@ -722,10 +726,10 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \bd_m02_data_fifo_1_dmem__parameterized0\ is
   port (
-    dout_i : out STD_LOGIC_VECTOR ( 36 downto 0 );
+    dout_i : out STD_LOGIC_VECTOR ( 38 downto 0 );
     s_aclk : in STD_LOGIC;
     ram_full_fb_i_reg : in STD_LOGIC_VECTOR ( 0 to 0 );
-    I16 : in STD_LOGIC_VECTOR ( 36 downto 0 );
+    I16 : in STD_LOGIC_VECTOR ( 38 downto 0 );
     \gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     Q : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
@@ -765,7 +769,9 @@ architecture STRUCTURE of \bd_m02_data_fifo_1_dmem__parameterized0\ is
   signal RAM_reg_0_31_30_35_n_3 : STD_LOGIC;
   signal RAM_reg_0_31_30_35_n_4 : STD_LOGIC;
   signal RAM_reg_0_31_30_35_n_5 : STD_LOGIC;
-  signal RAM_reg_0_31_36_36_n_1 : STD_LOGIC;
+  signal RAM_reg_0_31_36_38_n_0 : STD_LOGIC;
+  signal RAM_reg_0_31_36_38_n_1 : STD_LOGIC;
+  signal RAM_reg_0_31_36_38_n_3 : STD_LOGIC;
   signal RAM_reg_0_31_6_11_n_0 : STD_LOGIC;
   signal RAM_reg_0_31_6_11_n_1 : STD_LOGIC;
   signal RAM_reg_0_31_6_11_n_2 : STD_LOGIC;
@@ -777,10 +783,9 @@ architecture STRUCTURE of \bd_m02_data_fifo_1_dmem__parameterized0\ is
   signal NLW_RAM_reg_0_31_18_23_DOD_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_RAM_reg_0_31_24_29_DOD_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_RAM_reg_0_31_30_35_DOD_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal NLW_RAM_reg_0_31_36_36_DOA_UNCONNECTED : STD_LOGIC_VECTOR ( 1 to 1 );
-  signal NLW_RAM_reg_0_31_36_36_DOB_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal NLW_RAM_reg_0_31_36_36_DOC_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal NLW_RAM_reg_0_31_36_36_DOD_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal NLW_RAM_reg_0_31_36_38_DOB_UNCONNECTED : STD_LOGIC_VECTOR ( 1 to 1 );
+  signal NLW_RAM_reg_0_31_36_38_DOC_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal NLW_RAM_reg_0_31_36_38_DOD_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_RAM_reg_0_31_6_11_DOD_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute METHODOLOGY_DRC_VIOS : string;
   attribute METHODOLOGY_DRC_VIOS of RAM_reg_0_31_0_5 : label is "";
@@ -788,7 +793,7 @@ architecture STRUCTURE of \bd_m02_data_fifo_1_dmem__parameterized0\ is
   attribute METHODOLOGY_DRC_VIOS of RAM_reg_0_31_18_23 : label is "";
   attribute METHODOLOGY_DRC_VIOS of RAM_reg_0_31_24_29 : label is "";
   attribute METHODOLOGY_DRC_VIOS of RAM_reg_0_31_30_35 : label is "";
-  attribute METHODOLOGY_DRC_VIOS of RAM_reg_0_31_36_36 : label is "";
+  attribute METHODOLOGY_DRC_VIOS of RAM_reg_0_31_36_38 : label is "";
   attribute METHODOLOGY_DRC_VIOS of RAM_reg_0_31_6_11 : label is "";
 begin
 RAM_reg_0_31_0_5: unisim.vcomponents.RAM32M
@@ -891,22 +896,23 @@ RAM_reg_0_31_30_35: unisim.vcomponents.RAM32M
       WCLK => s_aclk,
       WE => ram_full_fb_i_reg(0)
     );
-RAM_reg_0_31_36_36: unisim.vcomponents.RAM32M
+RAM_reg_0_31_36_38: unisim.vcomponents.RAM32M
      port map (
       ADDRA(4 downto 0) => \gc0.count_d1_reg[4]\(4 downto 0),
       ADDRB(4 downto 0) => \gc0.count_d1_reg[4]\(4 downto 0),
       ADDRC(4 downto 0) => \gc0.count_d1_reg[4]\(4 downto 0),
       ADDRD(4 downto 0) => Q(4 downto 0),
-      DIA(1) => '0',
-      DIA(0) => I16(36),
-      DIB(1 downto 0) => B"00",
+      DIA(1 downto 0) => I16(37 downto 36),
+      DIB(1) => '0',
+      DIB(0) => I16(38),
       DIC(1 downto 0) => B"00",
       DID(1 downto 0) => B"00",
-      DOA(1) => NLW_RAM_reg_0_31_36_36_DOA_UNCONNECTED(1),
-      DOA(0) => RAM_reg_0_31_36_36_n_1,
-      DOB(1 downto 0) => NLW_RAM_reg_0_31_36_36_DOB_UNCONNECTED(1 downto 0),
-      DOC(1 downto 0) => NLW_RAM_reg_0_31_36_36_DOC_UNCONNECTED(1 downto 0),
-      DOD(1 downto 0) => NLW_RAM_reg_0_31_36_36_DOD_UNCONNECTED(1 downto 0),
+      DOA(1) => RAM_reg_0_31_36_38_n_0,
+      DOA(0) => RAM_reg_0_31_36_38_n_1,
+      DOB(1) => NLW_RAM_reg_0_31_36_38_DOB_UNCONNECTED(1),
+      DOB(0) => RAM_reg_0_31_36_38_n_3,
+      DOC(1 downto 0) => NLW_RAM_reg_0_31_36_38_DOC_UNCONNECTED(1 downto 0),
+      DOD(1 downto 0) => NLW_RAM_reg_0_31_36_38_DOD_UNCONNECTED(1 downto 0),
       WCLK => s_aclk,
       WE => ram_full_fb_i_reg(0)
     );
@@ -1256,8 +1262,30 @@ RAM_reg_0_31_6_11: unisim.vcomponents.RAM32M
         port map (
       C => s_aclk,
       CE => \gpregsm1.curr_fwft_state_reg[1]\(0),
-      D => RAM_reg_0_31_36_36_n_1,
+      D => RAM_reg_0_31_36_38_n_1,
       Q => dout_i(36),
+      R => '0'
+    );
+\gpr1.dout_i_reg[37]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_aclk,
+      CE => \gpregsm1.curr_fwft_state_reg[1]\(0),
+      D => RAM_reg_0_31_36_38_n_0,
+      Q => dout_i(37),
+      R => '0'
+    );
+\gpr1.dout_i_reg[38]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_aclk,
+      CE => \gpregsm1.curr_fwft_state_reg[1]\(0),
+      D => RAM_reg_0_31_36_38_n_3,
+      Q => dout_i(38),
       R => '0'
     );
 \gpr1.dout_i_reg[3]\: unisim.vcomponents.FDRE
@@ -1357,6 +1385,8 @@ entity bd_m02_data_fifo_1_rd_bin_cntr is
     s_aclk : in STD_LOGIC;
     \arststages_ff_reg[1]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_rd_bin_cntr : entity is "rd_bin_cntr";
 end bd_m02_data_fifo_1_rd_bin_cntr;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_rd_bin_cntr is
@@ -1880,6 +1910,8 @@ entity bd_m02_data_fifo_1_rd_fwft is
     m_axi_wready : in STD_LOGIC;
     \out\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_rd_fwft : entity is "rd_fwft";
 end bd_m02_data_fifo_1_rd_fwft;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_rd_fwft is
@@ -2303,7 +2335,7 @@ empty_fwft_i_reg: unisim.vcomponents.FDPE
       I4 => \out\,
       O => \gc0.count_reg[4]\(0)
     );
-\goreg_dm.dout_i[36]_i_1\: unisim.vcomponents.LUT5
+\goreg_dm.dout_i[38]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"04044404"
     )
@@ -2419,6 +2451,8 @@ entity bd_m02_data_fifo_1_rd_status_flags_ss is
     ram_full_fb_i_reg_0 : in STD_LOGIC;
     \gc0.count_d1_reg[2]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_rd_status_flags_ss : entity is "rd_status_flags_ss";
 end bd_m02_data_fifo_1_rd_status_flags_ss;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_rd_status_flags_ss is
@@ -2563,6 +2597,8 @@ entity bd_m02_data_fifo_1_wr_bin_cntr is
     s_aclk : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_wr_bin_cntr : entity is "wr_bin_cntr";
 end bd_m02_data_fifo_1_wr_bin_cntr;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_wr_bin_cntr is
@@ -3019,6 +3055,8 @@ entity bd_m02_data_fifo_1_wr_status_flags_ss is
     \grstd1.grst_full.grst_f.rst_d2_reg\ : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_wr_status_flags_ss : entity is "wr_status_flags_ss";
 end bd_m02_data_fifo_1_wr_status_flags_ss;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_wr_status_flags_ss is
@@ -3211,6 +3249,8 @@ entity bd_m02_data_fifo_1_memory is
     \gcc0.gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_memory : entity is "memory";
 end bd_m02_data_fifo_1_memory;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_memory is
@@ -3725,11 +3765,11 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \bd_m02_data_fifo_1_memory__parameterized0\ is
   port (
-    UNCONN_OUT : out STD_LOGIC_VECTOR ( 36 downto 0 );
+    \s_axi_rid[2]\ : out STD_LOGIC_VECTOR ( 38 downto 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_aclk : in STD_LOGIC;
     ram_full_fb_i_reg : in STD_LOGIC_VECTOR ( 0 to 0 );
-    I16 : in STD_LOGIC_VECTOR ( 36 downto 0 );
+    I16 : in STD_LOGIC_VECTOR ( 38 downto 0 );
     \gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     Q : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
@@ -3770,6 +3810,8 @@ architecture STRUCTURE of \bd_m02_data_fifo_1_memory__parameterized0\ is
   signal \gdm.dm_gen.dm_n_34\ : STD_LOGIC;
   signal \gdm.dm_gen.dm_n_35\ : STD_LOGIC;
   signal \gdm.dm_gen.dm_n_36\ : STD_LOGIC;
+  signal \gdm.dm_gen.dm_n_37\ : STD_LOGIC;
+  signal \gdm.dm_gen.dm_n_38\ : STD_LOGIC;
   signal \gdm.dm_gen.dm_n_4\ : STD_LOGIC;
   signal \gdm.dm_gen.dm_n_5\ : STD_LOGIC;
   signal \gdm.dm_gen.dm_n_6\ : STD_LOGIC;
@@ -3779,45 +3821,47 @@ architecture STRUCTURE of \bd_m02_data_fifo_1_memory__parameterized0\ is
 begin
 \gdm.dm_gen.dm\: entity work.\bd_m02_data_fifo_1_dmem__parameterized0\
      port map (
-      I16(36 downto 0) => I16(36 downto 0),
+      I16(38 downto 0) => I16(38 downto 0),
       Q(4 downto 0) => Q(4 downto 0),
-      dout_i(36) => \gdm.dm_gen.dm_n_0\,
-      dout_i(35) => \gdm.dm_gen.dm_n_1\,
-      dout_i(34) => \gdm.dm_gen.dm_n_2\,
-      dout_i(33) => \gdm.dm_gen.dm_n_3\,
-      dout_i(32) => \gdm.dm_gen.dm_n_4\,
-      dout_i(31) => \gdm.dm_gen.dm_n_5\,
-      dout_i(30) => \gdm.dm_gen.dm_n_6\,
-      dout_i(29) => \gdm.dm_gen.dm_n_7\,
-      dout_i(28) => \gdm.dm_gen.dm_n_8\,
-      dout_i(27) => \gdm.dm_gen.dm_n_9\,
-      dout_i(26) => \gdm.dm_gen.dm_n_10\,
-      dout_i(25) => \gdm.dm_gen.dm_n_11\,
-      dout_i(24) => \gdm.dm_gen.dm_n_12\,
-      dout_i(23) => \gdm.dm_gen.dm_n_13\,
-      dout_i(22) => \gdm.dm_gen.dm_n_14\,
-      dout_i(21) => \gdm.dm_gen.dm_n_15\,
-      dout_i(20) => \gdm.dm_gen.dm_n_16\,
-      dout_i(19) => \gdm.dm_gen.dm_n_17\,
-      dout_i(18) => \gdm.dm_gen.dm_n_18\,
-      dout_i(17) => \gdm.dm_gen.dm_n_19\,
-      dout_i(16) => \gdm.dm_gen.dm_n_20\,
-      dout_i(15) => \gdm.dm_gen.dm_n_21\,
-      dout_i(14) => \gdm.dm_gen.dm_n_22\,
-      dout_i(13) => \gdm.dm_gen.dm_n_23\,
-      dout_i(12) => \gdm.dm_gen.dm_n_24\,
-      dout_i(11) => \gdm.dm_gen.dm_n_25\,
-      dout_i(10) => \gdm.dm_gen.dm_n_26\,
-      dout_i(9) => \gdm.dm_gen.dm_n_27\,
-      dout_i(8) => \gdm.dm_gen.dm_n_28\,
-      dout_i(7) => \gdm.dm_gen.dm_n_29\,
-      dout_i(6) => \gdm.dm_gen.dm_n_30\,
-      dout_i(5) => \gdm.dm_gen.dm_n_31\,
-      dout_i(4) => \gdm.dm_gen.dm_n_32\,
-      dout_i(3) => \gdm.dm_gen.dm_n_33\,
-      dout_i(2) => \gdm.dm_gen.dm_n_34\,
-      dout_i(1) => \gdm.dm_gen.dm_n_35\,
-      dout_i(0) => \gdm.dm_gen.dm_n_36\,
+      dout_i(38) => \gdm.dm_gen.dm_n_0\,
+      dout_i(37) => \gdm.dm_gen.dm_n_1\,
+      dout_i(36) => \gdm.dm_gen.dm_n_2\,
+      dout_i(35) => \gdm.dm_gen.dm_n_3\,
+      dout_i(34) => \gdm.dm_gen.dm_n_4\,
+      dout_i(33) => \gdm.dm_gen.dm_n_5\,
+      dout_i(32) => \gdm.dm_gen.dm_n_6\,
+      dout_i(31) => \gdm.dm_gen.dm_n_7\,
+      dout_i(30) => \gdm.dm_gen.dm_n_8\,
+      dout_i(29) => \gdm.dm_gen.dm_n_9\,
+      dout_i(28) => \gdm.dm_gen.dm_n_10\,
+      dout_i(27) => \gdm.dm_gen.dm_n_11\,
+      dout_i(26) => \gdm.dm_gen.dm_n_12\,
+      dout_i(25) => \gdm.dm_gen.dm_n_13\,
+      dout_i(24) => \gdm.dm_gen.dm_n_14\,
+      dout_i(23) => \gdm.dm_gen.dm_n_15\,
+      dout_i(22) => \gdm.dm_gen.dm_n_16\,
+      dout_i(21) => \gdm.dm_gen.dm_n_17\,
+      dout_i(20) => \gdm.dm_gen.dm_n_18\,
+      dout_i(19) => \gdm.dm_gen.dm_n_19\,
+      dout_i(18) => \gdm.dm_gen.dm_n_20\,
+      dout_i(17) => \gdm.dm_gen.dm_n_21\,
+      dout_i(16) => \gdm.dm_gen.dm_n_22\,
+      dout_i(15) => \gdm.dm_gen.dm_n_23\,
+      dout_i(14) => \gdm.dm_gen.dm_n_24\,
+      dout_i(13) => \gdm.dm_gen.dm_n_25\,
+      dout_i(12) => \gdm.dm_gen.dm_n_26\,
+      dout_i(11) => \gdm.dm_gen.dm_n_27\,
+      dout_i(10) => \gdm.dm_gen.dm_n_28\,
+      dout_i(9) => \gdm.dm_gen.dm_n_29\,
+      dout_i(8) => \gdm.dm_gen.dm_n_30\,
+      dout_i(7) => \gdm.dm_gen.dm_n_31\,
+      dout_i(6) => \gdm.dm_gen.dm_n_32\,
+      dout_i(5) => \gdm.dm_gen.dm_n_33\,
+      dout_i(4) => \gdm.dm_gen.dm_n_34\,
+      dout_i(3) => \gdm.dm_gen.dm_n_35\,
+      dout_i(2) => \gdm.dm_gen.dm_n_36\,
+      dout_i(1) => \gdm.dm_gen.dm_n_37\,
+      dout_i(0) => \gdm.dm_gen.dm_n_38\,
       \gc0.count_d1_reg[4]\(4 downto 0) => \gc0.count_d1_reg[4]\(4 downto 0),
       \gpregsm1.curr_fwft_state_reg[1]\(0) => \gpregsm1.curr_fwft_state_reg[1]\(0),
       ram_full_fb_i_reg(0) => ram_full_fb_i_reg(0),
@@ -3830,8 +3874,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_36\,
-      Q => UNCONN_OUT(0),
+      D => \gdm.dm_gen.dm_n_38\,
+      Q => \s_axi_rid[2]\(0),
       R => '0'
     );
 \goreg_dm.dout_i_reg[10]\: unisim.vcomponents.FDRE
@@ -3841,8 +3885,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_26\,
-      Q => UNCONN_OUT(10),
+      D => \gdm.dm_gen.dm_n_28\,
+      Q => \s_axi_rid[2]\(10),
       R => '0'
     );
 \goreg_dm.dout_i_reg[11]\: unisim.vcomponents.FDRE
@@ -3852,8 +3896,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_25\,
-      Q => UNCONN_OUT(11),
+      D => \gdm.dm_gen.dm_n_27\,
+      Q => \s_axi_rid[2]\(11),
       R => '0'
     );
 \goreg_dm.dout_i_reg[12]\: unisim.vcomponents.FDRE
@@ -3863,8 +3907,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_24\,
-      Q => UNCONN_OUT(12),
+      D => \gdm.dm_gen.dm_n_26\,
+      Q => \s_axi_rid[2]\(12),
       R => '0'
     );
 \goreg_dm.dout_i_reg[13]\: unisim.vcomponents.FDRE
@@ -3874,8 +3918,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_23\,
-      Q => UNCONN_OUT(13),
+      D => \gdm.dm_gen.dm_n_25\,
+      Q => \s_axi_rid[2]\(13),
       R => '0'
     );
 \goreg_dm.dout_i_reg[14]\: unisim.vcomponents.FDRE
@@ -3885,8 +3929,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_22\,
-      Q => UNCONN_OUT(14),
+      D => \gdm.dm_gen.dm_n_24\,
+      Q => \s_axi_rid[2]\(14),
       R => '0'
     );
 \goreg_dm.dout_i_reg[15]\: unisim.vcomponents.FDRE
@@ -3896,8 +3940,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_21\,
-      Q => UNCONN_OUT(15),
+      D => \gdm.dm_gen.dm_n_23\,
+      Q => \s_axi_rid[2]\(15),
       R => '0'
     );
 \goreg_dm.dout_i_reg[16]\: unisim.vcomponents.FDRE
@@ -3907,8 +3951,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_20\,
-      Q => UNCONN_OUT(16),
+      D => \gdm.dm_gen.dm_n_22\,
+      Q => \s_axi_rid[2]\(16),
       R => '0'
     );
 \goreg_dm.dout_i_reg[17]\: unisim.vcomponents.FDRE
@@ -3918,8 +3962,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_19\,
-      Q => UNCONN_OUT(17),
+      D => \gdm.dm_gen.dm_n_21\,
+      Q => \s_axi_rid[2]\(17),
       R => '0'
     );
 \goreg_dm.dout_i_reg[18]\: unisim.vcomponents.FDRE
@@ -3929,8 +3973,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_18\,
-      Q => UNCONN_OUT(18),
+      D => \gdm.dm_gen.dm_n_20\,
+      Q => \s_axi_rid[2]\(18),
       R => '0'
     );
 \goreg_dm.dout_i_reg[19]\: unisim.vcomponents.FDRE
@@ -3940,8 +3984,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_17\,
-      Q => UNCONN_OUT(19),
+      D => \gdm.dm_gen.dm_n_19\,
+      Q => \s_axi_rid[2]\(19),
       R => '0'
     );
 \goreg_dm.dout_i_reg[1]\: unisim.vcomponents.FDRE
@@ -3951,8 +3995,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_35\,
-      Q => UNCONN_OUT(1),
+      D => \gdm.dm_gen.dm_n_37\,
+      Q => \s_axi_rid[2]\(1),
       R => '0'
     );
 \goreg_dm.dout_i_reg[20]\: unisim.vcomponents.FDRE
@@ -3962,8 +4006,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_16\,
-      Q => UNCONN_OUT(20),
+      D => \gdm.dm_gen.dm_n_18\,
+      Q => \s_axi_rid[2]\(20),
       R => '0'
     );
 \goreg_dm.dout_i_reg[21]\: unisim.vcomponents.FDRE
@@ -3973,8 +4017,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_15\,
-      Q => UNCONN_OUT(21),
+      D => \gdm.dm_gen.dm_n_17\,
+      Q => \s_axi_rid[2]\(21),
       R => '0'
     );
 \goreg_dm.dout_i_reg[22]\: unisim.vcomponents.FDRE
@@ -3984,8 +4028,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_14\,
-      Q => UNCONN_OUT(22),
+      D => \gdm.dm_gen.dm_n_16\,
+      Q => \s_axi_rid[2]\(22),
       R => '0'
     );
 \goreg_dm.dout_i_reg[23]\: unisim.vcomponents.FDRE
@@ -3995,8 +4039,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_13\,
-      Q => UNCONN_OUT(23),
+      D => \gdm.dm_gen.dm_n_15\,
+      Q => \s_axi_rid[2]\(23),
       R => '0'
     );
 \goreg_dm.dout_i_reg[24]\: unisim.vcomponents.FDRE
@@ -4006,8 +4050,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_12\,
-      Q => UNCONN_OUT(24),
+      D => \gdm.dm_gen.dm_n_14\,
+      Q => \s_axi_rid[2]\(24),
       R => '0'
     );
 \goreg_dm.dout_i_reg[25]\: unisim.vcomponents.FDRE
@@ -4017,8 +4061,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_11\,
-      Q => UNCONN_OUT(25),
+      D => \gdm.dm_gen.dm_n_13\,
+      Q => \s_axi_rid[2]\(25),
       R => '0'
     );
 \goreg_dm.dout_i_reg[26]\: unisim.vcomponents.FDRE
@@ -4028,8 +4072,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_10\,
-      Q => UNCONN_OUT(26),
+      D => \gdm.dm_gen.dm_n_12\,
+      Q => \s_axi_rid[2]\(26),
       R => '0'
     );
 \goreg_dm.dout_i_reg[27]\: unisim.vcomponents.FDRE
@@ -4039,8 +4083,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_9\,
-      Q => UNCONN_OUT(27),
+      D => \gdm.dm_gen.dm_n_11\,
+      Q => \s_axi_rid[2]\(27),
       R => '0'
     );
 \goreg_dm.dout_i_reg[28]\: unisim.vcomponents.FDRE
@@ -4050,8 +4094,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_8\,
-      Q => UNCONN_OUT(28),
+      D => \gdm.dm_gen.dm_n_10\,
+      Q => \s_axi_rid[2]\(28),
       R => '0'
     );
 \goreg_dm.dout_i_reg[29]\: unisim.vcomponents.FDRE
@@ -4061,8 +4105,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_7\,
-      Q => UNCONN_OUT(29),
+      D => \gdm.dm_gen.dm_n_9\,
+      Q => \s_axi_rid[2]\(29),
       R => '0'
     );
 \goreg_dm.dout_i_reg[2]\: unisim.vcomponents.FDRE
@@ -4072,8 +4116,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_34\,
-      Q => UNCONN_OUT(2),
+      D => \gdm.dm_gen.dm_n_36\,
+      Q => \s_axi_rid[2]\(2),
       R => '0'
     );
 \goreg_dm.dout_i_reg[30]\: unisim.vcomponents.FDRE
@@ -4083,8 +4127,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_6\,
-      Q => UNCONN_OUT(30),
+      D => \gdm.dm_gen.dm_n_8\,
+      Q => \s_axi_rid[2]\(30),
       R => '0'
     );
 \goreg_dm.dout_i_reg[31]\: unisim.vcomponents.FDRE
@@ -4094,8 +4138,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_5\,
-      Q => UNCONN_OUT(31),
+      D => \gdm.dm_gen.dm_n_7\,
+      Q => \s_axi_rid[2]\(31),
       R => '0'
     );
 \goreg_dm.dout_i_reg[32]\: unisim.vcomponents.FDRE
@@ -4105,8 +4149,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_4\,
-      Q => UNCONN_OUT(32),
+      D => \gdm.dm_gen.dm_n_6\,
+      Q => \s_axi_rid[2]\(32),
       R => '0'
     );
 \goreg_dm.dout_i_reg[33]\: unisim.vcomponents.FDRE
@@ -4116,8 +4160,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_3\,
-      Q => UNCONN_OUT(33),
+      D => \gdm.dm_gen.dm_n_5\,
+      Q => \s_axi_rid[2]\(33),
       R => '0'
     );
 \goreg_dm.dout_i_reg[34]\: unisim.vcomponents.FDRE
@@ -4127,8 +4171,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_2\,
-      Q => UNCONN_OUT(34),
+      D => \gdm.dm_gen.dm_n_4\,
+      Q => \s_axi_rid[2]\(34),
       R => '0'
     );
 \goreg_dm.dout_i_reg[35]\: unisim.vcomponents.FDRE
@@ -4138,8 +4182,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_1\,
-      Q => UNCONN_OUT(35),
+      D => \gdm.dm_gen.dm_n_3\,
+      Q => \s_axi_rid[2]\(35),
       R => '0'
     );
 \goreg_dm.dout_i_reg[36]\: unisim.vcomponents.FDRE
@@ -4149,8 +4193,30 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
+      D => \gdm.dm_gen.dm_n_2\,
+      Q => \s_axi_rid[2]\(36),
+      R => '0'
+    );
+\goreg_dm.dout_i_reg[37]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_aclk,
+      CE => E(0),
+      D => \gdm.dm_gen.dm_n_1\,
+      Q => \s_axi_rid[2]\(37),
+      R => '0'
+    );
+\goreg_dm.dout_i_reg[38]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_aclk,
+      CE => E(0),
       D => \gdm.dm_gen.dm_n_0\,
-      Q => UNCONN_OUT(36),
+      Q => \s_axi_rid[2]\(38),
       R => '0'
     );
 \goreg_dm.dout_i_reg[3]\: unisim.vcomponents.FDRE
@@ -4160,8 +4226,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_33\,
-      Q => UNCONN_OUT(3),
+      D => \gdm.dm_gen.dm_n_35\,
+      Q => \s_axi_rid[2]\(3),
       R => '0'
     );
 \goreg_dm.dout_i_reg[4]\: unisim.vcomponents.FDRE
@@ -4171,8 +4237,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_32\,
-      Q => UNCONN_OUT(4),
+      D => \gdm.dm_gen.dm_n_34\,
+      Q => \s_axi_rid[2]\(4),
       R => '0'
     );
 \goreg_dm.dout_i_reg[5]\: unisim.vcomponents.FDRE
@@ -4182,8 +4248,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_31\,
-      Q => UNCONN_OUT(5),
+      D => \gdm.dm_gen.dm_n_33\,
+      Q => \s_axi_rid[2]\(5),
       R => '0'
     );
 \goreg_dm.dout_i_reg[6]\: unisim.vcomponents.FDRE
@@ -4193,8 +4259,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_30\,
-      Q => UNCONN_OUT(6),
+      D => \gdm.dm_gen.dm_n_32\,
+      Q => \s_axi_rid[2]\(6),
       R => '0'
     );
 \goreg_dm.dout_i_reg[7]\: unisim.vcomponents.FDRE
@@ -4204,8 +4270,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_29\,
-      Q => UNCONN_OUT(7),
+      D => \gdm.dm_gen.dm_n_31\,
+      Q => \s_axi_rid[2]\(7),
       R => '0'
     );
 \goreg_dm.dout_i_reg[8]\: unisim.vcomponents.FDRE
@@ -4215,8 +4281,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_28\,
-      Q => UNCONN_OUT(8),
+      D => \gdm.dm_gen.dm_n_30\,
+      Q => \s_axi_rid[2]\(8),
       R => '0'
     );
 \goreg_dm.dout_i_reg[9]\: unisim.vcomponents.FDRE
@@ -4226,8 +4292,8 @@ begin
         port map (
       C => s_aclk,
       CE => E(0),
-      D => \gdm.dm_gen.dm_n_27\,
-      Q => UNCONN_OUT(9),
+      D => \gdm.dm_gen.dm_n_29\,
+      Q => \s_axi_rid[2]\(9),
       R => '0'
     );
 end STRUCTURE;
@@ -4252,6 +4318,8 @@ entity bd_m02_data_fifo_1_rd_logic is
     s_axi_wvalid : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_rd_logic : entity is "rd_logic";
 end bd_m02_data_fifo_1_rd_logic;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_rd_logic is
@@ -4391,6 +4459,8 @@ entity bd_m02_data_fifo_1_reset_blk_ramfifo is
     src_arst : in STD_LOGIC;
     s_aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_reset_blk_ramfifo : entity is "reset_blk_ramfifo";
 end bd_m02_data_fifo_1_reset_blk_ramfifo;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_reset_blk_ramfifo is
@@ -4773,6 +4843,8 @@ entity bd_m02_data_fifo_1_wr_logic is
     \grstd1.grst_full.grst_f.rst_d3_reg\ : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_wr_logic : entity is "wr_logic";
 end bd_m02_data_fifo_1_wr_logic;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_wr_logic is
@@ -4880,6 +4952,8 @@ entity bd_m02_data_fifo_1_fifo_generator_ramfifo is
     s_axi_wvalid : in STD_LOGIC;
     DI : in STD_LOGIC_VECTOR ( 37 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_fifo_generator_ramfifo : entity is "fifo_generator_ramfifo";
 end bd_m02_data_fifo_1_fifo_generator_ramfifo;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_fifo_generator_ramfifo is
@@ -4958,12 +5032,12 @@ entity \bd_m02_data_fifo_1_fifo_generator_ramfifo__parameterized0\ is
     src_arst : out STD_LOGIC;
     m_axi_rready : out STD_LOGIC;
     s_axi_rvalid : out STD_LOGIC;
-    UNCONN_OUT : out STD_LOGIC_VECTOR ( 36 downto 0 );
+    \s_axi_rid[2]\ : out STD_LOGIC_VECTOR ( 38 downto 0 );
     s_aclk : in STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
     m_axi_rvalid : in STD_LOGIC;
     s_aresetn : in STD_LOGIC;
-    I16 : in STD_LOGIC_VECTOR ( 36 downto 0 )
+    I16 : in STD_LOGIC_VECTOR ( 38 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \bd_m02_data_fifo_1_fifo_generator_ramfifo__parameterized0\ : entity is "fifo_generator_ramfifo";
@@ -5019,13 +5093,13 @@ begin
 \gntv_or_sync_fifo.mem\: entity work.\bd_m02_data_fifo_1_memory__parameterized0\
      port map (
       E(0) => \gntv_or_sync_fifo.gl0.rd_n_0\,
-      I16(36 downto 0) => I16(36 downto 0),
+      I16(38 downto 0) => I16(38 downto 0),
       Q(4 downto 0) => p_12_out(4 downto 0),
-      UNCONN_OUT(36 downto 0) => UNCONN_OUT(36 downto 0),
       \gc0.count_d1_reg[4]\(4 downto 0) => p_0_out(4 downto 0),
       \gpregsm1.curr_fwft_state_reg[1]\(0) => ram_rd_en_i,
       ram_full_fb_i_reg(0) => p_19_out,
-      s_aclk => s_aclk
+      s_aclk => s_aclk,
+      \s_axi_rid[2]\(38 downto 0) => \s_axi_rid[2]\(38 downto 0)
     );
 rstblk: entity work.\bd_m02_data_fifo_1_reset_blk_ramfifo__xdcDup__1\
      port map (
@@ -5052,6 +5126,8 @@ entity bd_m02_data_fifo_1_fifo_generator_top is
     s_axi_wvalid : in STD_LOGIC;
     DI : in STD_LOGIC_VECTOR ( 37 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_fifo_generator_top : entity is "fifo_generator_top";
 end bd_m02_data_fifo_1_fifo_generator_top;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_fifo_generator_top is
@@ -5077,12 +5153,12 @@ entity \bd_m02_data_fifo_1_fifo_generator_top__parameterized0\ is
     src_arst : out STD_LOGIC;
     m_axi_rready : out STD_LOGIC;
     s_axi_rvalid : out STD_LOGIC;
-    UNCONN_OUT : out STD_LOGIC_VECTOR ( 36 downto 0 );
+    \s_axi_rid[2]\ : out STD_LOGIC_VECTOR ( 38 downto 0 );
     s_aclk : in STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
     m_axi_rvalid : in STD_LOGIC;
     s_aresetn : in STD_LOGIC;
-    I16 : in STD_LOGIC_VECTOR ( 36 downto 0 )
+    I16 : in STD_LOGIC_VECTOR ( 38 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \bd_m02_data_fifo_1_fifo_generator_top__parameterized0\ : entity is "fifo_generator_top";
@@ -5092,12 +5168,12 @@ architecture STRUCTURE of \bd_m02_data_fifo_1_fifo_generator_top__parameterized0
 begin
 \grf.rf\: entity work.\bd_m02_data_fifo_1_fifo_generator_ramfifo__parameterized0\
      port map (
-      I16(36 downto 0) => I16(36 downto 0),
-      UNCONN_OUT(36 downto 0) => UNCONN_OUT(36 downto 0),
+      I16(38 downto 0) => I16(38 downto 0),
       m_axi_rready => m_axi_rready,
       m_axi_rvalid => m_axi_rvalid,
       s_aclk => s_aclk,
       s_aresetn => s_aresetn,
+      \s_axi_rid[2]\(38 downto 0) => \s_axi_rid[2]\(38 downto 0),
       s_axi_rready => s_axi_rready,
       s_axi_rvalid => s_axi_rvalid,
       src_arst => src_arst
@@ -5110,7 +5186,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity bd_m02_data_fifo_1_fifo_generator_v13_2_1_synth is
   port (
     Q : out STD_LOGIC_VECTOR ( 37 downto 0 );
-    UNCONN_OUT : out STD_LOGIC_VECTOR ( 36 downto 0 );
+    \s_axi_rid[2]\ : out STD_LOGIC_VECTOR ( 38 downto 0 );
     m_axi_rready : out STD_LOGIC;
     s_axi_rvalid : out STD_LOGIC;
     s_axi_wready : out STD_LOGIC;
@@ -5120,10 +5196,12 @@ entity bd_m02_data_fifo_1_fifo_generator_v13_2_1_synth is
     m_axi_rvalid : in STD_LOGIC;
     s_aclk : in STD_LOGIC;
     DI : in STD_LOGIC_VECTOR ( 37 downto 0 );
-    I16 : in STD_LOGIC_VECTOR ( 36 downto 0 );
+    I16 : in STD_LOGIC_VECTOR ( 38 downto 0 );
     s_axi_wvalid : in STD_LOGIC;
     s_aresetn : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_fifo_generator_v13_2_1_synth : entity is "fifo_generator_v13_2_1_synth";
 end bd_m02_data_fifo_1_fifo_generator_v13_2_1_synth;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_fifo_generator_v13_2_1_synth is
@@ -5131,12 +5209,12 @@ architecture STRUCTURE of bd_m02_data_fifo_1_fifo_generator_v13_2_1_synth is
 begin
 \gaxi_full_lite.gread_ch.grdch2.axi_rdch\: entity work.\bd_m02_data_fifo_1_fifo_generator_top__parameterized0\
      port map (
-      I16(36 downto 0) => I16(36 downto 0),
-      UNCONN_OUT(36 downto 0) => UNCONN_OUT(36 downto 0),
+      I16(38 downto 0) => I16(38 downto 0),
       m_axi_rready => m_axi_rready,
       m_axi_rvalid => m_axi_rvalid,
       s_aclk => s_aclk,
       s_aresetn => s_aresetn,
+      \s_axi_rid[2]\(38 downto 0) => \s_axi_rid[2]\(38 downto 0),
       s_axi_rready => s_axi_rready,
       s_axi_rvalid => s_axi_rvalid,
       src_arst => inverted_reset
@@ -5204,7 +5282,7 @@ entity bd_m02_data_fifo_1_fifo_generator_v13_2_1 is
     s_aresetn : in STD_LOGIC;
     m_aclk_en : in STD_LOGIC;
     s_aclk_en : in STD_LOGIC;
-    s_axi_awid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_awid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 14 downto 0 );
     s_axi_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -5217,19 +5295,19 @@ entity bd_m02_data_fifo_1_fifo_generator_v13_2_1 is
     s_axi_awuser : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_awvalid : in STD_LOGIC;
     s_axi_awready : out STD_LOGIC;
-    s_axi_wid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_wid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_wlast : in STD_LOGIC;
     s_axi_wuser : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_wvalid : in STD_LOGIC;
     s_axi_wready : out STD_LOGIC;
-    s_axi_bid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_bid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_buser : out STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_bvalid : out STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
-    m_axi_awid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_awid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_awaddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     m_axi_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -5242,19 +5320,19 @@ entity bd_m02_data_fifo_1_fifo_generator_v13_2_1 is
     m_axi_awuser : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_awvalid : out STD_LOGIC;
     m_axi_awready : in STD_LOGIC;
-    m_axi_wid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_wid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axi_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_wlast : out STD_LOGIC;
     m_axi_wuser : out STD_LOGIC_VECTOR ( 0 to 0 );
     m_axi_wvalid : out STD_LOGIC;
     m_axi_wready : in STD_LOGIC;
-    m_axi_bid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_bid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_buser : in STD_LOGIC_VECTOR ( 0 to 0 );
     m_axi_bvalid : in STD_LOGIC;
     m_axi_bready : out STD_LOGIC;
-    s_axi_arid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_arid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_araddr : in STD_LOGIC_VECTOR ( 14 downto 0 );
     s_axi_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -5267,14 +5345,14 @@ entity bd_m02_data_fifo_1_fifo_generator_v13_2_1 is
     s_axi_aruser : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_arvalid : in STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
-    s_axi_rid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_rid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rlast : out STD_LOGIC;
     s_axi_ruser : out STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    m_axi_arid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_arid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_araddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     m_axi_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -5287,7 +5365,7 @@ entity bd_m02_data_fifo_1_fifo_generator_v13_2_1 is
     m_axi_aruser : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_arvalid : out STD_LOGIC;
     m_axi_arready : in STD_LOGIC;
-    m_axi_rid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_rid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axi_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_rlast : in STD_LOGIC;
@@ -5430,7 +5508,7 @@ entity bd_m02_data_fifo_1_fifo_generator_v13_2_1 is
   attribute C_AXI_DATA_WIDTH : integer;
   attribute C_AXI_DATA_WIDTH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 32;
   attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 1;
+  attribute C_AXI_ID_WIDTH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 3;
   attribute C_AXI_LEN_WIDTH : integer;
   attribute C_AXI_LEN_WIDTH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 8;
   attribute C_AXI_LOCK_WIDTH : integer;
@@ -5454,11 +5532,11 @@ entity bd_m02_data_fifo_1_fifo_generator_v13_2_1 is
   attribute C_DIN_WIDTH_AXIS : integer;
   attribute C_DIN_WIDTH_AXIS of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 1;
   attribute C_DIN_WIDTH_RACH : integer;
-  attribute C_DIN_WIDTH_RACH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 49;
+  attribute C_DIN_WIDTH_RACH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 51;
   attribute C_DIN_WIDTH_RDCH : integer;
-  attribute C_DIN_WIDTH_RDCH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 37;
+  attribute C_DIN_WIDTH_RDCH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 39;
   attribute C_DIN_WIDTH_WACH : integer;
-  attribute C_DIN_WIDTH_WACH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 49;
+  attribute C_DIN_WIDTH_WACH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 51;
   attribute C_DIN_WIDTH_WDCH : integer;
   attribute C_DIN_WIDTH_WDCH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 38;
   attribute C_DIN_WIDTH_WRCH : integer;
@@ -5795,6 +5873,8 @@ entity bd_m02_data_fifo_1_fifo_generator_v13_2_1 is
   attribute C_WR_PNTR_WIDTH_WRCH of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 4;
   attribute C_WR_RESPONSE_LATENCY : integer;
   attribute C_WR_RESPONSE_LATENCY of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is 1;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_fifo_generator_v13_2_1 : entity is "fifo_generator_v13_2_1";
 end bd_m02_data_fifo_1_fifo_generator_v13_2_1;
 
 architecture STRUCTURE of bd_m02_data_fifo_1_fifo_generator_v13_2_1 is
@@ -6010,6 +6090,8 @@ begin
   m_axi_arcache(2) <= \<const0>\;
   m_axi_arcache(1) <= \<const0>\;
   m_axi_arcache(0) <= \<const0>\;
+  m_axi_arid(2) <= \<const0>\;
+  m_axi_arid(1) <= \<const0>\;
   m_axi_arid(0) <= \<const0>\;
   m_axi_arlen(7) <= \<const0>\;
   m_axi_arlen(6) <= \<const0>\;
@@ -6060,6 +6142,8 @@ begin
   m_axi_awcache(2) <= \<const0>\;
   m_axi_awcache(1) <= \<const0>\;
   m_axi_awcache(0) <= \<const0>\;
+  m_axi_awid(2) <= \<const0>\;
+  m_axi_awid(1) <= \<const0>\;
   m_axi_awid(0) <= \<const0>\;
   m_axi_awlen(7) <= \<const0>\;
   m_axi_awlen(6) <= \<const0>\;
@@ -6090,6 +6174,8 @@ begin
   m_axi_awuser(0) <= \<const0>\;
   m_axi_awvalid <= \<const0>\;
   m_axi_bready <= \<const0>\;
+  m_axi_wid(2) <= \<const0>\;
+  m_axi_wid(1) <= \<const0>\;
   m_axi_wid(0) <= \<const0>\;
   m_axis_tdata(63) <= \<const0>\;
   m_axis_tdata(62) <= \<const0>\;
@@ -6197,6 +6283,8 @@ begin
   rd_rst_busy <= \<const0>\;
   s_axi_arready <= \<const0>\;
   s_axi_awready <= \<const0>\;
+  s_axi_bid(2) <= \<const0>\;
+  s_axi_bid(1) <= \<const0>\;
   s_axi_bid(0) <= \<const0>\;
   s_axi_bresp(1) <= \<const0>\;
   s_axi_bresp(0) <= \<const0>\;
@@ -6228,7 +6316,7 @@ inst_fifo_gen: entity work.bd_m02_data_fifo_1_fifo_generator_v13_2_1_synth
       DI(5 downto 2) => s_axi_wstrb(3 downto 0),
       DI(1) => s_axi_wuser(0),
       DI(0) => s_axi_wlast,
-      I16(36) => m_axi_rid(0),
+      I16(38 downto 36) => m_axi_rid(2 downto 0),
       I16(35 downto 4) => m_axi_rdata(31 downto 0),
       I16(3 downto 2) => m_axi_rresp(1 downto 0),
       I16(1) => m_axi_ruser(0),
@@ -6237,17 +6325,17 @@ inst_fifo_gen: entity work.bd_m02_data_fifo_1_fifo_generator_v13_2_1_synth
       Q(5 downto 2) => m_axi_wstrb(3 downto 0),
       Q(1) => m_axi_wuser(0),
       Q(0) => m_axi_wlast,
-      UNCONN_OUT(36) => s_axi_rid(0),
-      UNCONN_OUT(35 downto 4) => s_axi_rdata(31 downto 0),
-      UNCONN_OUT(3 downto 2) => s_axi_rresp(1 downto 0),
-      UNCONN_OUT(1) => s_axi_ruser(0),
-      UNCONN_OUT(0) => s_axi_rlast,
       m_axi_rready => m_axi_rready,
       m_axi_rvalid => m_axi_rvalid,
       m_axi_wready => m_axi_wready,
       m_axi_wvalid => m_axi_wvalid,
       s_aclk => s_aclk,
       s_aresetn => s_aresetn,
+      \s_axi_rid[2]\(38 downto 36) => s_axi_rid(2 downto 0),
+      \s_axi_rid[2]\(35 downto 4) => s_axi_rdata(31 downto 0),
+      \s_axi_rid[2]\(3 downto 2) => s_axi_rresp(1 downto 0),
+      \s_axi_rid[2]\(1) => s_axi_ruser(0),
+      \s_axi_rid[2]\(0) => s_axi_rlast,
       s_axi_rready => s_axi_rready,
       s_axi_rvalid => s_axi_rvalid,
       s_axi_wready => s_axi_wready,
@@ -6262,7 +6350,7 @@ entity bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo is
   port (
     aclk : in STD_LOGIC;
     aresetn : in STD_LOGIC;
-    s_axi_awid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_awid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 14 downto 0 );
     s_axi_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6275,19 +6363,19 @@ entity bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo is
     s_axi_awuser : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_awvalid : in STD_LOGIC;
     s_axi_awready : out STD_LOGIC;
-    s_axi_wid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_wid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_wlast : in STD_LOGIC;
     s_axi_wuser : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_wvalid : in STD_LOGIC;
     s_axi_wready : out STD_LOGIC;
-    s_axi_bid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_bid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_buser : out STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_bvalid : out STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
-    s_axi_arid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_arid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_araddr : in STD_LOGIC_VECTOR ( 14 downto 0 );
     s_axi_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6300,14 +6388,14 @@ entity bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo is
     s_axi_aruser : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_arvalid : in STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
-    s_axi_rid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_rid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rlast : out STD_LOGIC;
     s_axi_ruser : out STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    m_axi_awid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_awid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_awaddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     m_axi_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6320,19 +6408,19 @@ entity bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo is
     m_axi_awuser : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_awvalid : out STD_LOGIC;
     m_axi_awready : in STD_LOGIC;
-    m_axi_wid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_wid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axi_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_wlast : out STD_LOGIC;
     m_axi_wuser : out STD_LOGIC_VECTOR ( 0 to 0 );
     m_axi_wvalid : out STD_LOGIC;
     m_axi_wready : in STD_LOGIC;
-    m_axi_bid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_bid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_buser : in STD_LOGIC_VECTOR ( 0 to 0 );
     m_axi_bvalid : in STD_LOGIC;
     m_axi_bready : out STD_LOGIC;
-    m_axi_arid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_arid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_araddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     m_axi_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6345,7 +6433,7 @@ entity bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo is
     m_axi_aruser : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_arvalid : out STD_LOGIC;
     m_axi_arready : in STD_LOGIC;
-    m_axi_rid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_rid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axi_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_rlast : in STD_LOGIC;
@@ -6364,7 +6452,7 @@ entity bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo is
   attribute C_AXI_DATA_WIDTH : integer;
   attribute C_AXI_DATA_WIDTH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 32;
   attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 1;
+  attribute C_AXI_ID_WIDTH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 3;
   attribute C_AXI_PROTOCOL : integer;
   attribute C_AXI_PROTOCOL of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 0;
   attribute C_AXI_READ_FIFO_DELAY : integer;
@@ -6389,6 +6477,8 @@ entity bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo is
   attribute C_FAMILY of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is "artix7";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is "yes";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is "axi_data_fifo_v2_1_14_axi_data_fifo";
   attribute P_AXI3 : integer;
   attribute P_AXI3 of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 1;
   attribute P_AXI4 : integer;
@@ -6400,15 +6490,15 @@ entity bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo is
   attribute P_READ_FIFO_DEPTH_LOG : integer;
   attribute P_READ_FIFO_DEPTH_LOG of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 5;
   attribute P_WIDTH_RACH : integer;
-  attribute P_WIDTH_RACH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 49;
+  attribute P_WIDTH_RACH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 51;
   attribute P_WIDTH_RDCH : integer;
-  attribute P_WIDTH_RDCH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 37;
+  attribute P_WIDTH_RDCH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 39;
   attribute P_WIDTH_WACH : integer;
-  attribute P_WIDTH_WACH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 49;
+  attribute P_WIDTH_WACH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 51;
   attribute P_WIDTH_WDCH : integer;
   attribute P_WIDTH_WDCH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 38;
   attribute P_WIDTH_WRCH : integer;
-  attribute P_WIDTH_WRCH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 4;
+  attribute P_WIDTH_WRCH of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 6;
   attribute P_WRITE_FIFO_DEPTH_LOG : integer;
   attribute P_WRITE_FIFO_DEPTH_LOG of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo : entity is 5;
 end bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo;
@@ -6417,14 +6507,14 @@ architecture STRUCTURE of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
   signal \<const0>\ : STD_LOGIC;
   signal \^m_axi_arready\ : STD_LOGIC;
   signal \^m_axi_awready\ : STD_LOGIC;
-  signal \^m_axi_bid\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \^m_axi_bid\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \^m_axi_bresp\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \^m_axi_buser\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^m_axi_bvalid\ : STD_LOGIC;
   signal \^s_axi_araddr\ : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal \^s_axi_arburst\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \^s_axi_arcache\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \^s_axi_arid\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \^s_axi_arid\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \^s_axi_arlen\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \^s_axi_arlock\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^s_axi_arprot\ : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6436,7 +6526,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
   signal \^s_axi_awaddr\ : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal \^s_axi_awburst\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \^s_axi_awcache\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \^s_axi_awid\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \^s_axi_awid\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \^s_axi_awlen\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \^s_axi_awlock\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^s_axi_awprot\ : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6528,7 +6618,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_araddr_UNCONNECTED\ : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_arburst_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_arcache_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \NLW_gen_fifo.fifo_gen_inst_m_axi_arid_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \NLW_gen_fifo.fifo_gen_inst_m_axi_arid_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_arlen_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_arlock_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_arprot_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6539,7 +6629,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awaddr_UNCONNECTED\ : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awburst_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awcache_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awid_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awid_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awlen_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awlock_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awprot_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6547,7 +6637,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awregion_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awsize_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axi_awuser_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \NLW_gen_fifo.fifo_gen_inst_m_axi_wid_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \NLW_gen_fifo.fifo_gen_inst_m_axi_wid_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axis_tdata_UNCONNECTED\ : STD_LOGIC_VECTOR ( 63 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axis_tdest_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axis_tid_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -6555,7 +6645,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
   signal \NLW_gen_fifo.fifo_gen_inst_m_axis_tstrb_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_m_axis_tuser_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_rd_data_count_UNCONNECTED\ : STD_LOGIC_VECTOR ( 9 downto 0 );
-  signal \NLW_gen_fifo.fifo_gen_inst_s_axi_bid_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \NLW_gen_fifo.fifo_gen_inst_s_axi_bid_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_s_axi_bresp_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_s_axi_buser_UNCONNECTED\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \NLW_gen_fifo.fifo_gen_inst_wr_data_count_UNCONNECTED\ : STD_LOGIC_VECTOR ( 9 downto 0 );
@@ -6592,7 +6682,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
   attribute C_AXI_AWUSER_WIDTH of \gen_fifo.fifo_gen_inst\ : label is 4;
   attribute C_AXI_BUSER_WIDTH of \gen_fifo.fifo_gen_inst\ : label is 1;
   attribute C_AXI_DATA_WIDTH of \gen_fifo.fifo_gen_inst\ : label is 32;
-  attribute C_AXI_ID_WIDTH of \gen_fifo.fifo_gen_inst\ : label is 1;
+  attribute C_AXI_ID_WIDTH of \gen_fifo.fifo_gen_inst\ : label is 3;
   attribute C_AXI_LEN_WIDTH : integer;
   attribute C_AXI_LEN_WIDTH of \gen_fifo.fifo_gen_inst\ : label is 8;
   attribute C_AXI_LOCK_WIDTH : integer;
@@ -6614,11 +6704,11 @@ architecture STRUCTURE of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
   attribute C_DIN_WIDTH_AXIS : integer;
   attribute C_DIN_WIDTH_AXIS of \gen_fifo.fifo_gen_inst\ : label is 1;
   attribute C_DIN_WIDTH_RACH : integer;
-  attribute C_DIN_WIDTH_RACH of \gen_fifo.fifo_gen_inst\ : label is 49;
+  attribute C_DIN_WIDTH_RACH of \gen_fifo.fifo_gen_inst\ : label is 51;
   attribute C_DIN_WIDTH_RDCH : integer;
-  attribute C_DIN_WIDTH_RDCH of \gen_fifo.fifo_gen_inst\ : label is 37;
+  attribute C_DIN_WIDTH_RDCH of \gen_fifo.fifo_gen_inst\ : label is 39;
   attribute C_DIN_WIDTH_WACH : integer;
-  attribute C_DIN_WIDTH_WACH of \gen_fifo.fifo_gen_inst\ : label is 49;
+  attribute C_DIN_WIDTH_WACH of \gen_fifo.fifo_gen_inst\ : label is 51;
   attribute C_DIN_WIDTH_WDCH : integer;
   attribute C_DIN_WIDTH_WDCH of \gen_fifo.fifo_gen_inst\ : label is 38;
   attribute C_DIN_WIDTH_WRCH : integer;
@@ -6957,14 +7047,14 @@ architecture STRUCTURE of bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
 begin
   \^m_axi_arready\ <= m_axi_arready;
   \^m_axi_awready\ <= m_axi_awready;
-  \^m_axi_bid\(0) <= m_axi_bid(0);
+  \^m_axi_bid\(2 downto 0) <= m_axi_bid(2 downto 0);
   \^m_axi_bresp\(1 downto 0) <= m_axi_bresp(1 downto 0);
   \^m_axi_buser\(0) <= m_axi_buser(0);
   \^m_axi_bvalid\ <= m_axi_bvalid;
   \^s_axi_araddr\(14 downto 0) <= s_axi_araddr(14 downto 0);
   \^s_axi_arburst\(1 downto 0) <= s_axi_arburst(1 downto 0);
   \^s_axi_arcache\(3 downto 0) <= s_axi_arcache(3 downto 0);
-  \^s_axi_arid\(0) <= s_axi_arid(0);
+  \^s_axi_arid\(2 downto 0) <= s_axi_arid(2 downto 0);
   \^s_axi_arlen\(7 downto 0) <= s_axi_arlen(7 downto 0);
   \^s_axi_arlock\(0) <= s_axi_arlock(0);
   \^s_axi_arprot\(2 downto 0) <= s_axi_arprot(2 downto 0);
@@ -6976,7 +7066,7 @@ begin
   \^s_axi_awaddr\(14 downto 0) <= s_axi_awaddr(14 downto 0);
   \^s_axi_awburst\(1 downto 0) <= s_axi_awburst(1 downto 0);
   \^s_axi_awcache\(3 downto 0) <= s_axi_awcache(3 downto 0);
-  \^s_axi_awid\(0) <= s_axi_awid(0);
+  \^s_axi_awid\(2 downto 0) <= s_axi_awid(2 downto 0);
   \^s_axi_awlen\(7 downto 0) <= s_axi_awlen(7 downto 0);
   \^s_axi_awlock\(0) <= s_axi_awlock(0);
   \^s_axi_awprot\(2 downto 0) <= s_axi_awprot(2 downto 0);
@@ -6989,7 +7079,7 @@ begin
   m_axi_araddr(14 downto 0) <= \^s_axi_araddr\(14 downto 0);
   m_axi_arburst(1 downto 0) <= \^s_axi_arburst\(1 downto 0);
   m_axi_arcache(3 downto 0) <= \^s_axi_arcache\(3 downto 0);
-  m_axi_arid(0) <= \^s_axi_arid\(0);
+  m_axi_arid(2 downto 0) <= \^s_axi_arid\(2 downto 0);
   m_axi_arlen(7 downto 0) <= \^s_axi_arlen\(7 downto 0);
   m_axi_arlock(0) <= \^s_axi_arlock\(0);
   m_axi_arprot(2 downto 0) <= \^s_axi_arprot\(2 downto 0);
@@ -7001,7 +7091,7 @@ begin
   m_axi_awaddr(14 downto 0) <= \^s_axi_awaddr\(14 downto 0);
   m_axi_awburst(1 downto 0) <= \^s_axi_awburst\(1 downto 0);
   m_axi_awcache(3 downto 0) <= \^s_axi_awcache\(3 downto 0);
-  m_axi_awid(0) <= \^s_axi_awid\(0);
+  m_axi_awid(2 downto 0) <= \^s_axi_awid\(2 downto 0);
   m_axi_awlen(7 downto 0) <= \^s_axi_awlen\(7 downto 0);
   m_axi_awlock(0) <= \^s_axi_awlock\(0);
   m_axi_awprot(2 downto 0) <= \^s_axi_awprot\(2 downto 0);
@@ -7011,10 +7101,12 @@ begin
   m_axi_awuser(3 downto 0) <= \^s_axi_awuser\(3 downto 0);
   m_axi_awvalid <= \^s_axi_awvalid\;
   m_axi_bready <= \^s_axi_bready\;
+  m_axi_wid(2) <= \<const0>\;
+  m_axi_wid(1) <= \<const0>\;
   m_axi_wid(0) <= \<const0>\;
   s_axi_arready <= \^m_axi_arready\;
   s_axi_awready <= \^m_axi_awready\;
-  s_axi_bid(0) <= \^m_axi_bid\(0);
+  s_axi_bid(2 downto 0) <= \^m_axi_bid\(2 downto 0);
   s_axi_bresp(1 downto 0) <= \^m_axi_bresp\(1 downto 0);
   s_axi_buser(0) <= \^m_axi_buser\(0);
   s_axi_bvalid <= \^m_axi_bvalid\;
@@ -7121,7 +7213,7 @@ GND: unisim.vcomponents.GND
       m_axi_araddr(14 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_araddr_UNCONNECTED\(14 downto 0),
       m_axi_arburst(1 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_arburst_UNCONNECTED\(1 downto 0),
       m_axi_arcache(3 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_arcache_UNCONNECTED\(3 downto 0),
-      m_axi_arid(0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_arid_UNCONNECTED\(0),
+      m_axi_arid(2 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_arid_UNCONNECTED\(2 downto 0),
       m_axi_arlen(7 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_arlen_UNCONNECTED\(7 downto 0),
       m_axi_arlock(0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_arlock_UNCONNECTED\(0),
       m_axi_arprot(2 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_arprot_UNCONNECTED\(2 downto 0),
@@ -7134,7 +7226,7 @@ GND: unisim.vcomponents.GND
       m_axi_awaddr(14 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awaddr_UNCONNECTED\(14 downto 0),
       m_axi_awburst(1 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awburst_UNCONNECTED\(1 downto 0),
       m_axi_awcache(3 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awcache_UNCONNECTED\(3 downto 0),
-      m_axi_awid(0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awid_UNCONNECTED\(0),
+      m_axi_awid(2 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awid_UNCONNECTED\(2 downto 0),
       m_axi_awlen(7 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awlen_UNCONNECTED\(7 downto 0),
       m_axi_awlock(0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awlock_UNCONNECTED\(0),
       m_axi_awprot(2 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awprot_UNCONNECTED\(2 downto 0),
@@ -7144,20 +7236,20 @@ GND: unisim.vcomponents.GND
       m_axi_awsize(2 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awsize_UNCONNECTED\(2 downto 0),
       m_axi_awuser(3 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_awuser_UNCONNECTED\(3 downto 0),
       m_axi_awvalid => \NLW_gen_fifo.fifo_gen_inst_m_axi_awvalid_UNCONNECTED\,
-      m_axi_bid(0) => '0',
+      m_axi_bid(2 downto 0) => B"000",
       m_axi_bready => \NLW_gen_fifo.fifo_gen_inst_m_axi_bready_UNCONNECTED\,
       m_axi_bresp(1 downto 0) => B"00",
       m_axi_buser(0) => '0',
       m_axi_bvalid => '0',
       m_axi_rdata(31 downto 0) => m_axi_rdata(31 downto 0),
-      m_axi_rid(0) => m_axi_rid(0),
+      m_axi_rid(2 downto 0) => m_axi_rid(2 downto 0),
       m_axi_rlast => m_axi_rlast,
       m_axi_rready => m_axi_rready,
       m_axi_rresp(1 downto 0) => m_axi_rresp(1 downto 0),
       m_axi_ruser(0) => m_axi_ruser(0),
       m_axi_rvalid => m_axi_rvalid,
       m_axi_wdata(31 downto 0) => m_axi_wdata(31 downto 0),
-      m_axi_wid(0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_wid_UNCONNECTED\(0),
+      m_axi_wid(2 downto 0) => \NLW_gen_fifo.fifo_gen_inst_m_axi_wid_UNCONNECTED\(2 downto 0),
       m_axi_wlast => m_axi_wlast,
       m_axi_wready => m_axi_wready,
       m_axi_wstrb(3 downto 0) => m_axi_wstrb(3 downto 0),
@@ -7193,7 +7285,7 @@ GND: unisim.vcomponents.GND
       s_axi_araddr(14 downto 0) => B"000000000000000",
       s_axi_arburst(1 downto 0) => B"00",
       s_axi_arcache(3 downto 0) => B"0000",
-      s_axi_arid(0) => '0',
+      s_axi_arid(2 downto 0) => B"000",
       s_axi_arlen(7 downto 0) => B"00000000",
       s_axi_arlock(0) => '0',
       s_axi_arprot(2 downto 0) => B"000",
@@ -7206,7 +7298,7 @@ GND: unisim.vcomponents.GND
       s_axi_awaddr(14 downto 0) => B"000000000000000",
       s_axi_awburst(1 downto 0) => B"00",
       s_axi_awcache(3 downto 0) => B"0000",
-      s_axi_awid(0) => '0',
+      s_axi_awid(2 downto 0) => B"000",
       s_axi_awlen(7 downto 0) => B"00000000",
       s_axi_awlock(0) => '0',
       s_axi_awprot(2 downto 0) => B"000",
@@ -7216,20 +7308,20 @@ GND: unisim.vcomponents.GND
       s_axi_awsize(2 downto 0) => B"000",
       s_axi_awuser(3 downto 0) => B"0000",
       s_axi_awvalid => '0',
-      s_axi_bid(0) => \NLW_gen_fifo.fifo_gen_inst_s_axi_bid_UNCONNECTED\(0),
+      s_axi_bid(2 downto 0) => \NLW_gen_fifo.fifo_gen_inst_s_axi_bid_UNCONNECTED\(2 downto 0),
       s_axi_bready => '0',
       s_axi_bresp(1 downto 0) => \NLW_gen_fifo.fifo_gen_inst_s_axi_bresp_UNCONNECTED\(1 downto 0),
       s_axi_buser(0) => \NLW_gen_fifo.fifo_gen_inst_s_axi_buser_UNCONNECTED\(0),
       s_axi_bvalid => \NLW_gen_fifo.fifo_gen_inst_s_axi_bvalid_UNCONNECTED\,
       s_axi_rdata(31 downto 0) => s_axi_rdata(31 downto 0),
-      s_axi_rid(0) => s_axi_rid(0),
+      s_axi_rid(2 downto 0) => s_axi_rid(2 downto 0),
       s_axi_rlast => s_axi_rlast,
       s_axi_rready => s_axi_rready,
       s_axi_rresp(1 downto 0) => s_axi_rresp(1 downto 0),
       s_axi_ruser(0) => s_axi_ruser(0),
       s_axi_rvalid => s_axi_rvalid,
       s_axi_wdata(31 downto 0) => s_axi_wdata(31 downto 0),
-      s_axi_wid(0) => '0',
+      s_axi_wid(2 downto 0) => B"000",
       s_axi_wlast => s_axi_wlast,
       s_axi_wready => s_axi_wready,
       s_axi_wstrb(3 downto 0) => s_axi_wstrb(3 downto 0),
@@ -7265,6 +7357,7 @@ entity bd_m02_data_fifo_1 is
   port (
     aclk : in STD_LOGIC;
     aresetn : in STD_LOGIC;
+    s_axi_awid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 14 downto 0 );
     s_axi_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -7282,9 +7375,11 @@ entity bd_m02_data_fifo_1 is
     s_axi_wlast : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC;
     s_axi_wready : out STD_LOGIC;
+    s_axi_bid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_bvalid : out STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
+    s_axi_arid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_araddr : in STD_LOGIC_VECTOR ( 14 downto 0 );
     s_axi_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -7297,11 +7392,13 @@ entity bd_m02_data_fifo_1 is
     s_axi_aruser : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_arvalid : in STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
+    s_axi_rid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rlast : out STD_LOGIC;
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
+    m_axi_awid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_awaddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     m_axi_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -7319,9 +7416,11 @@ entity bd_m02_data_fifo_1 is
     m_axi_wlast : out STD_LOGIC;
     m_axi_wvalid : out STD_LOGIC;
     m_axi_wready : in STD_LOGIC;
+    m_axi_bid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_bvalid : in STD_LOGIC;
     m_axi_bready : out STD_LOGIC;
+    m_axi_arid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_araddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     m_axi_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -7334,6 +7433,7 @@ entity bd_m02_data_fifo_1 is
     m_axi_aruser : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_arvalid : out STD_LOGIC;
     m_axi_arready : in STD_LOGIC;
+    m_axi_rid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axi_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_rlast : in STD_LOGIC;
@@ -7351,13 +7451,9 @@ entity bd_m02_data_fifo_1 is
 end bd_m02_data_fifo_1;
 
 architecture STRUCTURE of bd_m02_data_fifo_1 is
-  signal NLW_inst_m_axi_arid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_inst_m_axi_awid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_inst_m_axi_wid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_inst_m_axi_wid_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal NLW_inst_m_axi_wuser_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_inst_s_axi_bid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_inst_s_axi_buser_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_inst_s_axi_rid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_inst_s_axi_ruser_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   attribute C_AXI_ADDR_WIDTH : integer;
   attribute C_AXI_ADDR_WIDTH of inst : label is 15;
@@ -7370,7 +7466,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1 is
   attribute C_AXI_DATA_WIDTH : integer;
   attribute C_AXI_DATA_WIDTH of inst : label is 32;
   attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of inst : label is 1;
+  attribute C_AXI_ID_WIDTH of inst : label is 3;
   attribute C_AXI_PROTOCOL : integer;
   attribute C_AXI_PROTOCOL of inst : label is 0;
   attribute C_AXI_READ_FIFO_DELAY : integer;
@@ -7404,15 +7500,15 @@ architecture STRUCTURE of bd_m02_data_fifo_1 is
   attribute P_READ_FIFO_DEPTH_LOG : integer;
   attribute P_READ_FIFO_DEPTH_LOG of inst : label is 5;
   attribute P_WIDTH_RACH : integer;
-  attribute P_WIDTH_RACH of inst : label is 49;
+  attribute P_WIDTH_RACH of inst : label is 51;
   attribute P_WIDTH_RDCH : integer;
-  attribute P_WIDTH_RDCH of inst : label is 37;
+  attribute P_WIDTH_RDCH of inst : label is 39;
   attribute P_WIDTH_WACH : integer;
-  attribute P_WIDTH_WACH of inst : label is 49;
+  attribute P_WIDTH_WACH of inst : label is 51;
   attribute P_WIDTH_WDCH : integer;
   attribute P_WIDTH_WDCH of inst : label is 38;
   attribute P_WIDTH_WRCH : integer;
-  attribute P_WIDTH_WRCH of inst : label is 4;
+  attribute P_WIDTH_WRCH of inst : label is 6;
   attribute P_WRITE_FIFO_DEPTH_LOG : integer;
   attribute P_WRITE_FIFO_DEPTH_LOG of inst : label is 5;
   attribute downgradeipidentifiedwarnings of inst : label is "yes";
@@ -7430,7 +7526,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1 is
   attribute X_INTERFACE_INFO of m_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI BVALID";
   attribute X_INTERFACE_INFO of m_axi_rlast : signal is "xilinx.com:interface:aximm:1.0 M_AXI RLAST";
   attribute X_INTERFACE_INFO of m_axi_rready : signal is "xilinx.com:interface:aximm:1.0 M_AXI RREADY";
-  attribute X_INTERFACE_PARAMETER of m_axi_rready : signal is "XIL_INTERFACENAME M_AXI, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 15, AWUSER_WIDTH 4, ARUSER_WIDTH 4, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute X_INTERFACE_PARAMETER of m_axi_rready : signal is "XIL_INTERFACENAME M_AXI, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 3, ADDR_WIDTH 15, AWUSER_WIDTH 4, ARUSER_WIDTH 4, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 32, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
   attribute X_INTERFACE_INFO of m_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI RVALID";
   attribute X_INTERFACE_INFO of m_axi_wlast : signal is "xilinx.com:interface:aximm:1.0 M_AXI WLAST";
   attribute X_INTERFACE_INFO of m_axi_wready : signal is "xilinx.com:interface:aximm:1.0 M_AXI WREADY";
@@ -7443,7 +7539,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1 is
   attribute X_INTERFACE_INFO of s_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI BVALID";
   attribute X_INTERFACE_INFO of s_axi_rlast : signal is "xilinx.com:interface:aximm:1.0 S_AXI RLAST";
   attribute X_INTERFACE_INFO of s_axi_rready : signal is "xilinx.com:interface:aximm:1.0 S_AXI RREADY";
-  attribute X_INTERFACE_PARAMETER of s_axi_rready : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 15, AWUSER_WIDTH 4, ARUSER_WIDTH 4, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 1, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute X_INTERFACE_PARAMETER of s_axi_rready : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 3, ADDR_WIDTH 15, AWUSER_WIDTH 4, ARUSER_WIDTH 4, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 1, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 32, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
   attribute X_INTERFACE_INFO of s_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI RVALID";
   attribute X_INTERFACE_INFO of s_axi_wlast : signal is "xilinx.com:interface:aximm:1.0 S_AXI WLAST";
   attribute X_INTERFACE_INFO of s_axi_wready : signal is "xilinx.com:interface:aximm:1.0 S_AXI WREADY";
@@ -7451,6 +7547,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1 is
   attribute X_INTERFACE_INFO of m_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARADDR";
   attribute X_INTERFACE_INFO of m_axi_arburst : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARBURST";
   attribute X_INTERFACE_INFO of m_axi_arcache : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARCACHE";
+  attribute X_INTERFACE_INFO of m_axi_arid : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARID";
   attribute X_INTERFACE_INFO of m_axi_arlen : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARLEN";
   attribute X_INTERFACE_INFO of m_axi_arlock : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARLOCK";
   attribute X_INTERFACE_INFO of m_axi_arprot : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARPROT";
@@ -7461,6 +7558,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1 is
   attribute X_INTERFACE_INFO of m_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWADDR";
   attribute X_INTERFACE_INFO of m_axi_awburst : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWBURST";
   attribute X_INTERFACE_INFO of m_axi_awcache : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWCACHE";
+  attribute X_INTERFACE_INFO of m_axi_awid : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWID";
   attribute X_INTERFACE_INFO of m_axi_awlen : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWLEN";
   attribute X_INTERFACE_INFO of m_axi_awlock : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWLOCK";
   attribute X_INTERFACE_INFO of m_axi_awprot : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWPROT";
@@ -7468,14 +7566,17 @@ architecture STRUCTURE of bd_m02_data_fifo_1 is
   attribute X_INTERFACE_INFO of m_axi_awregion : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWREGION";
   attribute X_INTERFACE_INFO of m_axi_awsize : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWSIZE";
   attribute X_INTERFACE_INFO of m_axi_awuser : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWUSER";
+  attribute X_INTERFACE_INFO of m_axi_bid : signal is "xilinx.com:interface:aximm:1.0 M_AXI BID";
   attribute X_INTERFACE_INFO of m_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 M_AXI BRESP";
   attribute X_INTERFACE_INFO of m_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 M_AXI RDATA";
+  attribute X_INTERFACE_INFO of m_axi_rid : signal is "xilinx.com:interface:aximm:1.0 M_AXI RID";
   attribute X_INTERFACE_INFO of m_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 M_AXI RRESP";
   attribute X_INTERFACE_INFO of m_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 M_AXI WDATA";
   attribute X_INTERFACE_INFO of m_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 M_AXI WSTRB";
   attribute X_INTERFACE_INFO of s_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARADDR";
   attribute X_INTERFACE_INFO of s_axi_arburst : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARBURST";
   attribute X_INTERFACE_INFO of s_axi_arcache : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARCACHE";
+  attribute X_INTERFACE_INFO of s_axi_arid : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARID";
   attribute X_INTERFACE_INFO of s_axi_arlen : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARLEN";
   attribute X_INTERFACE_INFO of s_axi_arlock : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARLOCK";
   attribute X_INTERFACE_INFO of s_axi_arprot : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARPROT";
@@ -7486,6 +7587,7 @@ architecture STRUCTURE of bd_m02_data_fifo_1 is
   attribute X_INTERFACE_INFO of s_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWADDR";
   attribute X_INTERFACE_INFO of s_axi_awburst : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWBURST";
   attribute X_INTERFACE_INFO of s_axi_awcache : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWCACHE";
+  attribute X_INTERFACE_INFO of s_axi_awid : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWID";
   attribute X_INTERFACE_INFO of s_axi_awlen : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWLEN";
   attribute X_INTERFACE_INFO of s_axi_awlock : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWLOCK";
   attribute X_INTERFACE_INFO of s_axi_awprot : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWPROT";
@@ -7493,8 +7595,10 @@ architecture STRUCTURE of bd_m02_data_fifo_1 is
   attribute X_INTERFACE_INFO of s_axi_awregion : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWREGION";
   attribute X_INTERFACE_INFO of s_axi_awsize : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWSIZE";
   attribute X_INTERFACE_INFO of s_axi_awuser : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWUSER";
+  attribute X_INTERFACE_INFO of s_axi_bid : signal is "xilinx.com:interface:aximm:1.0 S_AXI BID";
   attribute X_INTERFACE_INFO of s_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI BRESP";
   attribute X_INTERFACE_INFO of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 S_AXI RDATA";
+  attribute X_INTERFACE_INFO of s_axi_rid : signal is "xilinx.com:interface:aximm:1.0 S_AXI RID";
   attribute X_INTERFACE_INFO of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI RRESP";
   attribute X_INTERFACE_INFO of s_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 S_AXI WDATA";
   attribute X_INTERFACE_INFO of s_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 S_AXI WSTRB";
@@ -7506,7 +7610,7 @@ inst: entity work.bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
       m_axi_araddr(14 downto 0) => m_axi_araddr(14 downto 0),
       m_axi_arburst(1 downto 0) => m_axi_arburst(1 downto 0),
       m_axi_arcache(3 downto 0) => m_axi_arcache(3 downto 0),
-      m_axi_arid(0) => NLW_inst_m_axi_arid_UNCONNECTED(0),
+      m_axi_arid(2 downto 0) => m_axi_arid(2 downto 0),
       m_axi_arlen(7 downto 0) => m_axi_arlen(7 downto 0),
       m_axi_arlock(0) => m_axi_arlock(0),
       m_axi_arprot(2 downto 0) => m_axi_arprot(2 downto 0),
@@ -7519,7 +7623,7 @@ inst: entity work.bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
       m_axi_awaddr(14 downto 0) => m_axi_awaddr(14 downto 0),
       m_axi_awburst(1 downto 0) => m_axi_awburst(1 downto 0),
       m_axi_awcache(3 downto 0) => m_axi_awcache(3 downto 0),
-      m_axi_awid(0) => NLW_inst_m_axi_awid_UNCONNECTED(0),
+      m_axi_awid(2 downto 0) => m_axi_awid(2 downto 0),
       m_axi_awlen(7 downto 0) => m_axi_awlen(7 downto 0),
       m_axi_awlock(0) => m_axi_awlock(0),
       m_axi_awprot(2 downto 0) => m_axi_awprot(2 downto 0),
@@ -7529,20 +7633,20 @@ inst: entity work.bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
       m_axi_awsize(2 downto 0) => m_axi_awsize(2 downto 0),
       m_axi_awuser(3 downto 0) => m_axi_awuser(3 downto 0),
       m_axi_awvalid => m_axi_awvalid,
-      m_axi_bid(0) => '0',
+      m_axi_bid(2 downto 0) => m_axi_bid(2 downto 0),
       m_axi_bready => m_axi_bready,
       m_axi_bresp(1 downto 0) => m_axi_bresp(1 downto 0),
       m_axi_buser(0) => '0',
       m_axi_bvalid => m_axi_bvalid,
       m_axi_rdata(31 downto 0) => m_axi_rdata(31 downto 0),
-      m_axi_rid(0) => '0',
+      m_axi_rid(2 downto 0) => m_axi_rid(2 downto 0),
       m_axi_rlast => m_axi_rlast,
       m_axi_rready => m_axi_rready,
       m_axi_rresp(1 downto 0) => m_axi_rresp(1 downto 0),
       m_axi_ruser(0) => '0',
       m_axi_rvalid => m_axi_rvalid,
       m_axi_wdata(31 downto 0) => m_axi_wdata(31 downto 0),
-      m_axi_wid(0) => NLW_inst_m_axi_wid_UNCONNECTED(0),
+      m_axi_wid(2 downto 0) => NLW_inst_m_axi_wid_UNCONNECTED(2 downto 0),
       m_axi_wlast => m_axi_wlast,
       m_axi_wready => m_axi_wready,
       m_axi_wstrb(3 downto 0) => m_axi_wstrb(3 downto 0),
@@ -7551,7 +7655,7 @@ inst: entity work.bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
       s_axi_araddr(14 downto 0) => s_axi_araddr(14 downto 0),
       s_axi_arburst(1 downto 0) => s_axi_arburst(1 downto 0),
       s_axi_arcache(3 downto 0) => s_axi_arcache(3 downto 0),
-      s_axi_arid(0) => '0',
+      s_axi_arid(2 downto 0) => s_axi_arid(2 downto 0),
       s_axi_arlen(7 downto 0) => s_axi_arlen(7 downto 0),
       s_axi_arlock(0) => s_axi_arlock(0),
       s_axi_arprot(2 downto 0) => s_axi_arprot(2 downto 0),
@@ -7564,7 +7668,7 @@ inst: entity work.bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
       s_axi_awaddr(14 downto 0) => s_axi_awaddr(14 downto 0),
       s_axi_awburst(1 downto 0) => s_axi_awburst(1 downto 0),
       s_axi_awcache(3 downto 0) => s_axi_awcache(3 downto 0),
-      s_axi_awid(0) => '0',
+      s_axi_awid(2 downto 0) => s_axi_awid(2 downto 0),
       s_axi_awlen(7 downto 0) => s_axi_awlen(7 downto 0),
       s_axi_awlock(0) => s_axi_awlock(0),
       s_axi_awprot(2 downto 0) => s_axi_awprot(2 downto 0),
@@ -7574,20 +7678,20 @@ inst: entity work.bd_m02_data_fifo_1_axi_data_fifo_v2_1_14_axi_data_fifo
       s_axi_awsize(2 downto 0) => s_axi_awsize(2 downto 0),
       s_axi_awuser(3 downto 0) => s_axi_awuser(3 downto 0),
       s_axi_awvalid => s_axi_awvalid,
-      s_axi_bid(0) => NLW_inst_s_axi_bid_UNCONNECTED(0),
+      s_axi_bid(2 downto 0) => s_axi_bid(2 downto 0),
       s_axi_bready => s_axi_bready,
       s_axi_bresp(1 downto 0) => s_axi_bresp(1 downto 0),
       s_axi_buser(0) => NLW_inst_s_axi_buser_UNCONNECTED(0),
       s_axi_bvalid => s_axi_bvalid,
       s_axi_rdata(31 downto 0) => s_axi_rdata(31 downto 0),
-      s_axi_rid(0) => NLW_inst_s_axi_rid_UNCONNECTED(0),
+      s_axi_rid(2 downto 0) => s_axi_rid(2 downto 0),
       s_axi_rlast => s_axi_rlast,
       s_axi_rready => s_axi_rready,
       s_axi_rresp(1 downto 0) => s_axi_rresp(1 downto 0),
       s_axi_ruser(0) => NLW_inst_s_axi_ruser_UNCONNECTED(0),
       s_axi_rvalid => s_axi_rvalid,
       s_axi_wdata(31 downto 0) => s_axi_wdata(31 downto 0),
-      s_axi_wid(0) => '0',
+      s_axi_wid(2 downto 0) => B"000",
       s_axi_wlast => s_axi_wlast,
       s_axi_wready => s_axi_wready,
       s_axi_wstrb(3 downto 0) => s_axi_wstrb(3 downto 0),

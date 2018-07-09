@@ -290,7 +290,7 @@ void test_run(u32 lane)
 
 	/* Wait until the DMA operations complete. If this goes well, the
 	Async FIFOs should return the same data to the RX Buffer. */
-	while (txready==false && rxready==false)
+	while (txready==false || rxready==false)
 		continue;
 
 
