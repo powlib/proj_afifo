@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri Jun 29 00:41:42 2018
+-- Date        : Mon Jul  9 00:10:13 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top bd_auto_ss_k_0 -prefix
---               bd_auto_ss_k_0_ bd_auto_ss_k_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_auto_ss_k_0/bd_auto_ss_k_0_sim_netlist.vhdl
 -- Design      : bd_auto_ss_k_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -45,7 +45,7 @@ entity bd_auto_ss_k_0_top_bd_auto_ss_k_0 is
   attribute C_FAMILY : string;
   attribute C_FAMILY of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is "artix7";
   attribute C_M_AXIS_SIGNAL_SET : string;
-  attribute C_M_AXIS_SIGNAL_SET of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is "32'b00000000000000000000000000001011";
+  attribute C_M_AXIS_SIGNAL_SET of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is "32'b00000000000000000000000000011011";
   attribute C_M_AXIS_TDATA_WIDTH : integer;
   attribute C_M_AXIS_TDATA_WIDTH of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is 32;
   attribute C_M_AXIS_TDEST_WIDTH : integer;
@@ -55,7 +55,7 @@ entity bd_auto_ss_k_0_top_bd_auto_ss_k_0 is
   attribute C_M_AXIS_TUSER_WIDTH : integer;
   attribute C_M_AXIS_TUSER_WIDTH of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is 1;
   attribute C_S_AXIS_SIGNAL_SET : string;
-  attribute C_S_AXIS_SIGNAL_SET of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is "32'b00000000000000000000000000000011";
+  attribute C_S_AXIS_SIGNAL_SET of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is "32'b00000000000000000000000000010011";
   attribute C_S_AXIS_TDATA_WIDTH : integer;
   attribute C_S_AXIS_TDATA_WIDTH of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is 32;
   attribute C_S_AXIS_TDEST_WIDTH : integer;
@@ -102,6 +102,8 @@ entity bd_auto_ss_k_0_top_bd_auto_ss_k_0 is
   attribute G_TASK_SEVERITY_INFO of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is 0;
   attribute G_TASK_SEVERITY_WARNING : integer;
   attribute G_TASK_SEVERITY_WARNING of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is 1;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bd_auto_ss_k_0_top_bd_auto_ss_k_0 : entity is "top_bd_auto_ss_k_0";
 end bd_auto_ss_k_0_top_bd_auto_ss_k_0;
 
 architecture STRUCTURE of bd_auto_ss_k_0_top_bd_auto_ss_k_0 is
@@ -109,10 +111,12 @@ architecture STRUCTURE of bd_auto_ss_k_0_top_bd_auto_ss_k_0 is
   signal \<const1>\ : STD_LOGIC;
   signal \^m_axis_tready\ : STD_LOGIC;
   signal \^s_axis_tdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \^s_axis_tlast\ : STD_LOGIC;
   signal \^s_axis_tvalid\ : STD_LOGIC;
 begin
   \^m_axis_tready\ <= m_axis_tready;
   \^s_axis_tdata\(31 downto 0) <= s_axis_tdata(31 downto 0);
+  \^s_axis_tlast\ <= s_axis_tlast;
   \^s_axis_tvalid\ <= s_axis_tvalid;
   m_axis_tdata(31 downto 0) <= \^s_axis_tdata\(31 downto 0);
   m_axis_tdest(0) <= \<const0>\;
@@ -121,7 +125,7 @@ begin
   m_axis_tkeep(2) <= \<const1>\;
   m_axis_tkeep(1) <= \<const1>\;
   m_axis_tkeep(0) <= \<const1>\;
-  m_axis_tlast <= \<const0>\;
+  m_axis_tlast <= \^s_axis_tlast\;
   m_axis_tstrb(3) <= \<const0>\;
   m_axis_tstrb(2) <= \<const0>\;
   m_axis_tstrb(1) <= \<const0>\;
@@ -151,10 +155,12 @@ entity bd_auto_ss_k_0 is
     s_axis_tvalid : in STD_LOGIC;
     s_axis_tready : out STD_LOGIC;
     s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axis_tlast : in STD_LOGIC;
     m_axis_tvalid : out STD_LOGIC;
     m_axis_tready : in STD_LOGIC;
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_axis_tkeep : out STD_LOGIC_VECTOR ( 3 downto 0 )
+    m_axis_tkeep : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m_axis_tlast : out STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of bd_auto_ss_k_0 : entity is true;
@@ -167,7 +173,6 @@ entity bd_auto_ss_k_0 is
 end bd_auto_ss_k_0;
 
 architecture STRUCTURE of bd_auto_ss_k_0 is
-  signal NLW_inst_m_axis_tlast_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_sparse_tkeep_removed_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_transfer_dropped_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_m_axis_tdest_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -179,7 +184,7 @@ architecture STRUCTURE of bd_auto_ss_k_0 is
   attribute C_FAMILY : string;
   attribute C_FAMILY of inst : label is "artix7";
   attribute C_M_AXIS_SIGNAL_SET : string;
-  attribute C_M_AXIS_SIGNAL_SET of inst : label is "32'b00000000000000000000000000001011";
+  attribute C_M_AXIS_SIGNAL_SET of inst : label is "32'b00000000000000000000000000011011";
   attribute C_M_AXIS_TDATA_WIDTH : integer;
   attribute C_M_AXIS_TDATA_WIDTH of inst : label is 32;
   attribute C_M_AXIS_TDEST_WIDTH : integer;
@@ -189,7 +194,7 @@ architecture STRUCTURE of bd_auto_ss_k_0 is
   attribute C_M_AXIS_TUSER_WIDTH : integer;
   attribute C_M_AXIS_TUSER_WIDTH of inst : label is 1;
   attribute C_S_AXIS_SIGNAL_SET : string;
-  attribute C_S_AXIS_SIGNAL_SET of inst : label is "32'b00000000000000000000000000000011";
+  attribute C_S_AXIS_SIGNAL_SET of inst : label is "32'b00000000000000000000000000010011";
   attribute C_S_AXIS_TDATA_WIDTH : integer;
   attribute C_S_AXIS_TDATA_WIDTH of inst : label is 32;
   attribute C_S_AXIS_TDEST_WIDTH : integer;
@@ -242,15 +247,17 @@ architecture STRUCTURE of bd_auto_ss_k_0 is
   attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME CLKIF, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, ASSOCIATED_BUSIF S_AXIS:M_AXIS, ASSOCIATED_RESET aresetn, ASSOCIATED_CLKEN aclken";
   attribute X_INTERFACE_INFO of aresetn : signal is "xilinx.com:signal:reset:1.0 RSTIF RST";
   attribute X_INTERFACE_PARAMETER of aresetn : signal is "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, TYPE INTERCONNECT";
+  attribute X_INTERFACE_INFO of m_axis_tlast : signal is "xilinx.com:interface:axis:1.0 M_AXIS TLAST";
+  attribute X_INTERFACE_PARAMETER of m_axis_tlast : signal is "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef";
   attribute X_INTERFACE_INFO of m_axis_tready : signal is "xilinx.com:interface:axis:1.0 M_AXIS TREADY";
   attribute X_INTERFACE_INFO of m_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 M_AXIS TVALID";
+  attribute X_INTERFACE_INFO of s_axis_tlast : signal is "xilinx.com:interface:axis:1.0 S_AXIS TLAST";
+  attribute X_INTERFACE_PARAMETER of s_axis_tlast : signal is "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef";
   attribute X_INTERFACE_INFO of s_axis_tready : signal is "xilinx.com:interface:axis:1.0 S_AXIS TREADY";
   attribute X_INTERFACE_INFO of s_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 S_AXIS TVALID";
   attribute X_INTERFACE_INFO of m_axis_tdata : signal is "xilinx.com:interface:axis:1.0 M_AXIS TDATA";
   attribute X_INTERFACE_INFO of m_axis_tkeep : signal is "xilinx.com:interface:axis:1.0 M_AXIS TKEEP";
-  attribute X_INTERFACE_PARAMETER of m_axis_tkeep : signal is "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef";
   attribute X_INTERFACE_INFO of s_axis_tdata : signal is "xilinx.com:interface:axis:1.0 S_AXIS TDATA";
-  attribute X_INTERFACE_PARAMETER of s_axis_tdata : signal is "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef";
 begin
 inst: entity work.bd_auto_ss_k_0_top_bd_auto_ss_k_0
      port map (
@@ -261,7 +268,7 @@ inst: entity work.bd_auto_ss_k_0_top_bd_auto_ss_k_0
       m_axis_tdest(0) => NLW_inst_m_axis_tdest_UNCONNECTED(0),
       m_axis_tid(0) => NLW_inst_m_axis_tid_UNCONNECTED(0),
       m_axis_tkeep(3 downto 0) => m_axis_tkeep(3 downto 0),
-      m_axis_tlast => NLW_inst_m_axis_tlast_UNCONNECTED,
+      m_axis_tlast => m_axis_tlast,
       m_axis_tready => m_axis_tready,
       m_axis_tstrb(3 downto 0) => NLW_inst_m_axis_tstrb_UNCONNECTED(3 downto 0),
       m_axis_tuser(0) => NLW_inst_m_axis_tuser_UNCONNECTED(0),
@@ -270,7 +277,7 @@ inst: entity work.bd_auto_ss_k_0_top_bd_auto_ss_k_0
       s_axis_tdest(0) => '0',
       s_axis_tid(0) => '0',
       s_axis_tkeep(3 downto 0) => B"1111",
-      s_axis_tlast => '1',
+      s_axis_tlast => s_axis_tlast,
       s_axis_tready => s_axis_tready,
       s_axis_tstrb(3 downto 0) => B"1111",
       s_axis_tuser(0) => '0',

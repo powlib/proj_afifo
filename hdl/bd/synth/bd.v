@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Sun Jul  8 18:10:25 2018
+//Date        : Mon Jul  9 00:05:58 2018
 //Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 //Command     : generate_target bd.bd
 //Design      : bd
@@ -36,12 +36,15 @@ module bd
     M02_AXIS_0_tuser,
     M02_AXIS_0_tvalid,
     S00_AXIS_0_tdata,
+    S00_AXIS_0_tlast,
     S00_AXIS_0_tready,
     S00_AXIS_0_tvalid,
     S01_AXIS_0_tdata,
+    S01_AXIS_0_tlast,
     S01_AXIS_0_tready,
     S01_AXIS_0_tvalid,
     S02_AXIS_0_tdata,
+    S02_AXIS_0_tlast,
     S02_AXIS_0_tready,
     S02_AXIS_0_tvalid,
     clk_out2,
@@ -78,13 +81,16 @@ module bd
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M02_AXIS_0 TREADY" *) input M02_AXIS_0_tready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M02_AXIS_0 TUSER" *) output [3:0]M02_AXIS_0_tuser;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M02_AXIS_0 TVALID" *) output M02_AXIS_0_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS_0 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 100000000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [31:0]S00_AXIS_0_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS_0 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 100000000, HAS_TKEEP 0, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [31:0]S00_AXIS_0_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS_0 TLAST" *) input S00_AXIS_0_tlast;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS_0 TREADY" *) output S00_AXIS_0_tready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS_0 TVALID" *) input S00_AXIS_0_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS_0 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S01_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 75000000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [31:0]S01_AXIS_0_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS_0 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S01_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 75000000, HAS_TKEEP 0, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [31:0]S01_AXIS_0_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS_0 TLAST" *) input S01_AXIS_0_tlast;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS_0 TREADY" *) output S01_AXIS_0_tready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS_0 TVALID" *) input S01_AXIS_0_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S02_AXIS_0 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S02_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 25000000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [31:0]S02_AXIS_0_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S02_AXIS_0 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S02_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 25000000, HAS_TKEEP 0, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [31:0]S02_AXIS_0_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S02_AXIS_0 TLAST" *) input S02_AXIS_0_tlast;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S02_AXIS_0 TREADY" *) output S02_AXIS_0_tready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S02_AXIS_0 TVALID" *) input S02_AXIS_0_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT2 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT2, ASSOCIATED_BUSIF M00_AXIS_0:S02_AXIS_0, CLK_DOMAIN /clk_wiz_1_clk_out1, FREQ_HZ 25000000, PHASE 0.0" *) output clk_out2;
@@ -99,6 +105,7 @@ module bd
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 usb_uart TxD" *) output usb_uart_txd;
 
   wire [31:0]S00_AXIS_0_1_TDATA;
+  wire S00_AXIS_0_1_TLAST;
   wire S00_AXIS_0_1_TREADY;
   wire S00_AXIS_0_1_TVALID;
   wire [31:0]S00_AXIS_1_TDATA;
@@ -110,9 +117,11 @@ module bd
   wire [3:0]S00_AXIS_1_TUSER;
   wire S00_AXIS_1_TVALID;
   wire [31:0]S01_AXIS_0_1_TDATA;
+  wire S01_AXIS_0_1_TLAST;
   wire S01_AXIS_0_1_TREADY;
   wire S01_AXIS_0_1_TVALID;
   wire [31:0]S02_AXIS_0_1_TDATA;
+  wire S02_AXIS_0_1_TLAST;
   wire S02_AXIS_0_1_TREADY;
   wire S02_AXIS_0_1_TVALID;
   wire [14:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
@@ -454,12 +463,15 @@ module bd
   assign M02_AXIS_0_tuser[3:0] = axis_interconnect_0_M02_AXIS_TUSER;
   assign M02_AXIS_0_tvalid = axis_interconnect_0_M02_AXIS_TVALID;
   assign S00_AXIS_0_1_TDATA = S00_AXIS_0_tdata[31:0];
+  assign S00_AXIS_0_1_TLAST = S00_AXIS_0_tlast;
   assign S00_AXIS_0_1_TVALID = S00_AXIS_0_tvalid;
   assign S00_AXIS_0_tready = S00_AXIS_0_1_TREADY;
   assign S01_AXIS_0_1_TDATA = S01_AXIS_0_tdata[31:0];
+  assign S01_AXIS_0_1_TLAST = S01_AXIS_0_tlast;
   assign S01_AXIS_0_1_TVALID = S01_AXIS_0_tvalid;
   assign S01_AXIS_0_tready = S01_AXIS_0_1_TREADY;
   assign S02_AXIS_0_1_TDATA = S02_AXIS_0_tdata[31:0];
+  assign S02_AXIS_0_1_TLAST = S02_AXIS_0_tlast;
   assign S02_AXIS_0_1_TVALID = S02_AXIS_0_tvalid;
   assign S02_AXIS_0_tready = S02_AXIS_0_1_TREADY;
   assign axi_uartlite_0_UART_RxD = usb_uart_rxd;
@@ -714,18 +726,21 @@ module bd
         .S00_AXIS_ACLK(clk_wiz_1_clk_out4),
         .S00_AXIS_ARESETN(rst_clk_wiz_1_100M_1_peripheral_aresetn),
         .S00_AXIS_tdata(S00_AXIS_0_1_TDATA),
+        .S00_AXIS_tlast(S00_AXIS_0_1_TLAST),
         .S00_AXIS_tready(S00_AXIS_0_1_TREADY),
         .S00_AXIS_tvalid(S00_AXIS_0_1_TVALID),
         .S01_ARB_REQ_SUPPRESS(xlconstant_0_dout),
         .S01_AXIS_ACLK(clk_wiz_1_clk_out3),
         .S01_AXIS_ARESETN(rst_clk_wiz_1_75M_peripheral_aresetn),
         .S01_AXIS_tdata(S01_AXIS_0_1_TDATA),
+        .S01_AXIS_tlast(S01_AXIS_0_1_TLAST),
         .S01_AXIS_tready(S01_AXIS_0_1_TREADY),
         .S01_AXIS_tvalid(S01_AXIS_0_1_TVALID),
         .S02_ARB_REQ_SUPPRESS(xlconstant_0_dout),
         .S02_AXIS_ACLK(clk_wiz_1_clk_out2),
         .S02_AXIS_ARESETN(rst_clk_wiz_1_25M_peripheral_aresetn),
         .S02_AXIS_tdata(S02_AXIS_0_1_TDATA),
+        .S02_AXIS_tlast(S02_AXIS_0_1_TLAST),
         .S02_AXIS_tready(S02_AXIS_0_1_TREADY),
         .S02_AXIS_tvalid(S02_AXIS_0_1_TVALID));
   bd_blk_mem_gen_0_0 blk_mem_gen_0
@@ -1526,18 +1541,21 @@ module bd_axis_interconnect_1_0
     S00_AXIS_ACLK,
     S00_AXIS_ARESETN,
     S00_AXIS_tdata,
+    S00_AXIS_tlast,
     S00_AXIS_tready,
     S00_AXIS_tvalid,
     S01_ARB_REQ_SUPPRESS,
     S01_AXIS_ACLK,
     S01_AXIS_ARESETN,
     S01_AXIS_tdata,
+    S01_AXIS_tlast,
     S01_AXIS_tready,
     S01_AXIS_tvalid,
     S02_ARB_REQ_SUPPRESS,
     S02_AXIS_ACLK,
     S02_AXIS_ARESETN,
     S02_AXIS_tdata,
+    S02_AXIS_tlast,
     S02_AXIS_tready,
     S02_AXIS_tvalid);
   input ACLK;
@@ -1556,18 +1574,21 @@ module bd_axis_interconnect_1_0
   input S00_AXIS_ACLK;
   input S00_AXIS_ARESETN;
   input [31:0]S00_AXIS_tdata;
+  input S00_AXIS_tlast;
   output S00_AXIS_tready;
   input S00_AXIS_tvalid;
   input S01_ARB_REQ_SUPPRESS;
   input S01_AXIS_ACLK;
   input S01_AXIS_ARESETN;
   input [31:0]S01_AXIS_tdata;
+  input S01_AXIS_tlast;
   output S01_AXIS_tready;
   input S01_AXIS_tvalid;
   input S02_ARB_REQ_SUPPRESS;
   input S02_AXIS_ACLK;
   input S02_AXIS_ARESETN;
   input [31:0]S02_AXIS_tdata;
+  input S02_AXIS_tlast;
   output S02_AXIS_tready;
   input S02_AXIS_tvalid;
 
@@ -1582,12 +1603,15 @@ module bd_axis_interconnect_1_0
   wire axis_interconnect_1_ACLK_net;
   wire axis_interconnect_1_ARESETN_net;
   wire [31:0]axis_interconnect_1_to_s00_couplers_TDATA;
+  wire axis_interconnect_1_to_s00_couplers_TLAST;
   wire axis_interconnect_1_to_s00_couplers_TREADY;
   wire axis_interconnect_1_to_s00_couplers_TVALID;
   wire [31:0]axis_interconnect_1_to_s01_couplers_TDATA;
+  wire axis_interconnect_1_to_s01_couplers_TLAST;
   wire axis_interconnect_1_to_s01_couplers_TREADY;
   wire axis_interconnect_1_to_s01_couplers_TVALID;
   wire [31:0]axis_interconnect_1_to_s02_couplers_TDATA;
+  wire axis_interconnect_1_to_s02_couplers_TLAST;
   wire axis_interconnect_1_to_s02_couplers_TREADY;
   wire axis_interconnect_1_to_s02_couplers_TVALID;
   wire [31:0]m00_couplers_to_axis_interconnect_1_TDATA;
@@ -1600,18 +1624,22 @@ module bd_axis_interconnect_1_0
   wire m00_couplers_to_axis_interconnect_1_TVALID;
   wire s00_arb_req_suppress_to_s_arb_req_suppress_concat;
   wire [31:0]s00_couplers_to_xbar_TDATA;
+  wire s00_couplers_to_xbar_TLAST;
   wire [0:0]s00_couplers_to_xbar_TREADY;
   wire s00_couplers_to_xbar_TVALID;
   wire s01_arb_req_suppress_to_s_arb_req_suppress_concat;
   wire [31:0]s01_couplers_to_xbar_TDATA;
+  wire s01_couplers_to_xbar_TLAST;
   wire [1:1]s01_couplers_to_xbar_TREADY;
   wire s01_couplers_to_xbar_TVALID;
   wire s02_arb_req_suppress_to_s_arb_req_suppress_concat;
   wire [31:0]s02_couplers_to_xbar_TDATA;
+  wire s02_couplers_to_xbar_TLAST;
   wire [2:2]s02_couplers_to_xbar_TREADY;
   wire s02_couplers_to_xbar_TVALID;
   wire [2:0]s_arb_req_suppress_concat_dout;
   wire [31:0]xbar_to_m00_couplers_TDATA;
+  wire [0:0]xbar_to_m00_couplers_TLAST;
   wire xbar_to_m00_couplers_TREADY;
   wire [0:0]xbar_to_m00_couplers_TVALID;
 
@@ -1636,10 +1664,13 @@ module bd_axis_interconnect_1_0
   assign axis_interconnect_1_ACLK_net = ACLK;
   assign axis_interconnect_1_ARESETN_net = ARESETN;
   assign axis_interconnect_1_to_s00_couplers_TDATA = S00_AXIS_tdata[31:0];
+  assign axis_interconnect_1_to_s00_couplers_TLAST = S00_AXIS_tlast;
   assign axis_interconnect_1_to_s00_couplers_TVALID = S00_AXIS_tvalid;
   assign axis_interconnect_1_to_s01_couplers_TDATA = S01_AXIS_tdata[31:0];
+  assign axis_interconnect_1_to_s01_couplers_TLAST = S01_AXIS_tlast;
   assign axis_interconnect_1_to_s01_couplers_TVALID = S01_AXIS_tvalid;
   assign axis_interconnect_1_to_s02_couplers_TDATA = S02_AXIS_tdata[31:0];
+  assign axis_interconnect_1_to_s02_couplers_TLAST = S02_AXIS_tlast;
   assign axis_interconnect_1_to_s02_couplers_TVALID = S02_AXIS_tvalid;
   assign m00_couplers_to_axis_interconnect_1_TREADY = M00_AXIS_tready;
   assign s00_arb_req_suppress_to_s_arb_req_suppress_concat = S00_ARB_REQ_SUPPRESS;
@@ -1659,39 +1690,46 @@ module bd_axis_interconnect_1_0
         .S_AXIS_ACLK(axis_interconnect_1_ACLK_net),
         .S_AXIS_ARESETN(axis_interconnect_1_ARESETN_net),
         .S_AXIS_tdata(xbar_to_m00_couplers_TDATA),
+        .S_AXIS_tlast(xbar_to_m00_couplers_TLAST),
         .S_AXIS_tready(xbar_to_m00_couplers_TREADY),
         .S_AXIS_tvalid(xbar_to_m00_couplers_TVALID));
   s00_couplers_imp_4AJG2T s00_couplers
        (.M_AXIS_ACLK(axis_interconnect_1_ACLK_net),
         .M_AXIS_ARESETN(axis_interconnect_1_ARESETN_net),
         .M_AXIS_tdata(s00_couplers_to_xbar_TDATA),
+        .M_AXIS_tlast(s00_couplers_to_xbar_TLAST),
         .M_AXIS_tready(s00_couplers_to_xbar_TREADY),
         .M_AXIS_tvalid(s00_couplers_to_xbar_TVALID),
         .S_AXIS_ACLK(S00_AXIS_ACLK_1),
         .S_AXIS_ARESETN(S00_AXIS_ARESETN_1),
         .S_AXIS_tdata(axis_interconnect_1_to_s00_couplers_TDATA),
+        .S_AXIS_tlast(axis_interconnect_1_to_s00_couplers_TLAST),
         .S_AXIS_tready(axis_interconnect_1_to_s00_couplers_TREADY),
         .S_AXIS_tvalid(axis_interconnect_1_to_s00_couplers_TVALID));
   s01_couplers_imp_15AZQDM s01_couplers
        (.M_AXIS_ACLK(axis_interconnect_1_ACLK_net),
         .M_AXIS_ARESETN(axis_interconnect_1_ARESETN_net),
         .M_AXIS_tdata(s01_couplers_to_xbar_TDATA),
+        .M_AXIS_tlast(s01_couplers_to_xbar_TLAST),
         .M_AXIS_tready(s01_couplers_to_xbar_TREADY),
         .M_AXIS_tvalid(s01_couplers_to_xbar_TVALID),
         .S_AXIS_ACLK(S01_AXIS_ACLK_1),
         .S_AXIS_ARESETN(S01_AXIS_ARESETN_1),
         .S_AXIS_tdata(axis_interconnect_1_to_s01_couplers_TDATA),
+        .S_AXIS_tlast(axis_interconnect_1_to_s01_couplers_TLAST),
         .S_AXIS_tready(axis_interconnect_1_to_s01_couplers_TREADY),
         .S_AXIS_tvalid(axis_interconnect_1_to_s01_couplers_TVALID));
   s02_couplers_imp_1R226RE s02_couplers
        (.M_AXIS_ACLK(axis_interconnect_1_ACLK_net),
         .M_AXIS_ARESETN(axis_interconnect_1_ARESETN_net),
         .M_AXIS_tdata(s02_couplers_to_xbar_TDATA),
+        .M_AXIS_tlast(s02_couplers_to_xbar_TLAST),
         .M_AXIS_tready(s02_couplers_to_xbar_TREADY),
         .M_AXIS_tvalid(s02_couplers_to_xbar_TVALID),
         .S_AXIS_ACLK(S02_AXIS_ACLK_1),
         .S_AXIS_ARESETN(S02_AXIS_ARESETN_1),
         .S_AXIS_tdata(axis_interconnect_1_to_s02_couplers_TDATA),
+        .S_AXIS_tlast(axis_interconnect_1_to_s02_couplers_TLAST),
         .S_AXIS_tready(axis_interconnect_1_to_s02_couplers_TREADY),
         .S_AXIS_tvalid(axis_interconnect_1_to_s02_couplers_TVALID));
   bd_s_arb_req_suppress_concat_0 s_arb_req_suppress_concat
@@ -1703,9 +1741,11 @@ module bd_axis_interconnect_1_0
        (.aclk(axis_interconnect_1_ACLK_net),
         .aresetn(axis_interconnect_1_ARESETN_net),
         .m_axis_tdata(xbar_to_m00_couplers_TDATA),
+        .m_axis_tlast(xbar_to_m00_couplers_TLAST),
         .m_axis_tready(xbar_to_m00_couplers_TREADY),
         .m_axis_tvalid(xbar_to_m00_couplers_TVALID),
         .s_axis_tdata({s02_couplers_to_xbar_TDATA,s01_couplers_to_xbar_TDATA,s00_couplers_to_xbar_TDATA}),
+        .s_axis_tlast({s02_couplers_to_xbar_TLAST,s01_couplers_to_xbar_TLAST,s00_couplers_to_xbar_TLAST}),
         .s_axis_tready({s02_couplers_to_xbar_TREADY,s01_couplers_to_xbar_TREADY,s00_couplers_to_xbar_TREADY}),
         .s_axis_tvalid({s02_couplers_to_xbar_TVALID,s01_couplers_to_xbar_TVALID,s00_couplers_to_xbar_TVALID}),
         .s_req_suppress(s_arb_req_suppress_concat_dout));
@@ -3648,6 +3688,7 @@ module m00_couplers_imp_191D7EX
     S_AXIS_ACLK,
     S_AXIS_ARESETN,
     S_AXIS_tdata,
+    S_AXIS_tlast,
     S_AXIS_tready,
     S_AXIS_tvalid);
   input M_AXIS_ACLK;
@@ -3663,6 +3704,7 @@ module m00_couplers_imp_191D7EX
   input S_AXIS_ACLK;
   input S_AXIS_ARESETN;
   input [31:0]S_AXIS_tdata;
+  input S_AXIS_tlast;
   output S_AXIS_tready;
   input S_AXIS_tvalid;
 
@@ -3673,6 +3715,7 @@ module m00_couplers_imp_191D7EX
   wire S_AXIS_ARESETN;
   wire [31:0]auto_ss_k_to_auto_ss_slidr_TDATA;
   wire [3:0]auto_ss_k_to_auto_ss_slidr_TKEEP;
+  wire auto_ss_k_to_auto_ss_slidr_TLAST;
   wire auto_ss_k_to_auto_ss_slidr_TREADY;
   wire auto_ss_k_to_auto_ss_slidr_TVALID;
   wire [31:0]auto_ss_slidr_to_auto_ss_u_TDATA;
@@ -3691,9 +3734,11 @@ module m00_couplers_imp_191D7EX
   wire [3:0]auto_ss_u_to_m00_couplers_TUSER;
   wire auto_ss_u_to_m00_couplers_TVALID;
   wire [31:0]m00_couplers_to_m00_data_fifo_TDATA;
+  wire m00_couplers_to_m00_data_fifo_TLAST;
   wire m00_couplers_to_m00_data_fifo_TREADY;
   wire m00_couplers_to_m00_data_fifo_TVALID;
   wire [31:0]m00_data_fifo_to_auto_ss_k_TDATA;
+  wire m00_data_fifo_to_auto_ss_k_TLAST;
   wire m00_data_fifo_to_auto_ss_k_TREADY;
   wire m00_data_fifo_to_auto_ss_k_TVALID;
 
@@ -3707,15 +3752,18 @@ module m00_couplers_imp_191D7EX
   assign S_AXIS_tready = m00_couplers_to_m00_data_fifo_TREADY;
   assign auto_ss_u_to_m00_couplers_TREADY = M_AXIS_tready;
   assign m00_couplers_to_m00_data_fifo_TDATA = S_AXIS_tdata[31:0];
+  assign m00_couplers_to_m00_data_fifo_TLAST = S_AXIS_tlast;
   assign m00_couplers_to_m00_data_fifo_TVALID = S_AXIS_tvalid;
   bd_auto_ss_k_0 auto_ss_k
        (.aclk(S_AXIS_ACLK),
         .aresetn(S_AXIS_ARESETN),
         .m_axis_tdata(auto_ss_k_to_auto_ss_slidr_TDATA),
         .m_axis_tkeep(auto_ss_k_to_auto_ss_slidr_TKEEP),
+        .m_axis_tlast(auto_ss_k_to_auto_ss_slidr_TLAST),
         .m_axis_tready(auto_ss_k_to_auto_ss_slidr_TREADY),
         .m_axis_tvalid(auto_ss_k_to_auto_ss_slidr_TVALID),
         .s_axis_tdata(m00_data_fifo_to_auto_ss_k_TDATA),
+        .s_axis_tlast(m00_data_fifo_to_auto_ss_k_TLAST),
         .s_axis_tready(m00_data_fifo_to_auto_ss_k_TREADY),
         .s_axis_tvalid(m00_data_fifo_to_auto_ss_k_TVALID));
   bd_auto_ss_slidr_0 auto_ss_slidr
@@ -3730,6 +3778,7 @@ module m00_couplers_imp_191D7EX
         .m_axis_tvalid(auto_ss_slidr_to_auto_ss_u_TVALID),
         .s_axis_tdata(auto_ss_k_to_auto_ss_slidr_TDATA),
         .s_axis_tkeep(auto_ss_k_to_auto_ss_slidr_TKEEP),
+        .s_axis_tlast(auto_ss_k_to_auto_ss_slidr_TLAST),
         .s_axis_tready(auto_ss_k_to_auto_ss_slidr_TREADY),
         .s_axis_tvalid(auto_ss_k_to_auto_ss_slidr_TVALID));
   bd_auto_ss_u_0 auto_ss_u
@@ -3755,11 +3804,13 @@ module m00_couplers_imp_191D7EX
         .axis_rd_data_count(AXIS_RD_DATA_COUNT_to_S_AXIS_RD_DATA_COUNT),
         .axis_wr_data_count(AXIS_WR_DATA_COUNT_to_S_AXIS_WR_DATA_COUNT),
         .m_axis_tdata(m00_data_fifo_to_auto_ss_k_TDATA),
+        .m_axis_tlast(m00_data_fifo_to_auto_ss_k_TLAST),
         .m_axis_tready(m00_data_fifo_to_auto_ss_k_TREADY),
         .m_axis_tvalid(m00_data_fifo_to_auto_ss_k_TVALID),
         .s_axis_aclk(S_AXIS_ACLK),
         .s_axis_aresetn(S_AXIS_ARESETN),
         .s_axis_tdata(m00_couplers_to_m00_data_fifo_TDATA),
+        .s_axis_tlast(m00_couplers_to_m00_data_fifo_TLAST),
         .s_axis_tready(m00_couplers_to_m00_data_fifo_TREADY),
         .s_axis_tvalid(m00_couplers_to_m00_data_fifo_TVALID));
 endmodule
@@ -6363,21 +6414,25 @@ module s00_couplers_imp_4AJG2T
    (M_AXIS_ACLK,
     M_AXIS_ARESETN,
     M_AXIS_tdata,
+    M_AXIS_tlast,
     M_AXIS_tready,
     M_AXIS_tvalid,
     S_AXIS_ACLK,
     S_AXIS_ARESETN,
     S_AXIS_tdata,
+    S_AXIS_tlast,
     S_AXIS_tready,
     S_AXIS_tvalid);
   input M_AXIS_ACLK;
   input M_AXIS_ARESETN;
   output [31:0]M_AXIS_tdata;
+  output M_AXIS_tlast;
   input M_AXIS_tready;
   output M_AXIS_tvalid;
   input S_AXIS_ACLK;
   input S_AXIS_ARESETN;
   input [31:0]S_AXIS_tdata;
+  input S_AXIS_tlast;
   output S_AXIS_tready;
   input S_AXIS_tvalid;
 
@@ -6387,16 +6442,20 @@ module s00_couplers_imp_4AJG2T
   wire M_AXIS_ACLK;
   wire M_AXIS_ARESETN;
   wire [31:0]s00_couplers_to_s00_data_fifo_TDATA;
+  wire s00_couplers_to_s00_data_fifo_TLAST;
   wire s00_couplers_to_s00_data_fifo_TREADY;
   wire s00_couplers_to_s00_data_fifo_TVALID;
   wire [31:0]s00_data_fifo_to_s00_couplers_TDATA;
+  wire s00_data_fifo_to_s00_couplers_TLAST;
   wire s00_data_fifo_to_s00_couplers_TREADY;
   wire s00_data_fifo_to_s00_couplers_TVALID;
 
   assign M_AXIS_tdata[31:0] = s00_data_fifo_to_s00_couplers_TDATA;
+  assign M_AXIS_tlast = s00_data_fifo_to_s00_couplers_TLAST;
   assign M_AXIS_tvalid = s00_data_fifo_to_s00_couplers_TVALID;
   assign S_AXIS_tready = s00_couplers_to_s00_data_fifo_TREADY;
   assign s00_couplers_to_s00_data_fifo_TDATA = S_AXIS_tdata[31:0];
+  assign s00_couplers_to_s00_data_fifo_TLAST = S_AXIS_tlast;
   assign s00_couplers_to_s00_data_fifo_TVALID = S_AXIS_tvalid;
   assign s00_data_fifo_to_s00_couplers_TREADY = M_AXIS_tready;
   bd_s00_data_fifo_1 s00_data_fifo
@@ -6404,11 +6463,13 @@ module s00_couplers_imp_4AJG2T
         .axis_rd_data_count(AXIS_RD_DATA_COUNT_to_S_AXIS_RD_DATA_COUNT),
         .axis_wr_data_count(AXIS_WR_DATA_COUNT_to_S_AXIS_WR_DATA_COUNT),
         .m_axis_tdata(s00_data_fifo_to_s00_couplers_TDATA),
+        .m_axis_tlast(s00_data_fifo_to_s00_couplers_TLAST),
         .m_axis_tready(s00_data_fifo_to_s00_couplers_TREADY),
         .m_axis_tvalid(s00_data_fifo_to_s00_couplers_TVALID),
         .s_axis_aclk(M_AXIS_ACLK),
         .s_axis_aresetn(M_AXIS_ARESETN),
         .s_axis_tdata(s00_couplers_to_s00_data_fifo_TDATA),
+        .s_axis_tlast(s00_couplers_to_s00_data_fifo_TLAST),
         .s_axis_tready(s00_couplers_to_s00_data_fifo_TREADY),
         .s_axis_tvalid(s00_couplers_to_s00_data_fifo_TVALID));
 endmodule
@@ -6417,21 +6478,25 @@ module s01_couplers_imp_15AZQDM
    (M_AXIS_ACLK,
     M_AXIS_ARESETN,
     M_AXIS_tdata,
+    M_AXIS_tlast,
     M_AXIS_tready,
     M_AXIS_tvalid,
     S_AXIS_ACLK,
     S_AXIS_ARESETN,
     S_AXIS_tdata,
+    S_AXIS_tlast,
     S_AXIS_tready,
     S_AXIS_tvalid);
   input M_AXIS_ACLK;
   input M_AXIS_ARESETN;
   output [31:0]M_AXIS_tdata;
+  output M_AXIS_tlast;
   input M_AXIS_tready;
   output M_AXIS_tvalid;
   input S_AXIS_ACLK;
   input S_AXIS_ARESETN;
   input [31:0]S_AXIS_tdata;
+  input S_AXIS_tlast;
   output S_AXIS_tready;
   input S_AXIS_tvalid;
 
@@ -6443,32 +6508,39 @@ module s01_couplers_imp_15AZQDM
   wire S_AXIS_ACLK_1;
   wire S_AXIS_ARESETN_1;
   wire [31:0]auto_cc_to_s01_data_fifo_TDATA;
+  wire auto_cc_to_s01_data_fifo_TLAST;
   wire auto_cc_to_s01_data_fifo_TREADY;
   wire auto_cc_to_s01_data_fifo_TVALID;
   wire [31:0]s01_couplers_to_auto_cc_TDATA;
+  wire s01_couplers_to_auto_cc_TLAST;
   wire s01_couplers_to_auto_cc_TREADY;
   wire s01_couplers_to_auto_cc_TVALID;
   wire [31:0]s01_data_fifo_to_s01_couplers_TDATA;
+  wire s01_data_fifo_to_s01_couplers_TLAST;
   wire s01_data_fifo_to_s01_couplers_TREADY;
   wire s01_data_fifo_to_s01_couplers_TVALID;
 
   assign M_AXIS_tdata[31:0] = s01_data_fifo_to_s01_couplers_TDATA;
+  assign M_AXIS_tlast = s01_data_fifo_to_s01_couplers_TLAST;
   assign M_AXIS_tvalid = s01_data_fifo_to_s01_couplers_TVALID;
   assign S_AXIS_ACLK_1 = S_AXIS_ACLK;
   assign S_AXIS_ARESETN_1 = S_AXIS_ARESETN;
   assign S_AXIS_tready = s01_couplers_to_auto_cc_TREADY;
   assign s01_couplers_to_auto_cc_TDATA = S_AXIS_tdata[31:0];
+  assign s01_couplers_to_auto_cc_TLAST = S_AXIS_tlast;
   assign s01_couplers_to_auto_cc_TVALID = S_AXIS_tvalid;
   assign s01_data_fifo_to_s01_couplers_TREADY = M_AXIS_tready;
   bd_auto_cc_2 auto_cc
        (.m_axis_aclk(M_AXIS_ACLK),
         .m_axis_aresetn(M_AXIS_ARESETN),
         .m_axis_tdata(auto_cc_to_s01_data_fifo_TDATA),
+        .m_axis_tlast(auto_cc_to_s01_data_fifo_TLAST),
         .m_axis_tready(auto_cc_to_s01_data_fifo_TREADY),
         .m_axis_tvalid(auto_cc_to_s01_data_fifo_TVALID),
         .s_axis_aclk(S_AXIS_ACLK_1),
         .s_axis_aresetn(S_AXIS_ARESETN_1),
         .s_axis_tdata(s01_couplers_to_auto_cc_TDATA),
+        .s_axis_tlast(s01_couplers_to_auto_cc_TLAST),
         .s_axis_tready(s01_couplers_to_auto_cc_TREADY),
         .s_axis_tvalid(s01_couplers_to_auto_cc_TVALID));
   bd_s01_data_fifo_0 s01_data_fifo
@@ -6476,11 +6548,13 @@ module s01_couplers_imp_15AZQDM
         .axis_rd_data_count(AXIS_RD_DATA_COUNT_to_S_AXIS_RD_DATA_COUNT),
         .axis_wr_data_count(AXIS_WR_DATA_COUNT_to_S_AXIS_WR_DATA_COUNT),
         .m_axis_tdata(s01_data_fifo_to_s01_couplers_TDATA),
+        .m_axis_tlast(s01_data_fifo_to_s01_couplers_TLAST),
         .m_axis_tready(s01_data_fifo_to_s01_couplers_TREADY),
         .m_axis_tvalid(s01_data_fifo_to_s01_couplers_TVALID),
         .s_axis_aclk(M_AXIS_ACLK),
         .s_axis_aresetn(M_AXIS_ARESETN),
         .s_axis_tdata(auto_cc_to_s01_data_fifo_TDATA),
+        .s_axis_tlast(auto_cc_to_s01_data_fifo_TLAST),
         .s_axis_tready(auto_cc_to_s01_data_fifo_TREADY),
         .s_axis_tvalid(auto_cc_to_s01_data_fifo_TVALID));
 endmodule
@@ -6841,21 +6915,25 @@ module s02_couplers_imp_1R226RE
    (M_AXIS_ACLK,
     M_AXIS_ARESETN,
     M_AXIS_tdata,
+    M_AXIS_tlast,
     M_AXIS_tready,
     M_AXIS_tvalid,
     S_AXIS_ACLK,
     S_AXIS_ARESETN,
     S_AXIS_tdata,
+    S_AXIS_tlast,
     S_AXIS_tready,
     S_AXIS_tvalid);
   input M_AXIS_ACLK;
   input M_AXIS_ARESETN;
   output [31:0]M_AXIS_tdata;
+  output M_AXIS_tlast;
   input M_AXIS_tready;
   output M_AXIS_tvalid;
   input S_AXIS_ACLK;
   input S_AXIS_ARESETN;
   input [31:0]S_AXIS_tdata;
+  input S_AXIS_tlast;
   output S_AXIS_tready;
   input S_AXIS_tvalid;
 
@@ -6867,32 +6945,39 @@ module s02_couplers_imp_1R226RE
   wire S_AXIS_ACLK_1;
   wire S_AXIS_ARESETN_1;
   wire [31:0]auto_cc_to_s02_data_fifo_TDATA;
+  wire auto_cc_to_s02_data_fifo_TLAST;
   wire auto_cc_to_s02_data_fifo_TREADY;
   wire auto_cc_to_s02_data_fifo_TVALID;
   wire [31:0]s02_couplers_to_auto_cc_TDATA;
+  wire s02_couplers_to_auto_cc_TLAST;
   wire s02_couplers_to_auto_cc_TREADY;
   wire s02_couplers_to_auto_cc_TVALID;
   wire [31:0]s02_data_fifo_to_s02_couplers_TDATA;
+  wire s02_data_fifo_to_s02_couplers_TLAST;
   wire s02_data_fifo_to_s02_couplers_TREADY;
   wire s02_data_fifo_to_s02_couplers_TVALID;
 
   assign M_AXIS_tdata[31:0] = s02_data_fifo_to_s02_couplers_TDATA;
+  assign M_AXIS_tlast = s02_data_fifo_to_s02_couplers_TLAST;
   assign M_AXIS_tvalid = s02_data_fifo_to_s02_couplers_TVALID;
   assign S_AXIS_ACLK_1 = S_AXIS_ACLK;
   assign S_AXIS_ARESETN_1 = S_AXIS_ARESETN;
   assign S_AXIS_tready = s02_couplers_to_auto_cc_TREADY;
   assign s02_couplers_to_auto_cc_TDATA = S_AXIS_tdata[31:0];
+  assign s02_couplers_to_auto_cc_TLAST = S_AXIS_tlast;
   assign s02_couplers_to_auto_cc_TVALID = S_AXIS_tvalid;
   assign s02_data_fifo_to_s02_couplers_TREADY = M_AXIS_tready;
   bd_auto_cc_3 auto_cc
        (.m_axis_aclk(M_AXIS_ACLK),
         .m_axis_aresetn(M_AXIS_ARESETN),
         .m_axis_tdata(auto_cc_to_s02_data_fifo_TDATA),
+        .m_axis_tlast(auto_cc_to_s02_data_fifo_TLAST),
         .m_axis_tready(auto_cc_to_s02_data_fifo_TREADY),
         .m_axis_tvalid(auto_cc_to_s02_data_fifo_TVALID),
         .s_axis_aclk(S_AXIS_ACLK_1),
         .s_axis_aresetn(S_AXIS_ARESETN_1),
         .s_axis_tdata(s02_couplers_to_auto_cc_TDATA),
+        .s_axis_tlast(s02_couplers_to_auto_cc_TLAST),
         .s_axis_tready(s02_couplers_to_auto_cc_TREADY),
         .s_axis_tvalid(s02_couplers_to_auto_cc_TVALID));
   bd_s02_data_fifo_0 s02_data_fifo
@@ -6900,11 +6985,13 @@ module s02_couplers_imp_1R226RE
         .axis_rd_data_count(AXIS_RD_DATA_COUNT_to_S_AXIS_RD_DATA_COUNT),
         .axis_wr_data_count(AXIS_WR_DATA_COUNT_to_S_AXIS_WR_DATA_COUNT),
         .m_axis_tdata(s02_data_fifo_to_s02_couplers_TDATA),
+        .m_axis_tlast(s02_data_fifo_to_s02_couplers_TLAST),
         .m_axis_tready(s02_data_fifo_to_s02_couplers_TREADY),
         .m_axis_tvalid(s02_data_fifo_to_s02_couplers_TVALID),
         .s_axis_aclk(M_AXIS_ACLK),
         .s_axis_aresetn(M_AXIS_ARESETN),
         .s_axis_tdata(auto_cc_to_s02_data_fifo_TDATA),
+        .s_axis_tlast(auto_cc_to_s02_data_fifo_TLAST),
         .s_axis_tready(auto_cc_to_s02_data_fifo_TREADY),
         .s_axis_tvalid(auto_cc_to_s02_data_fifo_TVALID));
 endmodule

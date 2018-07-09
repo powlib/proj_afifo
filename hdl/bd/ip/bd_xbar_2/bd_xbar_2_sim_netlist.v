@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Sun Jul  8 18:12:40 2018
+// Date        : Mon Jul  9 00:08:27 2018
 // Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_xbar_2/bd_xbar_2_sim_netlist.v
@@ -20,28 +20,34 @@ module bd_xbar_2
     s_axis_tvalid,
     s_axis_tready,
     s_axis_tdata,
+    s_axis_tlast,
     m_axis_tvalid,
     m_axis_tready,
     m_axis_tdata,
+    m_axis_tlast,
     s_req_suppress,
     s_decode_err);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLKIF CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLKIF, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, ASSOCIATED_BUSIF M00_AXIS:M01_AXIS:M02_AXIS:M03_AXIS:M04_AXIS:M05_AXIS:M06_AXIS:M07_AXIS:M08_AXIS:M09_AXIS:M10_AXIS:M11_AXIS:M12_AXIS:M13_AXIS:M14_AXIS:M15_AXIS:S00_AXIS:S01_AXIS:S02_AXIS:S03_AXIS:S04_AXIS:S05_AXIS:S06_AXIS:S07_AXIS:S08_AXIS:S09_AXIS:S10_AXIS:S11_AXIS:S12_AXIS:S13_AXIS:S14_AXIS:S15_AXIS, ASSOCIATED_RESET aresetn, ASSOCIATED_CLKEN aclken" *) input aclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RSTIF RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, TYPE INTERCONNECT" *) input aresetn;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TVALID [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TVALID [0:0] [1:1], xilinx.com:interface:axis:1.0 S02_AXIS TVALID [0:0] [2:2]" *) input [2:0]s_axis_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TREADY [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TREADY [0:0] [1:1], xilinx.com:interface:axis:1.0 S02_AXIS TREADY [0:0] [2:2]" *) output [2:0]s_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDATA [31:0] [31:0], xilinx.com:interface:axis:1.0 S01_AXIS TDATA [31:0] [63:32], xilinx.com:interface:axis:1.0 S02_AXIS TDATA [31:0] [95:64]" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME S01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME S02_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) input [95:0]s_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDATA [31:0] [31:0], xilinx.com:interface:axis:1.0 S01_AXIS TDATA [31:0] [63:32], xilinx.com:interface:axis:1.0 S02_AXIS TDATA [31:0] [95:64]" *) input [95:0]s_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TLAST [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TLAST [0:0] [1:1], xilinx.com:interface:axis:1.0 S02_AXIS TLAST [0:0] [2:2]" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME S01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME S02_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) input [2:0]s_axis_tlast;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TVALID" *) output [0:0]m_axis_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TREADY" *) input [0:0]m_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) output [31:0]m_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA" *) output [31:0]m_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TLAST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) output [0:0]m_axis_tlast;
   input [2:0]s_req_suppress;
   output [2:0]s_decode_err;
 
   wire aclk;
   wire aresetn;
   wire [31:0]m_axis_tdata;
+  wire [0:0]m_axis_tlast;
   wire [0:0]m_axis_tready;
   wire [0:0]m_axis_tvalid;
   wire [95:0]s_axis_tdata;
+  wire [2:0]s_axis_tlast;
   wire [2:0]s_axis_tready;
   wire [2:0]s_axis_tvalid;
   wire [2:0]s_decode_err;
@@ -60,7 +66,6 @@ module bd_xbar_2
   wire [0:0]NLW_inst_m_axis_tdest_UNCONNECTED;
   wire [0:0]NLW_inst_m_axis_tid_UNCONNECTED;
   wire [3:0]NLW_inst_m_axis_tkeep_UNCONNECTED;
-  wire [0:0]NLW_inst_m_axis_tlast_UNCONNECTED;
   wire [3:0]NLW_inst_m_axis_tstrb_UNCONNECTED;
   wire [0:0]NLW_inst_m_axis_tuser_UNCONNECTED;
   wire [1:0]NLW_inst_s_axi_ctrl_bresp_UNCONNECTED;
@@ -71,7 +76,7 @@ module bd_xbar_2
   (* C_ARB_ON_MAX_XFERS = "1" *) 
   (* C_ARB_ON_NUM_CYCLES = "0" *) 
   (* C_ARB_ON_TLAST = "0" *) 
-  (* C_AXIS_SIGNAL_SET = "3" *) 
+  (* C_AXIS_SIGNAL_SET = "19" *) 
   (* C_AXIS_TDATA_WIDTH = "32" *) 
   (* C_AXIS_TDEST_WIDTH = "1" *) 
   (* C_AXIS_TID_WIDTH = "1" *) 
@@ -115,7 +120,7 @@ module bd_xbar_2
   (* LP_NUM_SYNCHRONIZER_STAGES = "4" *) 
   (* P_DECODER_CONNECTIVITY_ARRAY = "3'b111" *) 
   (* P_SINGLE_SLAVE_CONNECTIVITY_ARRAY = "1'b0" *) 
-  (* P_TPAYLOAD_WIDTH = "32" *) 
+  (* P_TPAYLOAD_WIDTH = "33" *) 
   bd_xbar_2_axis_switch_v1_1_15_axis_switch inst
        (.aclk(aclk),
         .aclken(1'b1),
@@ -132,7 +137,7 @@ module bd_xbar_2
         .m_axis_tdest(NLW_inst_m_axis_tdest_UNCONNECTED[0]),
         .m_axis_tid(NLW_inst_m_axis_tid_UNCONNECTED[0]),
         .m_axis_tkeep(NLW_inst_m_axis_tkeep_UNCONNECTED[3:0]),
-        .m_axis_tlast(NLW_inst_m_axis_tlast_UNCONNECTED[0]),
+        .m_axis_tlast(m_axis_tlast),
         .m_axis_tready(m_axis_tready),
         .m_axis_tstrb(NLW_inst_m_axis_tstrb_UNCONNECTED[3:0]),
         .m_axis_tuser(NLW_inst_m_axis_tuser_UNCONNECTED[0]),
@@ -159,7 +164,7 @@ module bd_xbar_2
         .s_axis_tdest({1'b0,1'b0,1'b0}),
         .s_axis_tid({1'b0,1'b0,1'b0}),
         .s_axis_tkeep({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
-        .s_axis_tlast({1'b1,1'b1,1'b1}),
+        .s_axis_tlast(s_axis_tlast),
         .s_axis_tready(s_axis_tready),
         .s_axis_tstrb({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
         .s_axis_tuser({1'b0,1'b0,1'b0}),
@@ -178,6 +183,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
     \gen_tdest_routing.busy_ns_1 ,
     \port_priority_r_reg[0]_2 ,
     m_axis_tdata,
+    m_axis_tlast,
     m_axis_tvalid,
     areset_r,
     aclken,
@@ -188,6 +194,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
     \gen_tdest_routing.busy_r_reg[0]_0 ,
     \gen_tdest_routing.busy_r_reg[0]_1 ,
     s_axis_tdata,
+    s_axis_tlast,
     m_axis_tready,
     \gen_tdest_router.busy_r );
   output \gen_tdest_routing.busy_ns ;
@@ -198,6 +205,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
   output \gen_tdest_routing.busy_ns_1 ;
   output \port_priority_r_reg[0]_2 ;
   output [31:0]m_axis_tdata;
+  output [0:0]m_axis_tlast;
   output [0:0]m_axis_tvalid;
   input areset_r;
   input aclken;
@@ -208,6 +216,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
   input \gen_tdest_routing.busy_r_reg[0]_0 ;
   input \gen_tdest_routing.busy_r_reg[0]_1 ;
   input [95:0]s_axis_tdata;
+  input [2:0]s_axis_tlast;
   input [0:0]m_axis_tready;
   input [2:0]\gen_tdest_router.busy_r ;
 
@@ -239,6 +248,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
   wire \gen_tdest_routing.busy_r_reg[0]_0 ;
   wire \gen_tdest_routing.busy_r_reg[0]_1 ;
   wire [31:0]m_axis_tdata;
+  wire [0:0]m_axis_tlast;
   wire [0:0]m_axis_tready;
   wire [0:0]m_axis_tvalid;
   wire \m_axis_tvalid[0]_INST_0_i_1_n_0 ;
@@ -247,6 +257,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
   wire \port_priority_r_reg[0]_1 ;
   wire \port_priority_r_reg[0]_2 ;
   wire [95:0]s_axis_tdata;
+  wire [2:0]s_axis_tlast;
   wire [2:0]s_axis_tvalid;
   wire [2:0]s_req_suppress;
   wire [1:0]sel_i;
@@ -275,7 +286,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
         .I1(\m_axis_tvalid[0]_INST_0_i_1_n_0 ),
         .I2(arb_busy_r_i_7_n_0),
         .O(\arb_sel_r_reg[1]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     arb_busy_r_i_4
@@ -284,7 +295,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
         .I2(\port_priority_r_reg[0]_0 ),
         .I3(\gen_tdest_routing.busy_r_reg[0] ),
         .O(arb_req_i__5[2]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     arb_busy_r_i_5
@@ -293,7 +304,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
         .I2(\port_priority_r_reg[0]_1 ),
         .I3(\gen_tdest_routing.busy_r_reg[0]_0 ),
         .O(arb_req_i__5[1]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     arb_busy_r_i_6
@@ -491,7 +502,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
         .D(barrel_cntr_ns[1]),
         .Q(\barrel_cntr_reg_n_0_[1] ),
         .R(areset_r));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'h0E)) 
     \gen_tdest_routing.busy_r[0]_i_1 
@@ -499,7 +510,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
         .I1(\gen_tdest_routing.busy_r_reg[0] ),
         .I2(\arb_sel_r_reg[1]_0 ),
         .O(\gen_tdest_routing.busy_ns ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'h0E)) 
     \gen_tdest_routing.busy_r[0]_i_1__0 
@@ -507,7 +518,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
         .I1(\gen_tdest_routing.busy_r_reg[0]_0 ),
         .I2(\arb_sel_r_reg[1]_0 ),
         .O(\gen_tdest_routing.busy_ns_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'h0E)) 
     \gen_tdest_routing.busy_r[0]_i_1__1 
@@ -803,6 +814,15 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
         .I3(arb_sel_i[0]),
         .I4(arb_sel_i[1]),
         .O(m_axis_tdata[9]));
+  LUT5 #(
+    .INIT(32'h00CCAAF0)) 
+    \m_axis_tlast[0]_INST_0 
+       (.I0(s_axis_tlast[1]),
+        .I1(s_axis_tlast[2]),
+        .I2(s_axis_tlast[0]),
+        .I3(arb_sel_i[0]),
+        .I4(arb_sel_i[1]),
+        .O(m_axis_tlast));
   LUT6 #(
     .INIT(64'h2A2822200A080200)) 
     \m_axis_tvalid[0]_INST_0 
@@ -862,7 +882,7 @@ module bd_xbar_2_axis_switch_v1_1_15_arb_rr
 endmodule
 
 (* C_ARB_ALGORITHM = "0" *) (* C_ARB_ON_MAX_XFERS = "1" *) (* C_ARB_ON_NUM_CYCLES = "0" *) 
-(* C_ARB_ON_TLAST = "0" *) (* C_AXIS_SIGNAL_SET = "3" *) (* C_AXIS_TDATA_WIDTH = "32" *) 
+(* C_ARB_ON_TLAST = "0" *) (* C_AXIS_SIGNAL_SET = "19" *) (* C_AXIS_TDATA_WIDTH = "32" *) 
 (* C_AXIS_TDEST_WIDTH = "1" *) (* C_AXIS_TID_WIDTH = "1" *) (* C_AXIS_TUSER_WIDTH = "1" *) 
 (* C_COMMON_CLOCK = "0" *) (* C_DECODER_REG = "0" *) (* C_FAMILY = "artix7" *) 
 (* C_INCLUDE_ARBITER = "1" *) (* C_LOG_SI_SLOTS = "2" *) (* C_M_AXIS_BASETDEST_ARRAY = "1'b0" *) 
@@ -877,7 +897,7 @@ endmodule
 (* G_MASK_SS_TUSER = "128" *) (* G_TASK_SEVERITY_ERR = "2" *) (* G_TASK_SEVERITY_INFO = "0" *) 
 (* G_TASK_SEVERITY_WARNING = "1" *) (* LP_CTRL_REG_WIDTH = "20" *) (* LP_MERGEDOWN_MUX = "0" *) 
 (* LP_NUM_SYNCHRONIZER_STAGES = "4" *) (* ORIG_REF_NAME = "axis_switch_v1_1_15_axis_switch" *) (* P_DECODER_CONNECTIVITY_ARRAY = "3'b111" *) 
-(* P_SINGLE_SLAVE_CONNECTIVITY_ARRAY = "1'b0" *) (* P_TPAYLOAD_WIDTH = "32" *) 
+(* P_SINGLE_SLAVE_CONNECTIVITY_ARRAY = "1'b0" *) (* P_TPAYLOAD_WIDTH = "33" *) 
 module bd_xbar_2_axis_switch_v1_1_15_axis_switch
    (aclk,
     aresetn,
@@ -993,11 +1013,13 @@ module bd_xbar_2_axis_switch_v1_1_15_axis_switch
   wire \gen_tdest_routing.busy_ns_0 ;
   wire \gen_tdest_routing.busy_ns_1 ;
   wire [31:0]m_axis_tdata;
+  wire [0:0]m_axis_tlast;
   wire [0:0]m_axis_tready;
   wire [0:0]m_axis_tvalid;
   wire p_0_in;
   wire p_0_out;
   wire [95:0]s_axis_tdata;
+  wire [2:0]s_axis_tlast;
   wire [2:0]s_axis_tready;
   wire [2:0]s_axis_tvalid;
   wire [2:0]s_req_suppress;
@@ -1024,7 +1046,6 @@ module bd_xbar_2_axis_switch_v1_1_15_axis_switch
   assign m_axis_tkeep[2] = \<const1> ;
   assign m_axis_tkeep[1] = \<const1> ;
   assign m_axis_tkeep[0] = \<const1> ;
-  assign m_axis_tlast[0] = \<const0> ;
   assign m_axis_tstrb[3] = \<const0> ;
   assign m_axis_tstrb[2] = \<const0> ;
   assign m_axis_tstrb[1] = \<const0> ;
@@ -1120,10 +1141,12 @@ module bd_xbar_2_axis_switch_v1_1_15_axis_switch
         .\gen_tdest_routing.busy_r_reg[0]_0 (\gen_decoder[1].axisc_decoder_0_n_0 ),
         .\gen_tdest_routing.busy_r_reg[0]_1 (\gen_decoder[0].axisc_decoder_0_n_0 ),
         .m_axis_tdata(m_axis_tdata),
+        .m_axis_tlast(m_axis_tlast),
         .m_axis_tready(m_axis_tready),
         .m_axis_tvalid(m_axis_tvalid),
         .p_0_out(p_0_out),
         .s_axis_tdata(s_axis_tdata),
+        .s_axis_tlast(s_axis_tlast),
         .s_axis_tvalid(s_axis_tvalid),
         .s_req_suppress(s_req_suppress));
   bd_xbar_2_axis_switch_v1_1_15_axisc_transfer_mux \gen_transfer_mux[0].axisc_transfer_mux_0 
@@ -1146,6 +1169,7 @@ module bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter
     \gen_tdest_routing.busy_ns_0 ,
     \gen_tdest_routing.busy_ns_1 ,
     m_axis_tdata,
+    m_axis_tlast,
     m_axis_tvalid,
     areset_r,
     aclken,
@@ -1156,6 +1180,7 @@ module bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter
     \gen_tdest_routing.busy_r_reg[0]_0 ,
     \gen_tdest_routing.busy_r_reg[0]_1 ,
     s_axis_tdata,
+    s_axis_tlast,
     m_axis_tready,
     \gen_tdest_router.busy_r );
   output \gen_tdest_routing.busy_ns ;
@@ -1164,6 +1189,7 @@ module bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter
   output \gen_tdest_routing.busy_ns_0 ;
   output \gen_tdest_routing.busy_ns_1 ;
   output [31:0]m_axis_tdata;
+  output [0:0]m_axis_tlast;
   output [0:0]m_axis_tvalid;
   input areset_r;
   input aclken;
@@ -1174,6 +1200,7 @@ module bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter
   input \gen_tdest_routing.busy_r_reg[0]_0 ;
   input \gen_tdest_routing.busy_r_reg[0]_1 ;
   input [95:0]s_axis_tdata;
+  input [2:0]s_axis_tlast;
   input [0:0]m_axis_tready;
   input [2:0]\gen_tdest_router.busy_r ;
 
@@ -1189,10 +1216,12 @@ module bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter
   wire \gen_tdest_routing.busy_r_reg[0]_0 ;
   wire \gen_tdest_routing.busy_r_reg[0]_1 ;
   wire [31:0]m_axis_tdata;
+  wire [0:0]m_axis_tlast;
   wire [0:0]m_axis_tready;
   wire [0:0]m_axis_tvalid;
   wire p_0_out;
   wire [95:0]s_axis_tdata;
+  wire [2:0]s_axis_tlast;
   wire [2:0]s_axis_tvalid;
   wire [2:0]s_req_suppress;
 
@@ -1209,12 +1238,14 @@ module bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter
         .\gen_tdest_routing.busy_r_reg[0]_0 (\gen_tdest_routing.busy_r_reg[0]_0 ),
         .\gen_tdest_routing.busy_r_reg[0]_1 (\gen_tdest_routing.busy_r_reg[0]_1 ),
         .m_axis_tdata(m_axis_tdata),
+        .m_axis_tlast(m_axis_tlast),
         .m_axis_tready(m_axis_tready),
         .m_axis_tvalid(m_axis_tvalid),
         .\port_priority_r_reg[0]_0 (arb_gnt_i[2]),
         .\port_priority_r_reg[0]_1 (arb_gnt_i[1]),
         .\port_priority_r_reg[0]_2 (arb_gnt_i[0]),
         .s_axis_tdata(s_axis_tdata),
+        .s_axis_tlast(s_axis_tlast),
         .s_axis_tvalid(s_axis_tvalid),
         .s_req_suppress(s_req_suppress));
 endmodule

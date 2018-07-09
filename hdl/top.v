@@ -2,7 +2,7 @@
 
 module top(reset,sys_clock,usb_uart_rxd,usb_uart_txd);
   
-  localparam              W   = 32;
+  localparam              W   = 33;
   localparam              D   = 16;
   localparam              EAR = 0;
         
@@ -26,16 +26,16 @@ module top(reset,sys_clock,usb_uart_rxd,usb_uart_txd);
     .rddata(rddata_1),.rdvld(rdvld_1),.rdrdy(rdrdy_1),.rdclk(clk_med),.rdrst(rst_med));
 
   powlib_afifo #(.W(W),.D(D),.EAR(EAR),.ID("AFIFO_FST_TO_SLW")) afifo2_inst (
-    .wrdata(wrdata_2),.wrvld(wrvld_2),.wrrdy(wrrdy_2),.wrclk(clk_fst),.wrrst(rst_slw),
-    .rddata(rddata_2),.rdvld(rdvld_2),.rdrdy(rdrdy_2),.rdclk(clk_fst),.rdrst(rst_slw));  
+    .wrdata(wrdata_2),.wrvld(wrvld_2),.wrrdy(wrrdy_2),.wrclk(clk_fst),.wrrst(rst_fst),
+    .rddata(rddata_2),.rdvld(rdvld_2),.rdrdy(rdrdy_2),.rdclk(clk_slw),.rdrst(rst_slw));  
 
   bd_wrapper bd_inst (
-    .M00_AXIS_0_tdata(wrdata_0),.M00_AXIS_0_tready(wrrdy_0),.M00_AXIS_0_tvalid(wrvld_0),
-    .M01_AXIS_0_tdata(wrdata_1),.M01_AXIS_0_tready(wrrdy_1),.M01_AXIS_0_tvalid(wrvld_1),
-    .M02_AXIS_0_tdata(wrdata_2),.M02_AXIS_0_tready(wrrdy_2),.M02_AXIS_0_tvalid(wrvld_2),
-    .S00_AXIS_0_tdata(rddata_0),.S00_AXIS_0_tready(rdrdy_0),.S00_AXIS_0_tvalid(rdvld_0),
-    .S01_AXIS_0_tdata(rddata_1),.S01_AXIS_0_tready(rdrdy_1),.S01_AXIS_0_tvalid(rdvld_1),
-    .S02_AXIS_0_tdata(rddata_2),.S02_AXIS_0_tready(rdrdy_2),.S02_AXIS_0_tvalid(rdvld_2),
+    .M00_AXIS_0_tdata(wrdata_0[W-2:0]),.M00_AXIS_0_tready(wrrdy_0),.M00_AXIS_0_tvalid(wrvld_0),.M00_AXIS_0_tlast(wrdata_0[W-1]),
+    .M01_AXIS_0_tdata(wrdata_1[W-2:0]),.M01_AXIS_0_tready(wrrdy_1),.M01_AXIS_0_tvalid(wrvld_1),.M01_AXIS_0_tlast(wrdata_1[W-1]),
+    .M02_AXIS_0_tdata(wrdata_2[W-2:0]),.M02_AXIS_0_tready(wrrdy_2),.M02_AXIS_0_tvalid(wrvld_2),.M02_AXIS_0_tlast(wrdata_2[W-1]),
+    .S00_AXIS_0_tdata(rddata_0[W-2:0]),.S00_AXIS_0_tready(rdrdy_0),.S00_AXIS_0_tvalid(rdvld_0),.S00_AXIS_0_tlast(rddata_0[W-1]),
+    .S01_AXIS_0_tdata(rddata_1[W-2:0]),.S01_AXIS_0_tready(rdrdy_1),.S01_AXIS_0_tvalid(rdvld_1),.S01_AXIS_0_tlast(rddata_1[W-1]),
+    .S02_AXIS_0_tdata(rddata_2[W-2:0]),.S02_AXIS_0_tready(rdrdy_2),.S02_AXIS_0_tvalid(rdvld_2),.S02_AXIS_0_tlast(rddata_2[W-1]),
     .clk_out2(clk_slw),.clk_out3(clk_med),.clk_out4(clk_fst),    
     .rst_clk2(rst_slw),.rst_clk3(rst_med),.rst_clk4(rst_fst),
     .sys_clock(sys_clock),.reset(reset),

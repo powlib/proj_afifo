@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Sun Jul  8 18:10:26 2018
+//Date        : Mon Jul  9 00:05:59 2018
 //Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 //Command     : generate_target bd_wrapper.bd
 //Design      : bd_wrapper
@@ -35,12 +35,15 @@ module bd_wrapper
     M02_AXIS_0_tuser,
     M02_AXIS_0_tvalid,
     S00_AXIS_0_tdata,
+    S00_AXIS_0_tlast,
     S00_AXIS_0_tready,
     S00_AXIS_0_tvalid,
     S01_AXIS_0_tdata,
+    S01_AXIS_0_tlast,
     S01_AXIS_0_tready,
     S01_AXIS_0_tvalid,
     S02_AXIS_0_tdata,
+    S02_AXIS_0_tlast,
     S02_AXIS_0_tready,
     S02_AXIS_0_tvalid,
     clk_out2,
@@ -78,12 +81,15 @@ module bd_wrapper
   output [3:0]M02_AXIS_0_tuser;
   output M02_AXIS_0_tvalid;
   input [31:0]S00_AXIS_0_tdata;
+  input S00_AXIS_0_tlast;
   output S00_AXIS_0_tready;
   input S00_AXIS_0_tvalid;
   input [31:0]S01_AXIS_0_tdata;
+  input S01_AXIS_0_tlast;
   output S01_AXIS_0_tready;
   input S01_AXIS_0_tvalid;
   input [31:0]S02_AXIS_0_tdata;
+  input S02_AXIS_0_tlast;
   output S02_AXIS_0_tready;
   input S02_AXIS_0_tvalid;
   output clk_out2;
@@ -122,12 +128,15 @@ module bd_wrapper
   wire [3:0]M02_AXIS_0_tuser;
   wire M02_AXIS_0_tvalid;
   wire [31:0]S00_AXIS_0_tdata;
+  wire S00_AXIS_0_tlast;
   wire S00_AXIS_0_tready;
   wire S00_AXIS_0_tvalid;
   wire [31:0]S01_AXIS_0_tdata;
+  wire S01_AXIS_0_tlast;
   wire S01_AXIS_0_tready;
   wire S01_AXIS_0_tvalid;
   wire [31:0]S02_AXIS_0_tdata;
+  wire S02_AXIS_0_tlast;
   wire S02_AXIS_0_tready;
   wire S02_AXIS_0_tvalid;
   wire clk_out2;
@@ -167,12 +176,15 @@ module bd_wrapper
         .M02_AXIS_0_tuser(M02_AXIS_0_tuser),
         .M02_AXIS_0_tvalid(M02_AXIS_0_tvalid),
         .S00_AXIS_0_tdata(S00_AXIS_0_tdata),
+        .S00_AXIS_0_tlast(S00_AXIS_0_tlast),
         .S00_AXIS_0_tready(S00_AXIS_0_tready),
         .S00_AXIS_0_tvalid(S00_AXIS_0_tvalid),
         .S01_AXIS_0_tdata(S01_AXIS_0_tdata),
+        .S01_AXIS_0_tlast(S01_AXIS_0_tlast),
         .S01_AXIS_0_tready(S01_AXIS_0_tready),
         .S01_AXIS_0_tvalid(S01_AXIS_0_tvalid),
         .S02_AXIS_0_tdata(S02_AXIS_0_tdata),
+        .S02_AXIS_0_tlast(S02_AXIS_0_tlast),
         .S02_AXIS_0_tready(S02_AXIS_0_tready),
         .S02_AXIS_0_tvalid(S02_AXIS_0_tvalid),
         .clk_out2(clk_out2),

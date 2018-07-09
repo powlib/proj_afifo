@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Sun Jul  8 18:20:12 2018
+// Date        : Mon Jul  9 00:13:05 2018
 // Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_auto_cc_3/bd_auto_cc_3_sim_netlist.v
@@ -21,32 +21,37 @@ module bd_auto_cc_3
     s_axis_tvalid,
     s_axis_tready,
     s_axis_tdata,
+    s_axis_tlast,
     m_axis_aclk,
     m_axis_tvalid,
     m_axis_tready,
-    m_axis_tdata);
+    m_axis_tdata,
+    m_axis_tlast);
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S_RSTIF RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_RSTIF, POLARITY ACTIVE_LOW, TYPE INTERCONNECT" *) input s_axis_aresetn;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 M_RSTIF RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_RSTIF, POLARITY ACTIVE_LOW, TYPE INTERCONNECT" *) input m_axis_aresetn;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S_CLKIF CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_CLKIF, FREQ_HZ 25000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, ASSOCIATED_BUSIF S_AXIS, ASSOCIATED_RESET s_axis_aresetn, ASSOCIATED_CLKEN s_axis_aclken" *) input s_axis_aclk;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TVALID" *) input s_axis_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TREADY" *) output s_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 25000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) input [31:0]s_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TDATA" *) input [31:0]s_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TLAST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 25000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) input s_axis_tlast;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 M_CLKIF CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_CLKIF, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, ASSOCIATED_BUSIF M_AXIS, ASSOCIATED_RESET m_axis_aresetn, ASSOCIATED_CLKEN m_axis_aclken" *) input m_axis_aclk;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TVALID" *) output m_axis_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TREADY" *) input m_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) output [31:0]m_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *) output [31:0]m_axis_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TLAST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) output m_axis_tlast;
 
   wire m_axis_aclk;
   wire m_axis_aresetn;
   wire [31:0]m_axis_tdata;
+  wire m_axis_tlast;
   wire m_axis_tready;
   wire m_axis_tvalid;
   wire s_axis_aclk;
   wire s_axis_aresetn;
   wire [31:0]s_axis_tdata;
+  wire s_axis_tlast;
   wire s_axis_tready;
   wire s_axis_tvalid;
-  wire NLW_inst_m_axis_tlast_UNCONNECTED;
   wire [0:0]NLW_inst_m_axis_tdest_UNCONNECTED;
   wire [0:0]NLW_inst_m_axis_tid_UNCONNECTED;
   wire [3:0]NLW_inst_m_axis_tkeep_UNCONNECTED;
@@ -54,7 +59,7 @@ module bd_auto_cc_3
   wire [0:0]NLW_inst_m_axis_tuser_UNCONNECTED;
 
   (* C_ACLKEN_CONV_MODE = "0" *) 
-  (* C_AXIS_SIGNAL_SET = "32'b00000000000000000000000000000011" *) 
+  (* C_AXIS_SIGNAL_SET = "32'b00000000000000000000000000010011" *) 
   (* C_AXIS_TDATA_WIDTH = "32" *) 
   (* C_AXIS_TDEST_WIDTH = "1" *) 
   (* C_AXIS_TID_WIDTH = "1" *) 
@@ -92,7 +97,7 @@ module bd_auto_cc_3
   (* P_M_AXIS_ACLK_RATIO = "4" *) 
   (* P_SAMPLE_CYCLE_RATIO = "4" *) 
   (* P_S_AXIS_ACLK_RATIO = "1" *) 
-  (* P_TPAYLOAD_WIDTH = "32" *) 
+  (* P_TPAYLOAD_WIDTH = "33" *) 
   bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter inst
        (.m_axis_aclk(m_axis_aclk),
         .m_axis_aclken(1'b1),
@@ -101,7 +106,7 @@ module bd_auto_cc_3
         .m_axis_tdest(NLW_inst_m_axis_tdest_UNCONNECTED[0]),
         .m_axis_tid(NLW_inst_m_axis_tid_UNCONNECTED[0]),
         .m_axis_tkeep(NLW_inst_m_axis_tkeep_UNCONNECTED[3:0]),
-        .m_axis_tlast(NLW_inst_m_axis_tlast_UNCONNECTED),
+        .m_axis_tlast(m_axis_tlast),
         .m_axis_tready(m_axis_tready),
         .m_axis_tstrb(NLW_inst_m_axis_tstrb_UNCONNECTED[3:0]),
         .m_axis_tuser(NLW_inst_m_axis_tuser_UNCONNECTED[0]),
@@ -113,14 +118,14 @@ module bd_auto_cc_3
         .s_axis_tdest(1'b0),
         .s_axis_tid(1'b0),
         .s_axis_tkeep({1'b1,1'b1,1'b1,1'b1}),
-        .s_axis_tlast(1'b1),
+        .s_axis_tlast(s_axis_tlast),
         .s_axis_tready(s_axis_tready),
         .s_axis_tstrb({1'b1,1'b1,1'b1,1'b1}),
         .s_axis_tuser(1'b0),
         .s_axis_tvalid(s_axis_tvalid));
 endmodule
 
-(* C_ACLKEN_CONV_MODE = "0" *) (* C_AXIS_SIGNAL_SET = "32'b00000000000000000000000000000011" *) (* C_AXIS_TDATA_WIDTH = "32" *) 
+(* C_ACLKEN_CONV_MODE = "0" *) (* C_AXIS_SIGNAL_SET = "32'b00000000000000000000000000010011" *) (* C_AXIS_TDATA_WIDTH = "32" *) 
 (* C_AXIS_TDEST_WIDTH = "1" *) (* C_AXIS_TID_WIDTH = "1" *) (* C_AXIS_TUSER_WIDTH = "1" *) 
 (* C_FAMILY = "artix7" *) (* C_IS_ACLK_ASYNC = "0" *) (* C_M_AXIS_ACLK_RATIO = "4" *) 
 (* C_SYNCHRONIZER_STAGE = "2" *) (* C_S_AXIS_ACLK_RATIO = "1" *) (* DowngradeIPIdentifiedWarnings = "yes" *) 
@@ -133,7 +138,7 @@ endmodule
 (* G_TASK_SEVERITY_WARNING = "1" *) (* LP_M_ACLKEN_CAN_TOGGLE = "0" *) (* LP_S_ACLKEN_CAN_TOGGLE = "0" *) 
 (* ORIG_REF_NAME = "axis_clock_converter_v1_1_16_axis_clock_converter" *) (* P_FIFO_DEPTH = "32" *) (* P_FIFO_MODE = "1" *) 
 (* P_INST_FIFO_GEN = "0" *) (* P_M_AXIS_ACLK_RATIO = "4" *) (* P_SAMPLE_CYCLE_RATIO = "4" *) 
-(* P_S_AXIS_ACLK_RATIO = "1" *) (* P_TPAYLOAD_WIDTH = "32" *) 
+(* P_S_AXIS_ACLK_RATIO = "1" *) (* P_TPAYLOAD_WIDTH = "33" *) 
 module bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter
    (s_axis_aresetn,
     m_axis_aresetn,
@@ -190,11 +195,13 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter
   wire m_axis_aclk;
   wire m_axis_aresetn;
   wire [31:0]m_axis_tdata;
+  wire m_axis_tlast;
   wire m_axis_tready;
   wire m_axis_tvalid;
   wire s_axis_aclk;
   wire s_axis_aresetn;
   wire [31:0]s_axis_tdata;
+  wire s_axis_tlast;
   wire s_axis_tready;
   wire s_axis_tvalid;
 
@@ -204,7 +211,6 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter
   assign m_axis_tkeep[2] = \<const1> ;
   assign m_axis_tkeep[1] = \<const1> ;
   assign m_axis_tkeep[0] = \<const1> ;
-  assign m_axis_tlast = \<const0> ;
   assign m_axis_tstrb[3] = \<const0> ;
   assign m_axis_tstrb[2] = \<const0> ;
   assign m_axis_tstrb[1] = \<const0> ;
@@ -219,15 +225,15 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axis_clock_converter
         .m_axis_aclk(m_axis_aclk),
         .s_axis_aclk(s_axis_aclk));
   bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter \gen_sync_ck_conv.axisc_sync_clock_converter_0 
-       (.\gen_sync_ck_conv.sample_cycle (\gen_sync_ck_conv.sample_cycle ),
+       (.D({s_axis_tlast,s_axis_tdata}),
+        .Q({m_axis_tlast,m_axis_tdata}),
+        .\gen_sync_ck_conv.sample_cycle (\gen_sync_ck_conv.sample_cycle ),
         .m_axis_aclk(m_axis_aclk),
         .m_axis_aresetn(m_axis_aresetn),
-        .m_axis_tdata(m_axis_tdata),
         .m_axis_tready(m_axis_tready),
         .m_axis_tvalid(m_axis_tvalid),
         .s_axis_aclk(s_axis_aclk),
         .s_axis_aresetn(s_axis_aresetn),
-        .s_axis_tdata(s_axis_tdata),
         .s_axis_tready(s_axis_tready),
         .s_axis_tvalid(s_axis_tvalid));
 endmodule
@@ -311,27 +317,29 @@ endmodule
 module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
    (s_axis_tready,
     m_axis_tvalid,
-    m_axis_tdata,
+    Q,
     m_axis_aclk,
     s_axis_aclk,
     s_axis_aresetn,
     m_axis_aresetn,
     s_axis_tvalid,
     m_axis_tready,
-    s_axis_tdata,
+    D,
     \gen_sync_ck_conv.sample_cycle );
   output s_axis_tready;
   output m_axis_tvalid;
-  output [31:0]m_axis_tdata;
+  output [32:0]Q;
   input m_axis_aclk;
   input s_axis_aclk;
   input s_axis_aresetn;
   input m_axis_aresetn;
   input s_axis_tvalid;
   input m_axis_tready;
-  input [31:0]s_axis_tdata;
+  input [32:0]D;
   input \gen_sync_ck_conv.sample_cycle ;
 
+  wire [32:0]D;
+  wire [32:0]Q;
   wire \gen_sync_ck_conv.sample_cycle ;
   wire \gen_sync_clock_converter.load_payload ;
   wire \gen_sync_clock_converter.load_storage ;
@@ -339,7 +347,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
   wire \gen_sync_clock_converter.m_areset_r_i_1_n_0 ;
   wire \gen_sync_clock_converter.m_ready_hold ;
   wire \gen_sync_clock_converter.m_ready_hold_i_1_n_0 ;
-  wire [31:0]\gen_sync_clock_converter.m_storage_r ;
+  wire [32:0]\gen_sync_clock_converter.m_storage_r ;
   wire \gen_sync_clock_converter.m_valid_r_i_1_n_0 ;
   wire \gen_sync_clock_converter.s_areset_r ;
   wire \gen_sync_clock_converter.s_ready_r_i_1_n_0 ;
@@ -348,13 +356,11 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
   wire \gen_sync_clock_converter.state[1]_i_1_n_0 ;
   wire m_axis_aclk;
   wire m_axis_aresetn;
-  wire [31:0]m_axis_tdata;
   wire m_axis_tready;
   wire m_axis_tvalid;
-  wire [31:0]p_0_in;
+  wire [32:0]p_0_in;
   wire s_axis_aclk;
   wire s_axis_aresetn;
-  wire [31:0]s_axis_tdata;
   wire s_axis_tready;
   wire s_axis_tvalid;
 
@@ -374,7 +380,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[0]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [0]),
-        .I1(s_axis_tdata[0]),
+        .I1(D[0]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -384,7 +390,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[10]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [10]),
-        .I1(s_axis_tdata[10]),
+        .I1(D[10]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -394,7 +400,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[11]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [11]),
-        .I1(s_axis_tdata[11]),
+        .I1(D[11]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -404,7 +410,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[12]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [12]),
-        .I1(s_axis_tdata[12]),
+        .I1(D[12]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -414,7 +420,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[13]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [13]),
-        .I1(s_axis_tdata[13]),
+        .I1(D[13]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -424,7 +430,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[14]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [14]),
-        .I1(s_axis_tdata[14]),
+        .I1(D[14]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -434,7 +440,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[15]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [15]),
-        .I1(s_axis_tdata[15]),
+        .I1(D[15]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -444,7 +450,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[16]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [16]),
-        .I1(s_axis_tdata[16]),
+        .I1(D[16]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -454,7 +460,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[17]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [17]),
-        .I1(s_axis_tdata[17]),
+        .I1(D[17]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -464,7 +470,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[18]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [18]),
-        .I1(s_axis_tdata[18]),
+        .I1(D[18]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -474,7 +480,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[19]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [19]),
-        .I1(s_axis_tdata[19]),
+        .I1(D[19]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -484,7 +490,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[1]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [1]),
-        .I1(s_axis_tdata[1]),
+        .I1(D[1]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -494,7 +500,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[20]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [20]),
-        .I1(s_axis_tdata[20]),
+        .I1(D[20]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -504,7 +510,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[21]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [21]),
-        .I1(s_axis_tdata[21]),
+        .I1(D[21]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -514,7 +520,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[22]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [22]),
-        .I1(s_axis_tdata[22]),
+        .I1(D[22]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -524,7 +530,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[23]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [23]),
-        .I1(s_axis_tdata[23]),
+        .I1(D[23]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -534,7 +540,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[24]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [24]),
-        .I1(s_axis_tdata[24]),
+        .I1(D[24]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -544,7 +550,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[25]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [25]),
-        .I1(s_axis_tdata[25]),
+        .I1(D[25]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -554,7 +560,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[26]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [26]),
-        .I1(s_axis_tdata[26]),
+        .I1(D[26]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -564,7 +570,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[27]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [27]),
-        .I1(s_axis_tdata[27]),
+        .I1(D[27]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -574,7 +580,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[28]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [28]),
-        .I1(s_axis_tdata[28]),
+        .I1(D[28]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -584,7 +590,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[29]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [29]),
-        .I1(s_axis_tdata[29]),
+        .I1(D[29]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -594,7 +600,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[2]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [2]),
-        .I1(s_axis_tdata[2]),
+        .I1(D[2]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -604,7 +610,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[30]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [30]),
-        .I1(s_axis_tdata[30]),
+        .I1(D[30]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -622,7 +628,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[31]_i_2 
        (.I0(\gen_sync_clock_converter.m_storage_r [31]),
-        .I1(s_axis_tdata[31]),
+        .I1(D[31]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -630,9 +636,19 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
         .O(p_0_in[31]));
   LUT6 #(
     .INIT(64'hCACCCACCCACCCCCC)) 
+    \gen_sync_clock_converter.m_payload_r[32]_i_1 
+       (.I0(\gen_sync_clock_converter.m_storage_r [32]),
+        .I1(D[32]),
+        .I2(\gen_sync_clock_converter.state [1]),
+        .I3(\gen_sync_clock_converter.state [0]),
+        .I4(m_axis_tready),
+        .I5(\gen_sync_clock_converter.m_ready_hold ),
+        .O(p_0_in[32]));
+  LUT6 #(
+    .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[3]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [3]),
-        .I1(s_axis_tdata[3]),
+        .I1(D[3]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -642,7 +658,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[4]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [4]),
-        .I1(s_axis_tdata[4]),
+        .I1(D[4]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -652,7 +668,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[5]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [5]),
-        .I1(s_axis_tdata[5]),
+        .I1(D[5]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -662,7 +678,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[6]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [6]),
-        .I1(s_axis_tdata[6]),
+        .I1(D[6]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -672,7 +688,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[7]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [7]),
-        .I1(s_axis_tdata[7]),
+        .I1(D[7]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -682,7 +698,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[8]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [8]),
-        .I1(s_axis_tdata[8]),
+        .I1(D[8]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -692,7 +708,7 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
     .INIT(64'hCACCCACCCACCCCCC)) 
     \gen_sync_clock_converter.m_payload_r[9]_i_1 
        (.I0(\gen_sync_clock_converter.m_storage_r [9]),
-        .I1(s_axis_tdata[9]),
+        .I1(D[9]),
         .I2(\gen_sync_clock_converter.state [1]),
         .I3(\gen_sync_clock_converter.state [0]),
         .I4(m_axis_tready),
@@ -702,193 +718,199 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[0]),
-        .Q(m_axis_tdata[0]),
+        .Q(Q[0]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[10] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[10]),
-        .Q(m_axis_tdata[10]),
+        .Q(Q[10]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[11] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[11]),
-        .Q(m_axis_tdata[11]),
+        .Q(Q[11]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[12] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[12]),
-        .Q(m_axis_tdata[12]),
+        .Q(Q[12]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[13] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[13]),
-        .Q(m_axis_tdata[13]),
+        .Q(Q[13]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[14] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[14]),
-        .Q(m_axis_tdata[14]),
+        .Q(Q[14]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[15] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[15]),
-        .Q(m_axis_tdata[15]),
+        .Q(Q[15]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[16] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[16]),
-        .Q(m_axis_tdata[16]),
+        .Q(Q[16]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[17] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[17]),
-        .Q(m_axis_tdata[17]),
+        .Q(Q[17]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[18] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[18]),
-        .Q(m_axis_tdata[18]),
+        .Q(Q[18]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[19] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[19]),
-        .Q(m_axis_tdata[19]),
+        .Q(Q[19]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[1] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[1]),
-        .Q(m_axis_tdata[1]),
+        .Q(Q[1]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[20] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[20]),
-        .Q(m_axis_tdata[20]),
+        .Q(Q[20]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[21] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[21]),
-        .Q(m_axis_tdata[21]),
+        .Q(Q[21]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[22] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[22]),
-        .Q(m_axis_tdata[22]),
+        .Q(Q[22]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[23] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[23]),
-        .Q(m_axis_tdata[23]),
+        .Q(Q[23]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[24] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[24]),
-        .Q(m_axis_tdata[24]),
+        .Q(Q[24]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[25] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[25]),
-        .Q(m_axis_tdata[25]),
+        .Q(Q[25]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[26] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[26]),
-        .Q(m_axis_tdata[26]),
+        .Q(Q[26]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[27] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[27]),
-        .Q(m_axis_tdata[27]),
+        .Q(Q[27]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[28] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[28]),
-        .Q(m_axis_tdata[28]),
+        .Q(Q[28]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[29] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[29]),
-        .Q(m_axis_tdata[29]),
+        .Q(Q[29]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[2] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[2]),
-        .Q(m_axis_tdata[2]),
+        .Q(Q[2]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[30] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[30]),
-        .Q(m_axis_tdata[30]),
+        .Q(Q[30]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[31] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[31]),
-        .Q(m_axis_tdata[31]),
+        .Q(Q[31]),
+        .R(1'b0));
+  FDRE \gen_sync_clock_converter.m_payload_r_reg[32] 
+       (.C(s_axis_aclk),
+        .CE(\gen_sync_clock_converter.load_payload ),
+        .D(p_0_in[32]),
+        .Q(Q[32]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[3] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[3]),
-        .Q(m_axis_tdata[3]),
+        .Q(Q[3]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[4] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[4]),
-        .Q(m_axis_tdata[4]),
+        .Q(Q[4]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[5] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[5]),
-        .Q(m_axis_tdata[5]),
+        .Q(Q[5]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[6] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[6]),
-        .Q(m_axis_tdata[6]),
+        .Q(Q[6]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[7] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[7]),
-        .Q(m_axis_tdata[7]),
+        .Q(Q[7]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[8] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[8]),
-        .Q(m_axis_tdata[8]),
+        .Q(Q[8]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_payload_r_reg[9] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_payload ),
         .D(p_0_in[9]),
-        .Q(m_axis_tdata[9]),
+        .Q(Q[9]),
         .R(1'b0));
   LUT4 #(
     .INIT(16'h000E)) 
@@ -906,200 +928,206 @@ module bd_auto_cc_3_axis_clock_converter_v1_1_16_axisc_sync_clock_converter
         .R(1'b0));
   LUT2 #(
     .INIT(4'hB)) 
-    \gen_sync_clock_converter.m_storage_r[31]_i_1 
+    \gen_sync_clock_converter.m_storage_r[32]_i_1 
        (.I0(\gen_sync_clock_converter.state [1]),
         .I1(\gen_sync_clock_converter.state [0]),
         .O(\gen_sync_clock_converter.load_storage ));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[0] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[0]),
+        .D(D[0]),
         .Q(\gen_sync_clock_converter.m_storage_r [0]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[10] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[10]),
+        .D(D[10]),
         .Q(\gen_sync_clock_converter.m_storage_r [10]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[11] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[11]),
+        .D(D[11]),
         .Q(\gen_sync_clock_converter.m_storage_r [11]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[12] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[12]),
+        .D(D[12]),
         .Q(\gen_sync_clock_converter.m_storage_r [12]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[13] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[13]),
+        .D(D[13]),
         .Q(\gen_sync_clock_converter.m_storage_r [13]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[14] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[14]),
+        .D(D[14]),
         .Q(\gen_sync_clock_converter.m_storage_r [14]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[15] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[15]),
+        .D(D[15]),
         .Q(\gen_sync_clock_converter.m_storage_r [15]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[16] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[16]),
+        .D(D[16]),
         .Q(\gen_sync_clock_converter.m_storage_r [16]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[17] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[17]),
+        .D(D[17]),
         .Q(\gen_sync_clock_converter.m_storage_r [17]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[18] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[18]),
+        .D(D[18]),
         .Q(\gen_sync_clock_converter.m_storage_r [18]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[19] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[19]),
+        .D(D[19]),
         .Q(\gen_sync_clock_converter.m_storage_r [19]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[1] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[1]),
+        .D(D[1]),
         .Q(\gen_sync_clock_converter.m_storage_r [1]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[20] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[20]),
+        .D(D[20]),
         .Q(\gen_sync_clock_converter.m_storage_r [20]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[21] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[21]),
+        .D(D[21]),
         .Q(\gen_sync_clock_converter.m_storage_r [21]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[22] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[22]),
+        .D(D[22]),
         .Q(\gen_sync_clock_converter.m_storage_r [22]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[23] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[23]),
+        .D(D[23]),
         .Q(\gen_sync_clock_converter.m_storage_r [23]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[24] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[24]),
+        .D(D[24]),
         .Q(\gen_sync_clock_converter.m_storage_r [24]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[25] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[25]),
+        .D(D[25]),
         .Q(\gen_sync_clock_converter.m_storage_r [25]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[26] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[26]),
+        .D(D[26]),
         .Q(\gen_sync_clock_converter.m_storage_r [26]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[27] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[27]),
+        .D(D[27]),
         .Q(\gen_sync_clock_converter.m_storage_r [27]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[28] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[28]),
+        .D(D[28]),
         .Q(\gen_sync_clock_converter.m_storage_r [28]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[29] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[29]),
+        .D(D[29]),
         .Q(\gen_sync_clock_converter.m_storage_r [29]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[2] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[2]),
+        .D(D[2]),
         .Q(\gen_sync_clock_converter.m_storage_r [2]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[30] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[30]),
+        .D(D[30]),
         .Q(\gen_sync_clock_converter.m_storage_r [30]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[31] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[31]),
+        .D(D[31]),
         .Q(\gen_sync_clock_converter.m_storage_r [31]),
+        .R(1'b0));
+  FDRE \gen_sync_clock_converter.m_storage_r_reg[32] 
+       (.C(s_axis_aclk),
+        .CE(\gen_sync_clock_converter.load_storage ),
+        .D(D[32]),
+        .Q(\gen_sync_clock_converter.m_storage_r [32]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[3] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[3]),
+        .D(D[3]),
         .Q(\gen_sync_clock_converter.m_storage_r [3]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[4] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[4]),
+        .D(D[4]),
         .Q(\gen_sync_clock_converter.m_storage_r [4]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[5] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[5]),
+        .D(D[5]),
         .Q(\gen_sync_clock_converter.m_storage_r [5]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[6] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[6]),
+        .D(D[6]),
         .Q(\gen_sync_clock_converter.m_storage_r [6]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[7] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[7]),
+        .D(D[7]),
         .Q(\gen_sync_clock_converter.m_storage_r [7]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[8] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[8]),
+        .D(D[8]),
         .Q(\gen_sync_clock_converter.m_storage_r [8]),
         .R(1'b0));
   FDRE \gen_sync_clock_converter.m_storage_r_reg[9] 
        (.C(s_axis_aclk),
         .CE(\gen_sync_clock_converter.load_storage ),
-        .D(s_axis_tdata[9]),
+        .D(D[9]),
         .Q(\gen_sync_clock_converter.m_storage_r [9]),
         .R(1'b0));
   LUT5 #(

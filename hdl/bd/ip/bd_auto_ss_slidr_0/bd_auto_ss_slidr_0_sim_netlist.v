@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Fri Jun 29 00:42:06 2018
+// Date        : Mon Jul  9 00:11:26 2018
 // Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
-// Command     : write_verilog -force -mode funcsim -rename_top bd_auto_ss_slidr_0 -prefix
-//               bd_auto_ss_slidr_0_ bd_auto_ss_slidr_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_auto_ss_slidr_0/bd_auto_ss_slidr_0_sim_netlist.v
 // Design      : bd_auto_ss_slidr_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -21,6 +21,7 @@ module bd_auto_ss_slidr_0
     s_axis_tready,
     s_axis_tdata,
     s_axis_tkeep,
+    s_axis_tlast,
     m_axis_tvalid,
     m_axis_tready,
     m_axis_tdata,
@@ -33,7 +34,8 @@ module bd_auto_ss_slidr_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TVALID" *) input s_axis_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TREADY" *) output s_axis_tready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TDATA" *) input [31:0]s_axis_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TKEEP" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) input [3:0]s_axis_tkeep;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TKEEP" *) input [3:0]s_axis_tkeep;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS TLAST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef" *) input s_axis_tlast;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TVALID" *) output m_axis_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TREADY" *) input m_axis_tready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M_AXIS TDATA" *) output [31:0]m_axis_tdata;
@@ -53,6 +55,7 @@ module bd_auto_ss_slidr_0
   wire m_axis_tvalid;
   wire [31:0]s_axis_tdata;
   wire [3:0]s_axis_tkeep;
+  wire s_axis_tlast;
   wire s_axis_tready;
   wire s_axis_tvalid;
   wire NLW_inst_sparse_tkeep_removed_UNCONNECTED;
@@ -67,7 +70,7 @@ module bd_auto_ss_slidr_0
   (* C_M_AXIS_TDEST_WIDTH = "5" *) 
   (* C_M_AXIS_TID_WIDTH = "5" *) 
   (* C_M_AXIS_TUSER_WIDTH = "1" *) 
-  (* C_S_AXIS_SIGNAL_SET = "32'b00000000000000000000000000001011" *) 
+  (* C_S_AXIS_SIGNAL_SET = "32'b00000000000000000000000000011011" *) 
   (* C_S_AXIS_TDATA_WIDTH = "32" *) 
   (* C_S_AXIS_TDEST_WIDTH = "1" *) 
   (* C_S_AXIS_TID_WIDTH = "1" *) 
@@ -108,7 +111,7 @@ module bd_auto_ss_slidr_0
         .s_axis_tdest(1'b0),
         .s_axis_tid(1'b0),
         .s_axis_tkeep(s_axis_tkeep),
-        .s_axis_tlast(1'b1),
+        .s_axis_tlast(s_axis_tlast),
         .s_axis_tready(s_axis_tready),
         .s_axis_tstrb({1'b1,1'b1,1'b1,1'b1}),
         .s_axis_tuser(1'b0),
@@ -119,7 +122,7 @@ endmodule
 
 (* C_DEFAULT_TLAST = "0" *) (* C_FAMILY = "artix7" *) (* C_M_AXIS_SIGNAL_SET = "32'b00000000000000000000000001111011" *) 
 (* C_M_AXIS_TDATA_WIDTH = "32" *) (* C_M_AXIS_TDEST_WIDTH = "5" *) (* C_M_AXIS_TID_WIDTH = "5" *) 
-(* C_M_AXIS_TUSER_WIDTH = "1" *) (* C_S_AXIS_SIGNAL_SET = "32'b00000000000000000000000000001011" *) (* C_S_AXIS_TDATA_WIDTH = "32" *) 
+(* C_M_AXIS_TUSER_WIDTH = "1" *) (* C_S_AXIS_SIGNAL_SET = "32'b00000000000000000000000000011011" *) (* C_S_AXIS_TDATA_WIDTH = "32" *) 
 (* C_S_AXIS_TDEST_WIDTH = "1" *) (* C_S_AXIS_TID_WIDTH = "1" *) (* C_S_AXIS_TUSER_WIDTH = "1" *) 
 (* G_INDX_SS_TDATA = "1" *) (* G_INDX_SS_TDEST = "6" *) (* G_INDX_SS_TID = "5" *) 
 (* G_INDX_SS_TKEEP = "3" *) (* G_INDX_SS_TLAST = "4" *) (* G_INDX_SS_TREADY = "0" *) 
@@ -127,7 +130,7 @@ endmodule
 (* G_MASK_SS_TDEST = "64" *) (* G_MASK_SS_TID = "32" *) (* G_MASK_SS_TKEEP = "8" *) 
 (* G_MASK_SS_TLAST = "16" *) (* G_MASK_SS_TREADY = "1" *) (* G_MASK_SS_TSTRB = "4" *) 
 (* G_MASK_SS_TUSER = "128" *) (* G_TASK_SEVERITY_ERR = "2" *) (* G_TASK_SEVERITY_INFO = "0" *) 
-(* G_TASK_SEVERITY_WARNING = "1" *) 
+(* G_TASK_SEVERITY_WARNING = "1" *) (* ORIG_REF_NAME = "top_bd_auto_ss_slidr_0" *) 
 module bd_auto_ss_slidr_0_top_bd_auto_ss_slidr_0
    (aclk,
     aresetn,
@@ -180,6 +183,7 @@ module bd_auto_ss_slidr_0_top_bd_auto_ss_slidr_0
   wire m_axis_tready;
   wire [31:0]s_axis_tdata;
   wire [3:0]s_axis_tkeep;
+  wire s_axis_tlast;
   wire s_axis_tvalid;
 
   assign m_axis_tdata[31:0] = s_axis_tdata;
@@ -194,7 +198,7 @@ module bd_auto_ss_slidr_0_top_bd_auto_ss_slidr_0
   assign m_axis_tid[1] = \<const0> ;
   assign m_axis_tid[0] = \<const0> ;
   assign m_axis_tkeep[3:0] = s_axis_tkeep;
-  assign m_axis_tlast = \<const0> ;
+  assign m_axis_tlast = s_axis_tlast;
   assign m_axis_tstrb[3] = \<const0> ;
   assign m_axis_tstrb[2] = \<const0> ;
   assign m_axis_tstrb[1] = \<const0> ;

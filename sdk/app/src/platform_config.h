@@ -14,7 +14,7 @@
 #include "xbram.h"
 #include "xil_io.h"
 
-#define BUFF_TOTAL            ( 256 )
+#define BUFF_TOTAL            ( 4 )
 #define DMA_TX_BDRING_ADDR	  ( 0xC0002000 )
 #define DMA_RX_BDRING_ADDR    ( 0xC0003000 )
 #define DMA_ARCACHE 					( 0x3 )		/* Cache type */

@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Sun Jul  8 18:12:40 2018
+-- Date        : Mon Jul  9 00:08:28 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_xbar_2/bd_xbar_2_sim_netlist.vhdl
@@ -24,6 +24,7 @@ entity bd_xbar_2_axis_switch_v1_1_15_arb_rr is
     \gen_tdest_routing.busy_ns_1\ : out STD_LOGIC;
     \port_priority_r_reg[0]_2\ : out STD_LOGIC;
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axis_tlast : out STD_LOGIC_VECTOR ( 0 to 0 );
     m_axis_tvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
     areset_r : in STD_LOGIC;
     aclken : in STD_LOGIC;
@@ -34,6 +35,7 @@ entity bd_xbar_2_axis_switch_v1_1_15_arb_rr is
     \gen_tdest_routing.busy_r_reg[0]_0\ : in STD_LOGIC;
     \gen_tdest_routing.busy_r_reg[0]_1\ : in STD_LOGIC;
     s_axis_tdata : in STD_LOGIC_VECTOR ( 95 downto 0 );
+    s_axis_tlast : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axis_tready : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gen_tdest_router.busy_r\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
@@ -69,18 +71,18 @@ architecture STRUCTURE of bd_xbar_2_axis_switch_v1_1_15_arb_rr is
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of arb_busy_r_i_1 : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of arb_busy_r_i_2 : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of arb_busy_r_i_4 : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of arb_busy_r_i_5 : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of arb_busy_r_i_6 : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of arb_busy_r_i_4 : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of arb_busy_r_i_5 : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of arb_busy_r_i_6 : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \arb_gnt_r[2]_i_2\ : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of \arb_gnt_r[2]_i_5\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \arb_gnt_r[2]_i_6\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \arb_gnt_r[2]_i_7\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \barrel_cntr[0]_i_1\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \barrel_cntr[1]_i_2\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \gen_tdest_routing.busy_r[0]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \gen_tdest_routing.busy_r[0]_i_1__0\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \gen_tdest_routing.busy_r[0]_i_1__1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \gen_tdest_routing.busy_r[0]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \gen_tdest_routing.busy_r[0]_i_1__0\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \gen_tdest_routing.busy_r[0]_i_1__1\ : label is "soft_lutpair4";
 begin
   \arb_sel_r_reg[1]_0\ <= \^arb_sel_r_reg[1]_0\;
   \port_priority_r_reg[0]_0\ <= \^port_priority_r_reg[0]_0\;
@@ -807,6 +809,18 @@ arb_busy_r_reg: unisim.vcomponents.FDRE
       I4 => arb_sel_i(1),
       O => m_axis_tdata(9)
     );
+\m_axis_tlast[0]_INST_0\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00CCAAF0"
+    )
+        port map (
+      I0 => s_axis_tlast(1),
+      I1 => s_axis_tlast(2),
+      I2 => s_axis_tlast(0),
+      I3 => arb_sel_i(0),
+      I4 => arb_sel_i(1),
+      O => m_axis_tlast(0)
+    );
 \m_axis_tvalid[0]_INST_0\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"2A2822200A080200"
@@ -1096,6 +1110,7 @@ entity bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter is
     \gen_tdest_routing.busy_ns_0\ : out STD_LOGIC;
     \gen_tdest_routing.busy_ns_1\ : out STD_LOGIC;
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axis_tlast : out STD_LOGIC_VECTOR ( 0 to 0 );
     m_axis_tvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
     areset_r : in STD_LOGIC;
     aclken : in STD_LOGIC;
@@ -1106,6 +1121,7 @@ entity bd_xbar_2_axis_switch_v1_1_15_axis_switch_arbiter is
     \gen_tdest_routing.busy_r_reg[0]_0\ : in STD_LOGIC;
     \gen_tdest_routing.busy_r_reg[0]_1\ : in STD_LOGIC;
     s_axis_tdata : in STD_LOGIC_VECTOR ( 95 downto 0 );
+    s_axis_tlast : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axis_tready : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gen_tdest_router.busy_r\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
@@ -1129,12 +1145,14 @@ begin
       \gen_tdest_routing.busy_r_reg[0]_0\ => \gen_tdest_routing.busy_r_reg[0]_0\,
       \gen_tdest_routing.busy_r_reg[0]_1\ => \gen_tdest_routing.busy_r_reg[0]_1\,
       m_axis_tdata(31 downto 0) => m_axis_tdata(31 downto 0),
+      m_axis_tlast(0) => m_axis_tlast(0),
       m_axis_tready(0) => m_axis_tready(0),
       m_axis_tvalid(0) => m_axis_tvalid(0),
       \port_priority_r_reg[0]_0\ => arb_gnt_i(2),
       \port_priority_r_reg[0]_1\ => arb_gnt_i(1),
       \port_priority_r_reg[0]_2\ => arb_gnt_i(0),
       s_axis_tdata(95 downto 0) => s_axis_tdata(95 downto 0),
+      s_axis_tlast(2 downto 0) => s_axis_tlast(2 downto 0),
       s_axis_tvalid(2 downto 0) => s_axis_tvalid(2 downto 0),
       s_req_suppress(2 downto 0) => s_req_suppress(2 downto 0)
     );
@@ -1239,7 +1257,7 @@ entity bd_xbar_2_axis_switch_v1_1_15_axis_switch is
   attribute C_ARB_ON_TLAST : integer;
   attribute C_ARB_ON_TLAST of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is 0;
   attribute C_AXIS_SIGNAL_SET : integer;
-  attribute C_AXIS_SIGNAL_SET of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is 3;
+  attribute C_AXIS_SIGNAL_SET of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is 19;
   attribute C_AXIS_TDATA_WIDTH : integer;
   attribute C_AXIS_TDATA_WIDTH of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is 32;
   attribute C_AXIS_TDEST_WIDTH : integer;
@@ -1329,7 +1347,7 @@ entity bd_xbar_2_axis_switch_v1_1_15_axis_switch is
   attribute P_SINGLE_SLAVE_CONNECTIVITY_ARRAY : string;
   attribute P_SINGLE_SLAVE_CONNECTIVITY_ARRAY of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is "1'b0";
   attribute P_TPAYLOAD_WIDTH : integer;
-  attribute P_TPAYLOAD_WIDTH of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is 32;
+  attribute P_TPAYLOAD_WIDTH of bd_xbar_2_axis_switch_v1_1_15_axis_switch : entity is 33;
 end bd_xbar_2_axis_switch_v1_1_15_axis_switch;
 
 architecture STRUCTURE of bd_xbar_2_axis_switch_v1_1_15_axis_switch is
@@ -1369,7 +1387,6 @@ begin
   m_axis_tkeep(2) <= \<const1>\;
   m_axis_tkeep(1) <= \<const1>\;
   m_axis_tkeep(0) <= \<const1>\;
-  m_axis_tlast(0) <= \<const0>\;
   m_axis_tstrb(3) <= \<const0>\;
   m_axis_tstrb(2) <= \<const0>\;
   m_axis_tstrb(1) <= \<const0>\;
@@ -1481,10 +1498,12 @@ areset_r_reg: unisim.vcomponents.FDRE
       \gen_tdest_routing.busy_r_reg[0]_0\ => \gen_decoder[1].axisc_decoder_0_n_0\,
       \gen_tdest_routing.busy_r_reg[0]_1\ => \gen_decoder[0].axisc_decoder_0_n_0\,
       m_axis_tdata(31 downto 0) => m_axis_tdata(31 downto 0),
+      m_axis_tlast(0) => m_axis_tlast(0),
       m_axis_tready(0) => m_axis_tready(0),
       m_axis_tvalid(0) => m_axis_tvalid(0),
       p_0_out => p_0_out,
       s_axis_tdata(95 downto 0) => s_axis_tdata(95 downto 0),
+      s_axis_tlast(2 downto 0) => s_axis_tlast(2 downto 0),
       s_axis_tvalid(2 downto 0) => s_axis_tvalid(2 downto 0),
       s_req_suppress(2 downto 0) => s_req_suppress(2 downto 0)
     );
@@ -1512,9 +1531,11 @@ entity bd_xbar_2 is
     s_axis_tvalid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axis_tready : out STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axis_tdata : in STD_LOGIC_VECTOR ( 95 downto 0 );
+    s_axis_tlast : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axis_tvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
     m_axis_tready : in STD_LOGIC_VECTOR ( 0 to 0 );
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axis_tlast : out STD_LOGIC_VECTOR ( 0 to 0 );
     s_req_suppress : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_decode_err : out STD_LOGIC_VECTOR ( 2 downto 0 )
   );
@@ -1543,7 +1564,6 @@ architecture STRUCTURE of bd_xbar_2 is
   signal NLW_inst_m_axis_tdest_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_inst_m_axis_tid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_inst_m_axis_tkeep_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal NLW_inst_m_axis_tlast_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_inst_m_axis_tstrb_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal NLW_inst_m_axis_tuser_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_inst_s_axi_ctrl_bresp_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -1558,7 +1578,7 @@ architecture STRUCTURE of bd_xbar_2 is
   attribute C_ARB_ON_TLAST : integer;
   attribute C_ARB_ON_TLAST of inst : label is 0;
   attribute C_AXIS_SIGNAL_SET : integer;
-  attribute C_AXIS_SIGNAL_SET of inst : label is 3;
+  attribute C_AXIS_SIGNAL_SET of inst : label is 19;
   attribute C_AXIS_TDATA_WIDTH : integer;
   attribute C_AXIS_TDATA_WIDTH of inst : label is 32;
   attribute C_AXIS_TDEST_WIDTH : integer;
@@ -1645,7 +1665,7 @@ architecture STRUCTURE of bd_xbar_2 is
   attribute P_SINGLE_SLAVE_CONNECTIVITY_ARRAY : string;
   attribute P_SINGLE_SLAVE_CONNECTIVITY_ARRAY of inst : label is "1'b0";
   attribute P_TPAYLOAD_WIDTH : integer;
-  attribute P_TPAYLOAD_WIDTH of inst : label is 32;
+  attribute P_TPAYLOAD_WIDTH of inst : label is 33;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of aclk : signal is "xilinx.com:signal:clock:1.0 CLKIF CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -1653,11 +1673,13 @@ architecture STRUCTURE of bd_xbar_2 is
   attribute X_INTERFACE_INFO of aresetn : signal is "xilinx.com:signal:reset:1.0 RSTIF RST";
   attribute X_INTERFACE_PARAMETER of aresetn : signal is "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, TYPE INTERCONNECT";
   attribute X_INTERFACE_INFO of m_axis_tdata : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TDATA";
-  attribute X_INTERFACE_PARAMETER of m_axis_tdata : signal is "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef";
+  attribute X_INTERFACE_INFO of m_axis_tlast : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TLAST";
+  attribute X_INTERFACE_PARAMETER of m_axis_tlast : signal is "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef";
   attribute X_INTERFACE_INFO of m_axis_tready : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TREADY";
   attribute X_INTERFACE_INFO of m_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TVALID";
   attribute X_INTERFACE_INFO of s_axis_tdata : signal is "xilinx.com:interface:axis:1.0 S00_AXIS TDATA [31:0] [31:0], xilinx.com:interface:axis:1.0 S01_AXIS TDATA [31:0] [63:32], xilinx.com:interface:axis:1.0 S02_AXIS TDATA [31:0] [95:64]";
-  attribute X_INTERFACE_PARAMETER of s_axis_tdata : signal is "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME S01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME S02_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef";
+  attribute X_INTERFACE_INFO of s_axis_tlast : signal is "xilinx.com:interface:axis:1.0 S00_AXIS TLAST [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TLAST [0:0] [1:1], xilinx.com:interface:axis:1.0 S02_AXIS TLAST [0:0] [2:2]";
+  attribute X_INTERFACE_PARAMETER of s_axis_tlast : signal is "XIL_INTERFACENAME S00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME S01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef, XIL_INTERFACENAME S02_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, LAYERED_METADATA undef";
   attribute X_INTERFACE_INFO of s_axis_tready : signal is "xilinx.com:interface:axis:1.0 S00_AXIS TREADY [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TREADY [0:0] [1:1], xilinx.com:interface:axis:1.0 S02_AXIS TREADY [0:0] [2:2]";
   attribute X_INTERFACE_INFO of s_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 S00_AXIS TVALID [0:0] [0:0], xilinx.com:interface:axis:1.0 S01_AXIS TVALID [0:0] [1:1], xilinx.com:interface:axis:1.0 S02_AXIS TVALID [0:0] [2:2]";
 begin
@@ -1678,7 +1700,7 @@ inst: entity work.bd_xbar_2_axis_switch_v1_1_15_axis_switch
       m_axis_tdest(0) => NLW_inst_m_axis_tdest_UNCONNECTED(0),
       m_axis_tid(0) => NLW_inst_m_axis_tid_UNCONNECTED(0),
       m_axis_tkeep(3 downto 0) => NLW_inst_m_axis_tkeep_UNCONNECTED(3 downto 0),
-      m_axis_tlast(0) => NLW_inst_m_axis_tlast_UNCONNECTED(0),
+      m_axis_tlast(0) => m_axis_tlast(0),
       m_axis_tready(0) => m_axis_tready(0),
       m_axis_tstrb(3 downto 0) => NLW_inst_m_axis_tstrb_UNCONNECTED(3 downto 0),
       m_axis_tuser(0) => NLW_inst_m_axis_tuser_UNCONNECTED(0),
@@ -1705,7 +1727,7 @@ inst: entity work.bd_xbar_2_axis_switch_v1_1_15_axis_switch
       s_axis_tdest(2 downto 0) => B"000",
       s_axis_tid(2 downto 0) => B"000",
       s_axis_tkeep(11 downto 0) => B"111111111111",
-      s_axis_tlast(2 downto 0) => B"111",
+      s_axis_tlast(2 downto 0) => s_axis_tlast(2 downto 0),
       s_axis_tready(2 downto 0) => s_axis_tready(2 downto 0),
       s_axis_tstrb(11 downto 0) => B"111111111111",
       s_axis_tuser(2 downto 0) => B"000",

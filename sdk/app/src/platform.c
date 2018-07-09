@@ -290,14 +290,24 @@ void test_run(u32 lane)
 
 	/* Wait until the DMA operations complete. If this goes well, the
 	Async FIFOs should return the same data to the RX Buffer. */
-	while (txready==false || rxready==false)
+	while ( txready==false || rxready==false )
 		continue;
 
+	Xil_DCacheInvalidateRange( ( UINTPTR ) rx_buff, sizeof( rx_buff ) );
 
-	//XAxiDma_BdRingFromHw( TxRingPtr, 1, &BdPtr );
+	XResult = XAxiDma_BdRingFromHw( TxRingPtr, 1, &TxBdPtr );
+	Xil_AssertVoid( XResult==1 );
+	XResult = XAxiDma_BdRingFree( TxRingPtr, 1, TxBdPtr );
+	Xil_AssertVoid( XResult==XST_SUCCESS );
+	XResult = XAxiDma_BdRingAlloc( TxRingPtr, 1, &TxBdPtr );
+	Xil_AssertVoid( XResult==XST_SUCCESS );
 
-	//XResult = XAxiDma_BdRingToHw( TxRingPtr, 1, BdPtr );
-	//Xil_AssertVoid( XResult==XST_SUCCESS );
+	XResult = XAxiDma_BdRingFromHw( RxRingPtr, 1, &RxBdPtr );
+	Xil_AssertVoid( XResult==1 );
+	XResult = XAxiDma_BdRingFree( RxRingPtr, 1, RxBdPtr );
+	Xil_AssertVoid( XResult==XST_SUCCESS );
+	XResult = XAxiDma_BdRingAlloc( RxRingPtr, 1, &RxBdPtr );
+	Xil_AssertVoid( XResult==XST_SUCCESS );
 }
 
 void cleanup_platform()

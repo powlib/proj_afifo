@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Sun Jul  8 18:16:06 2018
+-- Date        : Sun Jul  8 18:16:04 2018
 -- Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /workspace/git_ws/proj_afifo/hdl/bd/ip/bd_auto_pc_2/bd_auto_pc_2_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top bd_auto_pc_2 -prefix
+--               bd_auto_pc_2_ bd_auto_pc_2_stub.vhdl
 -- Design      : bd_auto_pc_2
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-1

@@ -243,7 +243,7 @@ proc create_root_design { parentCell } {
   set S00_AXIS_0 [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 S00_AXIS_0 ]
   set_property -dict [ list \
    CONFIG.HAS_TKEEP {0} \
-   CONFIG.HAS_TLAST {0} \
+   CONFIG.HAS_TLAST {1} \
    CONFIG.HAS_TREADY {1} \
    CONFIG.HAS_TSTRB {0} \
    CONFIG.LAYERED_METADATA {undef} \
@@ -255,7 +255,7 @@ proc create_root_design { parentCell } {
   set S01_AXIS_0 [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 S01_AXIS_0 ]
   set_property -dict [ list \
    CONFIG.HAS_TKEEP {0} \
-   CONFIG.HAS_TLAST {0} \
+   CONFIG.HAS_TLAST {1} \
    CONFIG.HAS_TREADY {1} \
    CONFIG.HAS_TSTRB {0} \
    CONFIG.LAYERED_METADATA {undef} \
@@ -267,7 +267,7 @@ proc create_root_design { parentCell } {
   set S02_AXIS_0 [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 S02_AXIS_0 ]
   set_property -dict [ list \
    CONFIG.HAS_TKEEP {0} \
-   CONFIG.HAS_TLAST {0} \
+   CONFIG.HAS_TLAST {1} \
    CONFIG.HAS_TREADY {1} \
    CONFIG.HAS_TSTRB {0} \
    CONFIG.LAYERED_METADATA {undef} \
