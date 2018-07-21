@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module test_proj_lane();
+module test_lane();
 
   localparam          W    = 16;
   localparam          EW   = 8;

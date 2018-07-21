@@ -12,7 +12,7 @@ module proj_lane(genclk,genrst,chkclk,chkrst,errcntr);
   input     wire          chkrst;
   output    wire [EW-1:0] errcntr;
             wire          genadv;
-            wire          genvld;
+            wire          genvld0;
             wire          genrdy;
             wire          chkrdy;
             wire          chkvld;
@@ -20,6 +20,7 @@ module proj_lane(genclk,genrst,chkclk,chkrst,errcntr);
             wire          cmpadv;
             wire          erradv;
             wire [W-1:0]  gencntr;
+            wire [W-1:0]  gencntr0;
             wire [W-1:0]  chkcntr;
             wire [W-1:0]  chkcntr0;
             wire [W-1:0]  cmpcntr;  
@@ -34,17 +35,20 @@ module proj_lane(genclk,genrst,chkclk,chkrst,errcntr);
     .adv(genadv),.clr(0),
     .clk(genclk),.rst(genrst));
 
-  powlib_flipflop genvld_inst (
-    .d(genadv),.clk(genclk),.rst(genrst),.q(genvld));
+  powlib_flipflop #(.EVLD(1)) genvld0_inst (
+    .d(genadv),.clk(genclk),.rst(genrst),.q(genvld0),.vld(genrdy));
+
+  powlib_flipflop #(.W(W),.EVLD(1)) gencntr0_inst (
+    .d(gencntr),.clk(genclk),.rst(0),.q(gencntr0),.vld(genrdy));  
 
   powlib_afifo #(.W(W),.D(D),.EDBG(EDBG),.ID({ID,"_FIFO"})) afifo_inst (
-    .wrdata(gencntr),.wrvld(genvld),.wrrdy(genrdy),
+    .wrdata(gencntr0),.wrvld(genvld0),.wrrdy(genrdy),
     .rddata(chkcntr),.rdvld(chkvld),.rdrdy(chkrdy),
     .wrclk(genclk),.wrrst(genrst),
     .rdclk(chkclk),.rdrst(chkrst));
 
   powlib_flipflop #(.W(W)) chkcntr0_inst (
-    .d(chkcntr),.clk(chkclk),.rst(chkrst),.q(chkcntr0));  
+    .d(chkcntr),.clk(chkclk),.rst(0),.q(chkcntr0));  
 
   powlib_flipflop chkvld0_inst (
     .d(chkvld),.clk(chkclk),.rst(chkrst),.q(chkvld0));  
