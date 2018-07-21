@@ -1,3 +1,9 @@
 [submodule "powlib"]
 	path = powlib
 	url = https://github.com/powlib/hdl.git
+[submodule "cocotb"]
+	path = cocotb
+	url = https://github.com/powlib/cocotb
+[submodule "simlib"]
+	path = simlib
+	url = https://github.com/powlib/sim
