@@ -1,8 +1,11 @@
 module proj_lane(genclk,genrst,chkclk,chkrst,errcntr);
 
   parameter               W        = 16;
+  parameter               D        = 8;
   parameter               EW       = 8;
   parameter               X        = 1;
+  parameter               ID       = "LANE";
+  parameter               EDBG     = 0;
   input     wire          genclk;
   input     wire          genrst;
   input     wire          chkclk;
