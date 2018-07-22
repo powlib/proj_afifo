@@ -1,18 +1,12 @@
-from cocotb          import test, coroutine, fork
+from cocotb          import test
 from cocotb.triggers import Timer
-from cocotb.result   import TestFailure, TestSuccess, ReturnValue
-from powlib          import Transaction
-from powlib.drivers  import SfifoDriver
-from powlib.monitors import SfifoMonitor
+from cocotb.result   import TestFailure, TestSuccess
 from powlib.utils    import TestEnvironment
-from random          import randint
-
     
 @test()
 def test_lane(dut):
     '''
     Performs a basic test of the proj_lane module.
-    // write_verilog -mode funcsim -include_xilinx_libs clk_wiz_0.v
     '''
 
     # Create the test environment.

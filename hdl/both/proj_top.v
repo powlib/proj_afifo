@@ -2,15 +2,15 @@
 
 module proj_top(sys_clock,reset,leds);
 
-  parameter LW = 8;
-  input wire sys_clock;
-  input wire reset;
-  output wire [LW-1:0] leds;
+  parameter               LW = 8;
+  input     wire          sys_clock;
+  input     wire          reset;
+  output    wire [LW-1:0] leds;
 
-  wire clk0, clk1, clk2, clk3;
-  wire prst;
-  wire [LW-1:0] errflgs;
-  assign leds = ~errflgs;
+            wire          clk0, clk1, clk2, clk3;
+            wire          prst;
+            wire [LW-1:0] errflgs;
+  assign                  leds = ~errflgs;
 
   xilinx_ip_wrapper xil_inst (
     .clk_out1_0(clk0),.clk_out2_0(clk1),.clk_out3_0(clk2),.clk_out4_0(clk3),
