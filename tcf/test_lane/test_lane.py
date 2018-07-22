@@ -12,6 +12,7 @@ from random          import randint
 def test_lane(dut):
     '''
     Performs a basic test of the proj_lane module.
+    // write_verilog -mode funcsim -include_xilinx_libs clk_wiz_0.v
     '''
 
     # Create the test environment.

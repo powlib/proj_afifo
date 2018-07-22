@@ -36,14 +36,14 @@ module proj_lane(genclk,genrst,chkclk,chkrst,errcntr0,errflg0);
   
   powlib_cntr #(.W(W),.X(X),.ELD(0)) gencntr_inst (
     .cntr(gencntr),
-    .adv(genadv),.clr(0),
+    .adv(genadv),.clr(1'd0),
     .clk(genclk),.rst(genrst));
 
   powlib_flipflop #(.EVLD(1)) genvld0_inst (
     .d(genadv),.clk(genclk),.rst(genrst),.q(genvld0),.vld(genrdy));
 
   powlib_flipflop #(.W(W),.EVLD(1)) gencntr0_inst (
-    .d(gencntr),.clk(genclk),.rst(0),.q(gencntr0),.vld(genrdy));  
+    .d(gencntr),.clk(genclk),.rst(1'd0),.q(gencntr0),.vld(genrdy));  
 
   powlib_afifo #(.W(W),.D(D),.EDBG(EDBG),.ID({ID,"_FIFO"})) afifo_inst (
     .wrdata(gencntr0),.wrvld(genvld0),.wrrdy(genrdy),

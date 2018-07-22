@@ -18,14 +18,14 @@ PYTHONPATH := $(PROJLIB)/simlib:$(PYTHONPATH)
 endif
 
 ifeq ($(TOPLEVEL_LANG),verilog)
-    VERILOG_SOURCES = $(PROJLIB)/powlib/*.v $(PROJLIB)/hdl/both/*.v $(PROJLIB)/hdl/behav/*.v $(PWD)/test_lane.v
+    VERILOG_SOURCES = $(PROJLIB)/powlib/*.v $(PROJLIB)/hdl/both/*.v $(PROJLIB)/hdl/behav/*.v $(PWD)/test_top.v
     COMPILE_ARGS = -g 2001 -I $(PROJLIB)/powlib/ -I $(PROJLIB)/hdl/both/ -I $(PROJLIB)/hdl/behav/ 
-    TOPLEVEL = test_lane
+    TOPLEVEL = test_top
 else
     $(error "A valid value (verilog) was not provided for TOPLEVEL_LANG=$(TOPLEVEL_LANG)")
 endif
 
-MODULE=test_lane
+MODULE=test_top
 
 include $(COCOTB)/makefiles/Makefile.inc
 include $(COCOTB)/makefiles/Makefile.sim
