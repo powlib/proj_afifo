@@ -26,8 +26,12 @@ def test_lane(dut):
     # Start the environment.
     yield te.start()        
 
-    yield Timer(200, "ns")
-        
+    # Run the simulation for a while.
+    yield Timer(300, "ns")
+
+    # Check for any errors.
+    if dut.dut.errflg0.value!=0:
+      raise TestFailure()        
     raise TestSuccess()
     
     

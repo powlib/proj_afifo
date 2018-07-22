@@ -4,6 +4,7 @@ TOPLEVEL_LANG ?= verilog
 WPWD=$(shell sh -c 'pwd -W')
 PWD=$(shell pwd)
 PROJLIB=$(PWD)/../..
+XILINXLIB=$(XILINX_VIVADO)/data/verilog/src
 COCOTB=$(PROJLIB)/cocotb/
 SIM=icarus
 
@@ -19,7 +20,13 @@ endif
 
 ifeq ($(TOPLEVEL_LANG),verilog)
     VERILOG_SOURCES = $(PROJLIB)/powlib/*.v $(PROJLIB)/hdl/both/*.v $(PROJLIB)/hdl/behav/*.v $(PWD)/test_lane.v
-    COMPILE_ARGS = -g 2001 -I $(PROJLIB)/powlib/ -I $(PROJLIB)/hdl/both/ -I $(PROJLIB)/hdl/behav/     
+    COMPILE_ARGS = -g 2001 -I $(PROJLIB)/powlib/ -I $(PROJLIB)/hdl/both/ -I $(PROJLIB)/hdl/behav/ \
+     #-y $(XILINXLIB)/unisims/ \
+     #-y $(XILINXLIB)/ \
+     #-y $(XILINXLIB)/unimacro/ \
+     #-y $(XILINXLIB)/xeclib/ \
+     #-y $(XILINXLIB)/unisims_dr/ \
+     #-y $(XILINXLIB)/unifast/
     TOPLEVEL = test_lane
 else
     $(error "A valid value (verilog) was not provided for TOPLEVEL_LANG=$(TOPLEVEL_LANG)")

@@ -12,7 +12,8 @@ module test_lane();
   wire                genrst;
   wire                chkclk;
   wire                chkrst;
-  wire       [EW-1:0] errcntr;  
+  wire       [EW-1:0] errcntr0;  
+  wire                errflg0;
   
   initial begin
     $dumpfile("waveform.vcd");
@@ -24,6 +25,7 @@ module test_lane();
     .genrst(genrst),
     .chkclk(chkclk),
     .chkrst(chkrst),
-    .errcntr(errcntr));
+    .errcntr0(errcntr0),
+    .errflg0(errflg0));
 
 endmodule

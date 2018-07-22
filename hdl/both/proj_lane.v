@@ -1,4 +1,6 @@
-module proj_lane(genclk,genrst,chkclk,chkrst,errcntr);
+`timescale 1ns / 1ps
+
+module proj_lane(genclk,genrst,chkclk,chkrst,errcntr0,errflg0);
 
   parameter               W        = 16;
   parameter               D        = 8;
@@ -10,7 +12,8 @@ module proj_lane(genclk,genrst,chkclk,chkrst,errcntr);
   input     wire          genrst;
   input     wire          chkclk;
   input     wire          chkrst;
-  output    wire [EW-1:0] errcntr;
+  output    wire [EW-1:0] errcntr0;
+  output    wire          errflg0;
             wire          genadv;
             wire          genvld0;
             wire          genrdy;
@@ -23,6 +26,7 @@ module proj_lane(genclk,genrst,chkclk,chkrst,errcntr);
             wire [W-1:0]  gencntr0;
             wire [W-1:0]  chkcntr;
             wire [W-1:0]  chkcntr0;
+            wire [W-1:0]  errcntr;
             wire [W-1:0]  cmpcntr;  
 
   assign                  genadv   = genrdy;
@@ -61,6 +65,12 @@ module proj_lane(genclk,genrst,chkclk,chkrst,errcntr);
   powlib_cntr #(.W(EW),.X(1),.ELD(0)) errcntr_inst (
     .cntr(errcntr),
     .adv(erradv),.clr(0),
-    .clk(chkclk),.rst(chkrst));  
+    .clk(chkclk),.rst(chkrst)); 
+
+  powlib_flipflop #(.W(EW)) errcntr0_inst (
+    .d(errcntr),.clk(chkclk),.rst(0),.q(errcntr0));    
+
+  powlib_flipflop errflg0_inst (
+    .d(errcntr!=0),.clk(chkclk),.rst(chkrst),.q(errflg0)); 
 
 endmodule
