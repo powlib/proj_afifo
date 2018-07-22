@@ -70,7 +70,7 @@ module proj_lane(genclk,genrst,chkclk,chkrst,errcntr0,errflg0);
   powlib_flipflop #(.W(EW)) errcntr0_inst (
     .d(errcntr),.clk(chkclk),.rst(0),.q(errcntr0));    
 
-  powlib_flipflop errflg0_inst (
-    .d(errcntr!=0),.clk(chkclk),.rst(chkrst),.q(errflg0)); 
+  powlib_flipflop #(.EVLD(1)) errflg0_inst (
+    .d(errcntr!=0),.clk(chkclk),.rst(chkrst),.q(errflg0),.vld(errflg0==0)); 
 
 endmodule
