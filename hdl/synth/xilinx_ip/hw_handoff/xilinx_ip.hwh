@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Jul 22 11:43:10 2018" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Jul 22 14:59:53 2018" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys4_ddr:part0:1.1" DEVICE="7a100t" NAME="xilinx_ip" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -631,11 +631,6 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="slowest_sync_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_0_locked">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="dcm_locked"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT CLKFREQUENCY="50000000" DIR="O" NAME="clk_out2" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="clk_out2_0"/>
@@ -649,6 +644,11 @@
         <PORT CLKFREQUENCY="80769230" DIR="O" NAME="clk_out4" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out4">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="clk_out4_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_0_locked">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="dcm_locked"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
