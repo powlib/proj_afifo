@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Sun Jul 22 14:59:51 2018
+//Date        : Sat Jul 28 10:07:41 2018
 //Host        : andrewandrepowell-desktop running 64-bit Ubuntu 16.04.4 LTS
 //Command     : generate_target xilinx_ip.bd
 //Design      : xilinx_ip
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "xilinx_ip,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=xilinx_ip,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=2,numReposBlks=2,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_board_cnt=5,da_clkrst_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "xilinx_ip.hwdef" *) 
+(* CORE_GENERATION_INFO = "xilinx_ip,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=xilinx_ip,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=2,numReposBlks=2,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_board_cnt=5,da_clkrst_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "xilinx_ip.hwdef" *) 
 module xilinx_ip
    (clk_out1_0,
     clk_out2_0,
@@ -18,13 +18,13 @@ module xilinx_ip
     peripheral_reset_0,
     reset,
     sys_clock);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT1_0 CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME CLK.CLK_OUT1_0, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 25000000, PHASE 0.0" *) output clk_out1_0;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT2_0 CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME CLK.CLK_OUT2_0, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 50000000, PHASE 0.0" *) output clk_out2_0;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT3_0 CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME CLK.CLK_OUT3_0, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 75000000, PHASE 0.0" *) output clk_out3_0;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT4_0 CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME CLK.CLK_OUT4_0, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 80769230, PHASE 0.0" *) output clk_out4_0;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 RST.PERIPHERAL_RESET_0 RST" *) (* x_interface_parameter = "XIL_INTERFACENAME RST.PERIPHERAL_RESET_0, POLARITY ACTIVE_HIGH" *) output [0:0]peripheral_reset_0;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* x_interface_parameter = "XIL_INTERFACENAME RST.RESET, POLARITY ACTIVE_LOW" *) input reset;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME CLK.SYS_CLOCK, CLK_DOMAIN xilinx_ip_sys_clock, FREQ_HZ 100000000, PHASE 0.000" *) input sys_clock;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT1_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT1_0, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 25000000, PHASE 0.0" *) output clk_out1_0;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT2_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT2_0, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 50000000, PHASE 0.0" *) output clk_out2_0;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT3_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT3_0, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 75000000, PHASE 0.0" *) output clk_out3_0;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_OUT4_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_OUT4_0, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 80769230, PHASE 0.0" *) output clk_out4_0;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.PERIPHERAL_RESET_0 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.PERIPHERAL_RESET_0, POLARITY ACTIVE_HIGH" *) output [0:0]peripheral_reset_0;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, POLARITY ACTIVE_LOW" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.SYS_CLOCK, CLK_DOMAIN xilinx_ip_sys_clock, FREQ_HZ 100000000, PHASE 0.000" *) input sys_clock;
 
   wire clk_wiz_0_clk_out1;
   wire clk_wiz_0_clk_out2;
