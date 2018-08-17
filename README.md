@@ -29,5 +29,5 @@ Once Icarus Verilog is installed, simply run make in the tcf folder to run all t
 
 # Synthesis  ( and Implementation )
 
-The project was synthesized and implemented with Xilinx Vivado 2017.4. Creation of the project is done by sourcing the create_project.tcl script with proj\_afifo as the origin directory. Once the project is successfully created, generating the bitstream should start the build process.
+The project was synthesized and implemented with Xilinx Vivado 2017.4. This project is dependent on Vivado being configured with the [Nexys 4 board file from Digilent](https://github.com/Digilent/vivado-boards). Creation of the project itself is done by sourcing the create_project.tcl script with proj\_afifo as the origin directory. Once the project is successfully created, generating the bitstream should start the build process.
 
